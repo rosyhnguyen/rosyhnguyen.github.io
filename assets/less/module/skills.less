@@ -1,0 +1,95 @@
+/*------------------------------------*\
+    #Skills
+\*------------------------------------*/
+.skills .heading {
+    margin-bottom: 50px
+}
+
+.skills .subheading {
+    font-size: 13px;
+    margin-bottom: 8px;
+}
+
+.skills .progressbar {
+    margin-bottom: 34px;
+}
+
+.skills .progressbar:last-of-type {
+    margin-bottom: 0
+}
+
+.skills .progress {
+    height: 3px;
+    background-color: rgba(34, 34, 34, 0.08);
+    border-radius: 0;
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    padding: 0;
+    width: 100%;
+    margin-bottom: 0;
+    overflow: visible;
+}
+
+.skills .progress-bar {
+    height: 3px;
+    background-color: @color-theme;
+    border-radius: 0;
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    position: relative;
+}
+
+.skills .progress-bar:before {
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    background-color: @color-theme;
+    content: "";
+    top: -2px;
+    right: 0;
+}
+
+.skills .progress-title {
+    display: block;
+    position: relative;
+    width: 100%;
+    margin-bottom: 7px;
+}
+
+.skills .progress-title .title {
+    color: @color-heading;
+    font-family: @font-heading;
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.skills .progress-title .value {
+    font-family: @font-heading;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 1;
+    text-transform: uppercase;
+    position: absolute;
+    margin-left: -9px;
+    margin-top: 8px;
+}
+
+/* Custom, iPhone Retina */
+@media only screen and (min-width : 320px) and (max-width : 767px) {
+    .skills-img img {
+        display: block;
+        margin: 0 auto 30px;
+    }
+}
+
+/* Small Devices, Tablets */
+@media only screen and (min-width : 768px) and (max-width : 991px) {
+    .skills-img img {
+        display: block;
+        margin: 0 auto 30px;
+    }
+
+}

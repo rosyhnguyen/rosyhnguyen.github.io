@@ -1,0 +1,197 @@
+/*------------------------------------*\
+    #PageTitle
+\*------------------------------------*/
+.page-title {
+    padding-top: 0;
+    padding-bottom: 0;
+    overflow: visible;
+
+}
+
+.page-title .container-fluid {
+    padding-top: 100px;
+    padding-bottom: 100px;
+    overflow: visible;
+}
+
+.page-title .title {
+     min-height: 187px;
+    background: url(../images/page-title/title-bg.png) no-repeat;
+    padding: 10px 15px;
+    transform: translateX(-48px)
+}
+
+.page-title .title .title-content {
+ position: relative;
+    padding-left: 88px;
+    padding-top: 40px;
+}
+.page-title .title .title-content:before{
+    content: '';
+    background-color: #fff;
+    position: absolute;
+    top: 6px;
+    left: 0;
+    width: 247px;
+    height: 157px;
+    z-index: -1
+}
+
+.page-title .title .title-content h1 {
+    font-family: @font-heading;
+    font-size: 55px;
+    line-height: 50px;
+    margin-bottom: 10px;
+    white-space: nowrap;
+    text-transform: capitalize;
+}
+
+.page-title .title .title-content .breadcrumb {
+    padding: 0;
+    background-color: transparent;
+    font-family: @font-heading;
+    font-size: 13px;
+    font-weight:700;
+    line-height: 24px;
+    text-transform: uppercase;
+}
+
+.page-title .title .title-content .breadcrumb a,
+.breadcrumb > li + li:before {
+    color: @color-secondary;
+}
+
+
+
+.page-title .title .title-content .breadcrumb .active {
+    color: #616161;
+}
+
+.breadcrumb li {
+    position: relative;
+    padding-right: 18px;
+}
+
+.breadcrumb li:before {
+    position: absolute;
+    top: 0;
+    right: 4px;
+    content: "/";
+}
+
+.breadcrumb li.active:before {
+    display: none;
+}
+
+/* Title #2 */
+.page-title .title-2 .title-content:before {
+    background-color: transparent
+}
+
+/* Title #3 */
+.page-title .title-3 {
+    transform: translateX(115px)
+}
+
+/* Title #4 */
+.page-title .title-4 {
+    background: url(../images/page-title/title-bg-2.png) no-repeat center center;
+    transform: none;
+    margin: 0 auto;
+}
+
+.page-title .title-4 .title-content {
+    text-align: center;
+    padding-left: 0;
+    padding-top: 40px;
+}
+.page-title .title-4 .title-content:before{
+ left:50%;
+ margin-left:-123px;
+}
+
+.page-title .title-4 .title-content .breadcrumb{
+    justify-content:center
+}
+/* Title #5 */
+.page-title .title-5 .title-content:before {
+    background-color: transparent
+}
+
+/* Title #6 */
+.page-title .title-6 {
+    background-image: none
+}
+
+/* Title #7 */
+.page-title .title-7 {
+    background-image: none;
+    padding: 0;
+    width: 400px;
+    height: 281px;
+}
+
+.page-title .title-7 .title-heading {
+    margin-left: 0
+}
+
+.page-title .title-7 .title-content {
+    background-color: @color-white;
+    padding: 100px 0;
+}
+
+/* Title #8 */
+.page-title .title-8 .title-content:before {
+    background-color: transparent;
+    padding: 100px 0;
+}
+
+/* Title #9 */
+.page-title .title-9 {
+    background-image: none;
+}
+
+.page-title .title-9{
+    text-align:center;
+}
+.page-title .title-9 .title-content:before{
+    background-color: transparent;
+}
+.page-title .title-9 .title-content .breadcrumb{
+    justify-content:center
+}
+.page-title-2 .container-fluid {
+    padding-top: 240px;
+    padding-bottom: 240px;
+}
+
+
+/* Custom, iPhone Retina */
+@media only screen and (min-width : 320px) and (max-width : 767px) {
+    .page-title .title .title-content h1 {
+        font-size: 28px;
+    }
+
+    .page-title .title-7 {
+        width: 100%;
+    }
+
+    .page-title .title-3 {
+        transform: translateX(0);
+    }
+
+    .page-title .title {
+        transform: translateX(0);
+    }
+    .page-title .title .title-content{
+        padding-left: 30px;
+    }
+}
+
+/* Small Devices, Tablets */
+@media only screen and (min-width : 768px) and (max-width : 991px) {
+
+    .page-title .title {
+        transform: translateX(0);
+    }
+}

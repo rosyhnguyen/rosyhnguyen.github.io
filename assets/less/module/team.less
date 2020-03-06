@@ -1,0 +1,403 @@
+/*------------------------------------*\
+    #TEAM-SECTION
+\*------------------------------------*/
+.team .team-panel {
+    margin-top: 60px;
+}
+
+.team .team-panel h3 {
+    color: #282828;
+    font-family: @font-heading;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 1;
+    text-align: center;
+}
+
+.team .team-panel p {
+    color: @color-body;
+    font-family: @font-body;
+    font-size: 12px;
+    font-weight: 700;
+    font-style: italic;
+    line-height: 1;
+    text-align: center;
+    margin-bottom: 0
+}
+
+.team .team-img {
+    position: relative;
+}
+
+.team-img img {
+    -webkit-transition: all 0.3s linear;
+    -moz-transition: all 0.3s linear;
+    -o-transition: all 0.3s linear;
+    transition: all 0.3s linear;
+    max-width: 100%;
+}
+
+.team .team-overlay a {
+    background-color: #222;
+    font-weight: 700;
+    line-height: 25px;
+    padding: 0 5px;
+    color: @color-white;
+    font-family: @font-heading;
+    font-size: 11px;
+    margin-right: 10px;
+    display: inline-block;
+    position: relative;
+    z-index: 2;
+}
+
+.team .team-overlay a:last-child {
+    margin-right: 0
+}
+
+.team .team-overlay a:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    z-index: -1;
+    background-color: @color-theme;
+    -webkit-transition: .3s ease;
+    transition: .3s ease;
+}
+
+.team .team-overlay a:hover:before {
+    width: 100%;
+}
+
+/* Team #1 */
+.team-1 .team-img {
+    padding: 30px;
+    margin-bottom: 30px;
+}
+
+.team-1 .team-img:before,
+.team-1 .team-img:after {
+    position: absolute;
+    content: '';
+    pointer-events: none
+}
+
+.team-1 .team-img:before {
+    top: 3px;
+    right: 0;
+    bottom: 3px;
+    left: 0;
+    border-top: 2px solid #2f2f2f;
+    border-bottom: 2px solid #2f2f2f;
+}
+
+.team-1 .team-img:after {
+    top: 0;
+    right: 3px;
+    bottom: 0;
+    left: 3px;
+    border-right: 2px solid #2f2f2f;
+    border-left: 2px solid #2f2f2f;
+}
+
+.team-1 .team-overlay {
+    position: absolute;
+    top: 30px;
+    left: 20px;
+    right: 20px;
+    margin-right: auto;
+    margin-left: auto;
+    opacity: 0;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    text-align: center;
+}
+
+.team-1 .team-panel .team-content {
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+}
+
+.team-1 .team-panel:hover .team-content {
+    transform: translateY(30px)
+}
+
+.team-1 .team-panel:hover .team-img img {
+    transform: translateY(55px)
+}
+
+.team-1 .team-panel:hover .team-overlay {
+    opacity: 1
+}
+
+/* Team #2 */
+.team-2 .team-panel {
+    background-color: @color-white;
+    box-shadow: 0 2px 3px rgba(40, 40, 40, 0.12);
+}
+
+.team-2 .team-panel .team-content {
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+.team-2 .team-img {
+    overflow: hidden
+}
+
+.team-2 .team-overlay {
+    position: absolute;
+    padding: 10px;
+    background-color: @color-white;
+    bottom: 10px;
+    left: 10px;
+    right: 10px;
+    margin-right: auto;
+    margin-left: auto;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    -webkit-transform: translateY(100px);
+    -moz-transform: translateY(100px);
+    transform: translateY(100px);
+    text-align: center;
+
+}
+
+.team-2 .team-panel:hover .team-overlay {
+        -webkit-transform: translateY(0);
+        -moz-transform: translateY(0);
+        transform: translateY(0);
+}
+
+/* Team #3 */
+.team-2 .team-panel {
+    background-color: @color-white;
+}
+
+.team-3 .team-panel .team-content {
+    padding-top: 30px;
+    padding-bottom: 30px;
+    background-color: @color-white;
+    border-bottom: 2px solid #282828;
+    margin-top: -115px;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+}
+
+.team-3 .team-img {
+    overflow: hidden;
+    z-index: 3;
+}
+
+.team-3 .team-overlay {
+    position: absolute;
+    bottom: 10px;
+    width: 100%;
+    text-align: center;
+    margin-right: auto;
+    margin-left: auto;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    transform: translateY(80px);
+}
+
+.team-3 .team-panel:hover .team-overlay,
+.team-3 .team-panel.active .team-overlay {
+    -webkit-transform: translateY(0);
+    -moz-transform: translateY(0);
+    transform: translateY(0);
+}
+
+.team-3 .team-panel:hover .team-content,
+.team-3 .team-panel.active .team-content {
+    margin-top: 0
+}
+
+/* Team #4 */
+.team-4 {
+    text-align: left;
+}
+
+.team-4 .team-overlay {
+    background-color: rgba(255, 255, 255, 0.85);
+    padding: 30px 0 30px 30px;
+    text-align: left;
+    width: auto;
+    left: 10px;
+    right: 10px;
+    transform: translateY(150px)
+}
+
+.team-4 .team-overlay h3 {
+    font-size: 16px;
+}
+
+.team-4 .team-overlay h3,
+.team-4 .team-overlay p {
+    text-align: left
+}
+
+/* Team #6 */
+.team-6 .team-panel {
+    box-shadow: none;
+}
+
+.team-6 .team-overlay {
+    background-color: transparent;
+    top: 30px;
+    right: 30px;
+    left: auto;
+    bottom: auto;
+    transform: translateY(-80px);
+    padding: 0;
+}
+
+.team-6 .team-overlay a {
+    padding: 0;
+    width: 25px;
+    height: 25px;
+    text-align: center
+}
+
+.team-6 .team-content {
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.85);
+    padding: 30px 0 30px 30px;
+    text-align: left;
+    width: auto;
+    left: 30px;
+    right: 30px;
+    bottom: 30px;
+    transform: translateY(150px);
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+}
+
+.team-6 .team-content h3,
+.team-6 .team-content p {
+    text-align: left
+}
+
+.team-6 .team-panel:hover .team-content {
+    -webkit-transform: translateY(0);
+    -moz-transform: translateY(0);
+    transform: translateY(0);
+}
+
+/* Custom, iPhone Retina */
+@media only screen and (min-width : 320px) and (max-width : 767px) {
+    .team .team-panel {
+        max-width: 300px;
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+    .team-2 .team-overlay {
+        padding: 10px 0;
+
+    }
+
+    .team-1 .team-overlay a,
+    .team-2 .team-overlay a {
+        margin-right: 6px;
+        margin-bottom: 3px;
+    }
+
+}
+@media only screen and (min-width : 320px) and (max-width : 450px) {
+    
+.team-1 .team-panel:hover .team-img img {
+    transform: translateY(60px)
+}
+}
+
+/* Small Devices, Tablets */
+@media only screen and (min-width : 768px) and (max-width : 991px) {
+
+    .team .team-panel {
+        max-width: 300px;
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+    .team .team-panel h3 {
+        font-size: 15px;
+        margin-bottom: 15px;
+    }
+
+    .team-1 .team-overlay,
+    .team-2 .team-overlay {
+        right: 0;
+        left: 0;
+    }
+
+    .team .team-overlay a {
+        font-size: 10px;
+        margin-right: 3px;
+        margin-bottom: 5px;
+    }
+
+    .team-1 .team-panel:hover .team-img img {
+        transform: translateY(60px);
+    }
+
+    .team-6 .team-panel .team-content {
+        left: 10px;
+        right: 10px;
+        padding: 20px 10px;
+    }
+
+    .team-6 .team-panel h3 {
+        font-size: 14px;
+    }
+
+    .team-6 .team-content h3,
+    .team-6 .team-content p {
+        text-align: center;
+    }
+}
+
+@media only screen and (min-width : 992px) and (max-width : 1200px) {
+    .team .team-panel h3 {
+        font-size: 15px;
+    }
+
+    .team-img img {
+        width: 100%;
+    }
+
+    .team-2 .team-overlay {
+        padding: 10px 0;
+    }
+
+    .team-1 .team-overlay,
+    .team-2 .team-overlay {
+        right: 0;
+        left: 0;
+    }
+
+    .team-4 .team-overlay {
+        padding: 20px 0 20px 10px;
+    }
+
+    .team .team-overlay a {
+        font-size: 10px;
+        margin-right: 3px;
+    }
+
+}

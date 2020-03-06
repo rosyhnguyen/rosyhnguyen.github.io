@@ -1,0 +1,72 @@
+
+/*------------------------------------*\
+    #BACKGROUNDS
+\*------------------------------------*/
+.bg-theme {
+background-color:@color-theme !important
+}
+
+.bg-gray {
+background-color:@color-gray !important;
+}
+
+.bg-white {
+background-color:@color-white !important
+}
+
+.bg-dark {
+background-color:@color-dark2 !important
+}
+
+.bg-dark3 {
+background-color:@color-dark3 !important
+}
+
+/* Background Image */
+.bg-section {
+	position: relative;
+	overflow: hidden;
+	z-index: 1;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-ms-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	/*background-attachment: fixed;*/
+	background-repeat: no-repeat;
+	background-position: center center;
+	width: 100%;
+	height: 100%;
+}
+
+.bg-overlay:before {
+	content: "";
+	display: inline-block;
+	height: 100%;
+	left: 0;
+	position: absolute;
+	top: 0;
+	width: 100%;
+	z-index: -1;
+}
+
+.bg-overlay-light:before {
+	background-color: rgba(246,246,247, 0.92);
+}
+
+.bg-overlay-dark:before {
+	background-color: rgba(39, 41, 48, 0.45);
+}
+
+.bg-overlay-theme:before {
+	background-color: rgba(70,161,240, 0.8);
+}
+
+.bg-overlay-gradient:before {
+	background: rgba(25, 23, 23, 0.8); /* fallback for old browsers */
+	background: -webkit-linear-gradient(to bottom, rgba(25, 23, 23, 0.8), rgba(34, 34, 34, 0.2)); /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to bottom, rgba(25, 23, 23, 0.8), rgba(34, 34, 34, 0.2)); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+
+.bg-parallex { background-attachment:fixed;}

@@ -1,0 +1,77 @@
+/*------------------------------------*\
+    #Blockquote
+\*------------------------------------*
+/* quotes style */
+blockquot,
+.blockquote {
+	font-size: 20px;
+ font-family:@font-body;
+	font-style: italic;
+	line-height: 28px;
+	font-weight: 500;
+	padding: 30px 0 30px 30px;
+}
+
+.quote-author {
+	display: block;
+	font-size: 13px;
+	font-style: normal;
+	font-weight: 400;
+	margin-top: 20px;
+	line-height: 28px;
+ color:@color-heading;
+}
+
+.blockquote-1 {
+border-left:6px solid @color-heading;
+color:@color-body;
+}
+
+.blockquote-3,
+.blockquote-4 {
+	padding-right: 30px;
+}
+
+.blockquote-2,
+.blockquote-3,
+.blockquote-4 {
+	border-left: none;
+}
+
+.blockquote-2:before {
+	content: "\f10d";
+ font-family: @awesome;
+	font-size: 16px;
+	position: absolute;
+	top: 0;
+	left: 0;
+ color:@color-heading;
+ line-height: @line-height-content;
+}
+
+.blockquote-2:after {
+	content: "\f10e";
+ font-family: @awesome;
+	font-size: 16px;
+ color:@color-heading;
+	position: absolute;
+	right: 0;
+	bottom: 0;
+ line-height: @line-height-content;
+}
+
+.blockquote-3 {
+ color:@color-theme;
+ background-color:#f9f9f9;
+ .rounded(0)
+}
+
+.blockquote-4 .quote-author {
+ color:@color-body
+}
+
+.blockquote-4 {
+ color:@color-white;
+ background-color:@color-heading;
+ .rounded(5px)
+}

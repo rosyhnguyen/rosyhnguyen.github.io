@@ -1,0 +1,638 @@
+/*------------------------------------*\
+    #FOOTER-SECTION
+\*------------------------------------*/
+footer {
+    padding: 69px 0;
+    background-color: #1b1a1a
+}
+
+.footer-widget .widget-container {
+    position: relative;
+    background-image: url(../images/footer/footer-bg.png);
+    background-repeat: no-repeat;
+    background-position: top 5px center;
+    padding: 30px;
+}
+
+.footer-widget .widget-container:before,
+.footer-widget .widget-container:after {
+    position: absolute;
+    content: '';
+    pointer-events: none
+}
+
+.footer-widget .widget-container:before {
+    top: 3px;
+    right: 0;
+    bottom: 3px;
+    left: 0;
+    border-top: 2px solid #2f2f2f;
+    border-bottom: 2px solid #2f2f2f;
+}
+
+.footer-widget .widget-container:after {
+    top: 0;
+    right: 3px;
+    bottom: 0;
+    left: 3px;
+    border-right: 2px solid #2f2f2f;
+    border-left: 2px solid #2f2f2f;
+}
+
+.footer-widget h3 {
+    color: #616161;
+    font-family: @font-body;
+    font-size: 13px;
+    font-style: italic;
+    line-height: 1;
+    text-align: center;
+    margin-bottom: 17px;
+}
+
+.footer-widget ul {
+    margin-bottom: 50px;
+    margin-left: 0;
+    text-align: center
+}
+
+.footer-widget ul li {
+    position: relative;
+    padding-right: 10px;
+    padding-left: 10px;
+}
+
+.footer-widget ul li:first-child {
+    padding-left: 0
+}
+
+.footer-widget ul li:last-child {
+    padding-right: 0
+}
+
+.footer-widget ul li:after {
+    content: "";
+    width: 3px;
+    height: 3px;
+    background-color: #1b1a1a;
+    position: absolute;
+    top: 50%;
+    right: -3px;
+}
+
+.footer-widget ul li:last-child::after {
+    display: none
+}
+
+.footer-widget ul li a {
+    width: 80px;
+    height: 30px;
+    background-color: #222;
+    color: white;
+    font-family: @font-heading;
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 30px;
+    display: block;
+    text-align: center;
+    text-transform: capitalize;
+    position: relative;
+    z-index: 2;
+    font-style: normal;
+}
+
+.footer-widget ul li a:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    z-index: -1;
+    background-color: @color-theme;
+    transition: .3s ease;
+}
+
+.footer-widget ul li a:hover:before {
+    width: 100%;
+}
+
+.footer-widget form .input-group:before {
+    content: '';
+    position: absolute;
+    bottom: 1px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: @color-theme;
+    z-index: 2;
+    -webkit-transition: .4s ease;
+    transition: .4s ease;
+}
+
+.footer-widget form .input-group:hover:before {
+    width: 100%;
+}
+
+.footer-widget form .form-control {
+    height: 51px;
+    border: none;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.16);
+    color: #474747;
+    font-family: @font-heading;
+    font-size: 13px;
+    line-height: 49px;
+    text-transform: lowercase;
+    background-color: transparent;
+    border-radius: 0;
+    padding: 0 60px 0 0;
+}
+
+
+
+.footer-widget form .form-control::-webkit-input-placeholder {
+    text-transform: uppercase;
+}
+
+.footer-widget form .form-control:-moz-placeholder {
+    text-transform: uppercase;
+}
+
+.footer-widget form .form-control::-moz-placeholder {
+    text-transform: uppercase;
+}
+
+.footer-widget form .form-control:-ms-input-placeholder {
+    text-transform: uppercase;
+}
+
+.footer-widget form .input-group-btn {
+    width: auto;
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 9;
+}
+
+.footer-widget form .btn {
+    width: 53px;
+    color: @color-theme;
+    font-family: @font-heading;
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 49px;
+    text-transform: uppercase;
+    background-color: transparent;
+    border: none;
+    border-bottom: 2px solid @color-theme;
+    border-radius: 0;
+    padding: 0;
+    -webkit-transition: .3s ease;
+    transition: .3s ease;
+}
+
+.footer-widget form .btn:after {
+    position: absolute;
+    content: "";
+    right: 0;
+    bottom: 0;
+    width: 2px;
+    height: 4px;
+    background-color: @color-theme;
+    -webkit-transition: .3s ease;
+    transition: .3s ease;
+}
+
+.footer-widget form .btn:hover {
+    color: @color-white;
+}
+
+
+
+.footer-logo {
+    margin-bottom: 33px;
+}
+
+.footer-info-widget p {
+    font-family: @font-body;
+    line-height: 22px;
+    font-weight: 400;
+    margin-bottom: 0
+}
+
+.footer-info-widget .contact-info p,
+.footer-info-widget .copyright-info p {
+    color: @color-body;
+    font-size: 13px;
+}
+
+.footer-info-widget .bio-info p {
+    color: #616161;
+    font-size: 13px;
+    font-style: italic;
+    max-width: 510px;
+    display: inline-block;
+}
+
+.footer form {
+    margin-bottom: 0;
+}
+
+/* footer #1 */
+.footer-1 {
+    padding-top: 0;
+    padding-bottom: 0;
+    margin-top: 122px;
+    background-color: @color-white;
+}
+
+.footer-1 .footer-container {
+    background-color: #1b1a1a
+}
+
+.footer-1 .footer-container {
+    padding-bottom: 69px;
+}
+
+.footer-1 .footer-widget {
+    height: 150px;
+    margin-bottom: 50px;
+}
+
+.footer-1 .footer-widget .widget-container {
+    width: 562px;
+    margin-right: auto;
+    margin-left: auto;
+    -moz-transform: translateY(-123px);
+    -webkit-transform: translateY(-123px);
+    transform: translateY(-123px);
+    padding: 3px
+}
+
+.footer-1 .footer-widget .widget-container .info {
+    background-color: @color-white;
+    padding: 30px
+}
+
+.footer-1 .footer-widget .widget-container .info:before {
+    content: "";
+    background: url(../images/footer/footer-bg.png);
+    width: 92px;
+    height: 5px;
+    display: inline-block;
+    position: absolute;
+    top: 5px;
+    left: 50%;
+    margin-left: -46px;
+}
+
+.footer-1 .footer-widget .widget-container .info ul {
+    margin-bottom: 0
+}
+
+.footer-1 .footer-widget .widget-container .subscription {
+    padding: 30px;
+}
+
+/* footer #2 */
+.footer-2 {
+    padding-left: 80px;
+    padding-bottom: 80px;
+}
+
+.footer-2 .footer-logo {
+    margin-top: 70px;
+}
+
+.footer-2 .footer-info-widget {
+    margin-bottom: 70px;
+}
+
+.footer-2 .footer-widget .widget-container form .form-control,
+.footer-2 .footer-widget .widget-container form .btn {
+    height: 42px;
+    line-height: 42px;
+}
+
+.footer-2 .footer-widget h3 {
+    margin-bottom: 20px;
+}
+
+.footer-2 .footer-widget .widget-container ul {
+    margin-bottom: 0
+}
+
+/* footer #3 */
+.footer-3 .footer-info-widget {
+    margin-bottom: 0;
+}
+
+/* footer #4 */
+.footer-4 .footer-logo {
+    margin-top: 0;
+}
+
+/* footer #5 */
+.footer-5 .footer-logo {
+    margin-top: 0;
+}
+
+.footer-5 .footer-info-widget {
+    margin-bottom: 0;
+}
+
+/* footer #6 */
+
+.footer-6 .footer-widget .widget-container {
+    margin-bottom: 70px;
+}
+
+.footer-6 .footer-widget .widget-container ul {
+    margin-top: 12px;
+    margin-bottom: 20px;
+}
+
+.footer-6 .footer-widget .widget-container form .form-control,
+.footer-6 .footer-widget .widget-container form .btn {
+    height: 42px;
+    line-height: 42px;
+}
+
+.footer-6 .footer-logo {
+    margin-top: 0
+}
+
+.footer-6 .footer-info-widget {
+    margin-bottom: 0
+}
+
+/* footer #7 */
+
+.footer-7 .bio-info {
+    margin-bottom: 47px;
+}
+
+/* footer #8 */
+.footer-8 {
+    padding-top: 42px;
+    padding-bottom: 42px;
+}
+
+/* footer #9 */
+.footer-9 {
+    padding-top: 80px;
+    padding-bottom: 42px;
+}
+
+.footer-9 .widget-container {
+    margin-bottom: 40px;
+}
+
+.footer-9 .widget-container form {
+    margin-bottom: 0;
+    float: right
+}
+
+.footer-9 .widget-container p {
+    color: #616161;
+    font-family: @font-body;
+    font-size: 13px;
+    font-style: italic;
+    line-height: 22px;
+    margin-bottom: 0
+}
+
+/* footer #10 */
+.footer-10 .footer-logo {
+    margin-top: 0
+}
+
+.footer-10 .footer-widget ul {
+    margin-bottom: 0
+}
+
+/* footer #11 */
+.footer-11 {
+    padding-top: 140px;
+    padding-bottom: 137px;
+    background-color: #1b1a1a
+}
+
+.footer-11 .footer-widget .widget-container {
+    margin-bottom: 50px;
+    -moz-transform: translateY(0);
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+}
+
+.footer-11 .footer-widget {
+    height: auto;
+}
+
+.footer-11 .footer-widget h3 {
+    margin-bottom: 17px;
+}
+
+.footer-11 .footer-widget .widget-container .info {
+    background-color: transparent;
+    border-bottom: 2px solid rgba(47, 47, 47, 0.5);
+    padding: 27px 0 30px;
+    margin-right: 30px;
+    margin-left: 30px;
+}
+
+
+.footer-11 .footer-container {
+    padding-bottom: 0;
+}
+
+.footer-11 .footer-widget .widget-container .subscription {
+    padding-top: 0;
+}
+
+/* footer #13 */
+.instafeed {
+    height: 100px;
+    overflow: hidden;
+    background-color: rgba(27, 26, 26, 0.9);
+}
+
+.instafeed a {
+    position: relative;
+    display: inline-block
+}
+
+.instafeed a:before {
+    background-color: rgba(27, 26, 26, 0.9);
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: "";
+}
+
+.instafeed a:hover::before {
+    display: none
+}
+
+.instafeed img {
+    width: 100px;
+    height: 100px;
+}
+
+.insta-feed .container {
+    position: relative
+}
+
+.insta-follow {
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    line-height: 50px;
+    background-color: @color-theme;
+    font-size: 28px;
+    font-weight: 400;
+    color: @color-white;
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+    position: absolute;
+    left: 50%;
+    top: 25px;
+    z-index: 3
+}
+
+.insta-follow:hover {
+    background-color: @color-white;
+    color: @color-theme
+}
+
+.footer-14,
+.footer-14 .footer-widget .widget-container .info {
+    background-color: #f9f9f9;
+}
+
+.footer-14 {
+    padding-top: 122px;
+    margin-top: 0;
+}
+
+/* Custom, iPhone Retina */
+@media only screen and (min-width : 320px) and (max-width : 767px) {
+
+
+    .footer-widget ul li a {
+        font-size: 12px;
+        width: 75px;
+        height: 25px;
+        line-height: 25px;
+    }
+
+    .footer-widget ul li:first-child,
+    .footer-widget ul li:last-child,
+    .footer-widget ul li {
+        padding-right: 5px;
+        padding-left: 5px;
+        margin-bottom: 10px;
+    }
+
+
+
+    .footer-info-widget .contact-info,
+    .footer-info-widget .bio-info {
+        margin-bottom: 20px;
+    }
+
+    .footer-info-widget .contact-info,
+    .copyright-info {
+        text-align: center !important;
+    }
+
+    .footer-9 .input-group {
+        margin-right: -5px;
+    }
+
+    .footer-widget .widget-container {
+        padding: 30px 10px;
+    }
+
+    .footer-1 .footer-widget {
+        height: 120px;
+        margin-bottom: 0;
+    }
+
+    .footer-1 .footer-widget .widget-container {
+        width: auto;
+        max-width: 500px;
+    }
+
+    .footer-1 .footer-widget .widget-container .subscription {
+        padding: 12px;
+    }
+
+    .footer-1 .footer-widget .widget-container .info {
+        padding: 15px 15px 0;
+    }
+
+    .footer-1 .footer-widget .widget-container {
+        -moz-transform: translateY(-93px);
+        -webkit-transform: translateY(-93px);
+        transform: translateY(-93px);
+    }
+
+    .footer-widget .widget-container:before {
+        right: 10px;
+        left: 10px;
+    }
+
+    .footer-widget .widget-container:after {
+        right: 13px;
+        left: 13px;
+    }
+
+    .footer form {
+        padding: 0 15px;
+    }
+
+}
+
+/* Small Devices, Tablets */
+@media only screen and (min-width : 768px) and (max-width : 991px) {
+    .footer-1 .footer-widget {
+        margin-bottom: 0;
+    }
+
+    .footer-info-widget .contact-info,
+    .footer-info-widget .bio-info {
+        margin-bottom: 20px;
+    }
+
+    .footer-info-widget .contact-info,
+    .copyright-info {
+        text-align: center !important;
+    }
+}
+
+/* Small Devices, Tablets */
+@media only screen and (min-width : 992px) and (max-width : 1024px) {
+    .footer-widget h3 {
+        margin-top: 17px;
+    }
+
+    .footer-7,
+    .footer-6,
+    .footer-10,
+    .footer-4,
+    .footer-3,
+    .footer-2,
+    .footer-5 {
+        padding-left: 0;
+    }
+}
+
+@media only screen and (min-width : 992px) and (max-width : 1200px) {
+
+    .footer-1 .footer-widget .widget-container .info {
+        padding: 20px;
+    }
+}

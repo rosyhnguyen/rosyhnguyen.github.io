@@ -1,0 +1,39 @@
+
+/*------------------------------------*\
+    #Pagination
+\*------------------------------------*/
+.pagination {
+	margin: 0;
+	border-radius: 0;
+	display: block;
+}
+.pagination>li{
+	display: inline-block;
+}
+.pagination>li>a,
+.pagination>li>span {
+	color: @color-body;
+	font-family: @font-heading;
+	font-size: 13px;
+	line-height: 24px;
+	border: none;
+	padding: 0;
+	margin-right: 16px;
+    font-weight: 700;
+}
+.pagination>li:last-child>a{ margin-right:0}
+
+.pagination>.active>a,
+.pagination>.active>a:focus,
+.pagination>.active>a:hover,
+.pagination>.active>span,
+.pagination>.active>span:focus,
+.pagination>.active>span:hover,
+.pagination>li>a:focus,
+.pagination>li>a:hover,
+.pagination>li>span:focus,
+.pagination>li>span:hover {
+	color: #333;
+	background-color: transparent;
+	border: none
+}

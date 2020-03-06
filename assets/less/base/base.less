@@ -1,0 +1,109 @@
+/*------------------------------------*\
+    #BASE
+\*------------------------------------*/
+::selection {
+    background: @color-theme;
+    color: @color-white;
+}
+
+::-moz-selection {
+    background: @color-theme;
+    /* Firefox */
+    color: @color-white;
+}
+
+::-webkit-selection {
+    background: @color-theme;
+    /* Safari */
+    color: @color-white;
+}
+
+html {
+    font-size: @font-size-base;
+}
+
+body {
+    background-color: @color-white;
+    font-family: @font-body;
+    font-size: @font-size-base;
+    font-weight: 400;
+    color: @color-body;
+    line-height: @line-height-base;
+    margin: 0
+}
+
+.wrapper {
+    background-color: @color-white;
+    padding: 0 80px;
+    overflow-x: hidden;
+}
+
+/* Custom, iPhone Retina */
+@media only screen and (min-width : 320px) and (max-width : 991px) {
+    .wrapper {
+        padding: 0;
+    }
+}
+
+a {
+    .transition(0.3s, ease);
+    color: @color-theme;
+}
+
+a:hover {
+    color: darken(@color-theme, 10%);
+    text-decoration: none;
+}
+
+a:focus {
+    color: darken(@color-theme, 10%);
+    text-decoration: none;
+}
+
+a:active {
+    color: darken(@color-theme, 10%);
+    text-decoration: none;
+}
+
+p,
+pre,
+ul,
+ol,
+dl,
+dd,
+blockquote,
+address,
+table,
+fieldset,
+form {
+    margin-bottom: @baseline;
+}
+
+button,
+button:focus,
+.btn,
+.btn:focus,
+.btn-primary:not(:disabled):not(.disabled).active:focus,
+.btn-primary:not(:disabled):not(.disabled):active:focus,
+.show > .btn-primary.dropdown-toggle:focus,
+.btn-secondary:not(:disabled):not(.disabled).active:focus,
+.btn-secondary:not(:disabled):not(.disabled):active:focus,
+.show > .btn-secondary.dropdown-toggle:focus {
+    box-shadow: none;
+    outline: none;
+}
+
+section {
+    padding-top: 100px;
+    padding-bottom: 100px;
+    overflow: hidden;
+}
+
+@media only screen and (max-width : 767px) {
+
+    section {
+        padding-top: 60px;
+        padding-bottom: 60px;
+    }
+
+}

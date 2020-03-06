@@ -1,0 +1,77 @@
+/*------------------------------------*\
+    #Client
+\*------------------------------------*/
+.clients .heading {
+    margin-bottom: 50px;
+}
+
+.clients .owl-dots {
+    margin-top: 30px;
+}
+
+.clients .client {
+    position: relative;
+}
+.clients .client img{
+    display: block;
+    margin: auto;
+}
+.clients .client:after {
+    position: absolute;
+    content: "";
+    width: 2px;
+    height: 20px;
+    background-color: rgba(34, 34, 34, 0.07);
+    top: 50%;
+    margin-top: -10px;
+    right: -18px;
+}
+
+.clients .owl-controls .owl-dots .owl-dot {
+    margin-right: 10px;
+}
+
+.clients .owl-controls .owl-dots .owl-dot span {
+    width: 6px;
+    height: 6px;
+    line-height: 6px;
+    border: 2px solid #4e4e4e;
+    background-color: transparent;
+    border-radius: 50%;
+    margin: 3px;
+}
+
+.clients .owl-dots .owl-dot.active {
+    outline: 2px solid #222 !important
+}
+
+
+
+
+/* Custom, iPhone Retina */
+@media only screen and (min-width : 320px) and (max-width : 767px) {
+    .clients .heading {
+         text-align: center;
+    }
+    .clients .heading-2 h2{
+         margin-bottom: 10px;
+    }
+    .clients .heading-2 h2:before{
+        left: 50%;
+        margin-left: -23px;
+    }
+   }
+   /* Small Devices, Tablets */
+   @media only screen and (min-width : 768px) and (max-width : 991px) {
+    .clients .heading {
+         text-align: center;
+    }
+    .clients .heading-2 h2{
+         margin-bottom: 10px;
+    }
+    .clients .heading-2 h2:before{
+        left: 50%;
+        margin-left: -23px;
+    }
+   
+   }

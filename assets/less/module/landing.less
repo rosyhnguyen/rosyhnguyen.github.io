@@ -1,0 +1,207 @@
+/*------------------------------------*\
+    #Landing Page / Promo Page
+\*------------------------------------*/
+
+.landing-hero {
+    height: 700px;
+    padding-top: 200px;
+}
+
+.landing-hero.bg-overlay-dark:before {
+    background-color: rgba(27, 26, 26, 0.85);
+    background-image: linear-gradient(180deg, rgba(27, 26, 26, 0.3) 0%, rgba(27, 26, 26, 0) 34%, rgba(27, 26, 26, 0) 82%, rgba(27, 26, 26, 0) 100%);
+}
+
+.landing-hero h1 {
+    font-size: 65px;
+    font-weight: 700;
+    line-height: 70px;
+}
+
+.landing-hero p {
+    color: #f9f9f9;
+    font-size: 18px;
+    font-style: italic;
+    line-height: 27px;
+}
+
+.landing-demos .portfolio-title h4 {
+    text-align: center;
+    font-size: 20px !important;
+}
+
+.landing-demos .portfolio-title:hover h4 {
+    color: @color-theme;
+    font-size: 20px;
+}
+
+.landing-demos .heading-2 h2:before,
+.landing-demos .heading-2 h2:after {
+    display: none
+}
+
+.landing-demos .portfolio-img {
+    box-shadow: 0 0 36px 4px rgba(0, 0, 0, 0.1);
+    background-color: #c0c0c0;
+    transition: all 0.35s;
+}
+
+.landing-demos .portfolio-item:hover .portfolio-img {
+    transform: translateY(-6px);
+}
+
+.landing-demos .portfolio-item:hover h4 {
+    color: @color-theme;
+}
+
+.landing-demos .portfolio-item:hover img {
+    transform: scale(1);
+}
+
+.landing-demos.bg-gray .portfolio-bio {
+    background-color: transparent;
+}
+
+.landing-action {
+    padding-top: 200px;
+}
+
+.landing-action img {
+    margin-bottom: 50px;
+}
+
+.landing-action h2 {
+    font-size: 50px;
+    line-height: 60px;
+    margin-bottom: 50px;
+}
+
+
+.landing-features .feature-panel {
+    margin-bottom: 30px;
+}
+
+.landing-features .feature-panel h3 {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+.landing-features .feature-panel p{
+    line-height: 26px;
+}
+.landing-features .feature--icon {
+    font-size: 55px;
+    line-height: 1;
+    color: @color-theme;
+    margin-bottom: 20px;
+}
+
+/* landing banners */
+
+.landing-banners .panel--logo {
+    background-color: @color-white;
+    -webkit-box-shadow: 0px 10px 20px 0px rgba(224, 224, 224, 0.4);
+    box-shadow: 0px 10px 20px 0px rgba(224, 224, 224, 0.4);
+    -webkit-transition: .4s ease;
+    transition: .3s ease;
+    padding: 30px 10px 22px;
+    margin-bottom: 30px;
+}
+
+.landing-banners .panel--logo:hover {
+    -webkit-transform: translateY(-5px);
+    -moz-transform: translateY(-5px);
+    transform: translateY(-5px);
+}
+
+.landing-banners .panel--logo img {
+    margin-bottom: 16px;
+}
+
+.landing-banners .panel--logo h5 {
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 20px;
+    margin-bottom: 0;
+}
+
+/* landing carousel   */
+
+.landing-carousel .owl-item .img-item {
+    -webkit-transform: scale(.7);
+    -moz-transform: scale(.7);
+    transform: scale(.7);
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+
+}
+
+.landing-carousel .owl-item.center .img-item {
+    -webkit-transform: scale(.9);
+    -moz-transform: scale(.9);
+    transform: scale(.9); //    margin-left: -25px;
+}
+
+.landing-carousel .carousel-navs {
+    margin: 0;
+}
+
+
+.landing-carousel .carousel-navs .owl-nav .owl-prev:before,
+.landing-carousel .carousel-navs .owl-nav .owl-next:before {
+    font-size: 20px;
+    color: @color-heading;
+}
+
+.landing-carousel .carousel-navs .owl-nav .owl-prev:hover:before,
+.landing-carousel .carousel-navs .owl-nav .owl-next:hover:before {
+    color: @color-theme;
+}
+
+
+.landing-carousel .carousel-navs .owl-nav .owl-prev {
+    left: 280px;
+}
+
+.landing-carousel .carousel-navs .owl-nav .owl-next {
+    right: 280px;
+}
+
+.landing-carousel .carousel-navs .owl-nav [class*=owl-],
+.landing-carousel .carousel-navs .owl-nav [class*=owl-]:hover {
+    background-color: transparent;
+    border: none;
+}
+
+.landing-carousel .owl-carousel .owl-item img {
+    width: 100%;
+    max-width: 100%;
+    display: block;
+    margin: auto;
+    -webkit-box-shadow: 0px 1px 73px 0px rgba(40, 40, 40, 0.2);
+    -moz-box-shadow: 0px 1px 73px 0px rgba(40, 40, 40, 0.2);
+    box-shadow: 0px 1px 73px 0px rgba(40, 40, 40, 0.2);
+    padding-top: 25px;
+}
+
+
+
+/* Custom, iPhone Retina */
+@media only screen and (min-width : 320px) and (max-width : 767px) {
+
+    .landing-hero h1 {
+        font-size: 27px;
+    }
+
+    .landing-carousel .carousel-navs .owl-nav .owl-prev {
+        left: -20px;
+    }
+
+    .landing-carousel .carousel-navs .owl-nav .owl-next {
+        right: -20px;
+    }
+}
+
+/* Small Devices, Tablets */
+@media only screen and (min-width : 768px) and (max-width : 991px) {}

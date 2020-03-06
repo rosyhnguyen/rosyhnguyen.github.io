@@ -1,0 +1,185 @@
+/*------------------------------------*\
+    #Carousel
+\*------------------------------------*/
+.owl-nav.disabled {
+    display: none;
+}
+
+.owl-carousel .owl-item img {
+    width: inherit
+}
+
+.carousel-dots {
+    margin-top: 15px;
+}
+
+.owl-nav button.owl-dot,
+.owl-nav button.owl-dot:focus,
+.carousel-dots button.owl-dot,
+.carousel-dots button.owl-dot:focus {
+    padding: 0;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    box-shadow: none;
+    line-height: 10px;
+}
+
+.carousel-dots .owl-dots {
+    text-align: center;
+}
+
+.carousel-dots .owl-dots .owl-dot {
+    margin: 0 7px;
+    display: inline-block;
+}
+
+.carousel-dots .owl-dots .owl-dot span {
+    height: 6px;
+    width: 6px;
+    border-radius: 50%;
+    background-color: transparent;
+    border: 2px solid #4e4e4e;
+    margin: 2px;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.carousel-dots .owl-dots .owl-dot.active span {
+    background-color: transparent;
+    outline: 2px solid @color-heading;
+}
+
+.carousel-dots .owl-dots .owl-dot.active {
+    outline: 2px solid #222 !important
+}
+
+.carousel-dots.carousel-white .owl-dots .owl-dot span {
+    border-color: rgba(255, 255, 255, 0.5);
+}
+
+.carousel-dots.carousel-theme .owl-dots .owl-dot.active span {
+    background-color: @color-theme;
+    border-color: @color-theme;
+}
+
+.carousel-dots.carousel-white .owl-dots .owl-dot.active span {
+    background-color: @color-white;
+    border-color: @color-white;
+}
+
+
+.carousel-navs .owl-nav [class*=owl-] {
+    position: absolute;
+    top: 50%;
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    background-color: #222;
+    padding: 0;
+    border: 0;
+    margin: -25px 0 0 0;
+    border-radius: 0;
+    text-align: center;
+    -webkit-transition: all 0.35s;
+    -moz-transition: all 0.35s;
+    -o-transition: all 0.35s;
+    transition: all 0.35s;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.carousel-navs .owl-nav [class*=owl-]:hover {
+    background-color: @color-theme;
+}
+
+.carousel-navs .owl-nav .owl-prev {
+    left: 0;
+}
+
+.carousel-navs .owl-nav .owl-next {
+    right: 0;
+}
+
+.carousel-navs .owl-nav .owl-prev:before,
+.carousel-navs .owl-nav .owl-next:before {
+    content: "\e900";
+    font-family: 'celia' !important;
+    top: 0px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 10px;
+    position: absolute;
+    color: #fff;
+}
+
+.carousel-navs .owl-nav .owl-next:before {
+    content: "\e903";
+}
+
+.carousel-navs .owl-nav .owl-next,
+.carousel-navs .owl-nav .owl-prev {
+    font-size: 0;
+}
+
+.carousel-navs .owl-dots {
+    position: absolute;
+    bottom: 20px;
+    width: 100%;
+}
+
+.carousel-navs .owl-dots .owl-dot span {
+    background-color: transparent;
+}
+
+
+
+
+//.slider-navs .owl-nav [class*=owl-] {
+//    position: absolute;
+//    top: 50%;
+//    height: 60px;
+//    width: 60px;
+//    line-height: 60px;
+//    margin-top: -30px;
+//    color: @color-white;
+//    font-size: 0;
+//    font-weight: 400;
+//    background-color: rgba(27, 26, 26, 0.5);
+//    text-align: center;
+//    padding: 0;
+//    border-radius: 0;
+//    -webkit-transition: all 0.35s;
+//    -moz-transition: all 0.35s;
+//    -o-transition: all 0.35s;
+//    transition: all 0.35s;
+//}
+
+/* Custom, iPhone Retina */
+@media only screen and (min-width : 320px) and (max-width : 767px) {
+    .carousel-dots {
+        margin-top: 20px;
+    }
+
+    .slider-navs .owl-nav .owl-prev {
+        left: 0;
+    }
+
+    .slider-navs .owl-nav .owl-next {
+        right: 0;
+    }
+
+    .slider-navs .owl-nav .owl-next:before,
+    .slider-navs .owl-nav .owl-prev:before {
+        font-size: 20px;
+    }
+}
+
+/* Small Devices, Tablets */
+@media only screen and (min-width : 768px) and (max-width : 991px) {
+
+    .slider-navs .owl-nav .owl-next:before,
+    .slider-navs .owl-nav .owl-prev:before {
+        font-size: 30px;
+    }
+}

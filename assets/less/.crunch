@@ -1,0 +1,83 @@
+{
+	"files": {
+		"style.less": {
+			"engines": [
+				{
+					"compiler": "less",
+					"output": "../css/style.css",
+					"options": {
+						"compress": false,
+						"ieCompat": false,
+						"strictMath": false,
+						"strictUnits": false,
+						"javascriptEnabled": false,
+						"sourceMap": true
+					}
+				}
+			],
+			"sources": [
+				"base/base.less",
+				"base/intro.less",
+				"base/mixins.less",
+				"base/reset.less",
+				"base/vars.less",
+				"layout/accordion.less",
+				"layout/alert.less",
+				"layout/background.less",
+				"layout/backtop.less",
+				"layout/blockquote.less",
+				"layout/buttons.less",
+				"layout/color.less",
+				"layout/columns.less",
+				"layout/forms.less",
+				"layout/heading.less",
+				"layout/helpers.less",
+				"layout/icon-list.less",
+				"layout/icons.less",
+				"layout/list.less",
+				"layout/media.less",
+				"layout/page-title.less",
+				"layout/pagination.less",
+				"layout/social.less",
+				"layout/tabs.less",
+				"layout/typography.less",
+				"module/404.less",
+				"module/about.less",
+				"module/action.less",
+				"module/blog.less",
+				"module/carousel.less",
+				"module/client.less",
+				"module/contact.less",
+				"module/counters.less",
+				"module/faq.less",
+				"module/feature.less",
+				"module/footer.less",
+				"module/header.less",
+				"module/hero.less",
+				"module/landing.less",
+				"module/loading.less",
+				"module/login.less",
+				"module/maintenance.less",
+				"module/menu-max991.less",
+				"module/menu-min992.less",
+				"module/menu.less",
+				"module/portfolio.less",
+				"module/pricing.less",
+				"module/process.less",
+				"module/services.less",
+				"module/shop.less",
+				"module/side-nav.less",
+				"module/sidebar.less",
+				"module/skills.less",
+				"module/soon.less",
+				"module/team.less",
+				"module/testimonial.less",
+				"state/custom.less",
+				"state/layout-boxed.less",
+				"state/layout-split.less",
+				"state/responsive.less",
+				"theme/theme-default.less"
+			]
+		}
+	}
+}

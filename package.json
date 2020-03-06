@@ -1,0 +1,15 @@
+{
+  "name": "celia",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "lite": "lite-server",
+    "start": "npm run lite"
+  },
+  "author": "Rosy",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "lite-server": "^2.5.4"
+  }
+}

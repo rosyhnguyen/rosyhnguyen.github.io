@@ -1,0 +1,140 @@
+/*------------------------------------*\
+    #Process
+\*------------------------------------*/
+.process .process-panel {
+    position: relative
+}
+
+.process .process-panel h3,
+.process .process-panel .step {
+    color: #282828;
+    font-family: @font-heading;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 26px;
+    text-transform: capitalize;
+}
+
+.process .process-panel h3 {
+    margin-bottom: 6px;
+}
+
+.process .process-panel p {
+    color: @color-body;
+    font-family: @font-body;
+    font-size: 14px;
+    font-style: italic;
+    line-height: 23px;
+    margin-bottom: 0
+}
+
+.process .process-panel .process-content {
+    padding-left: 100px;
+    position: relative
+}
+
+.process .process-panel .process-content:before {
+    position: absolute;
+    top: 18px;
+    left: 61px;
+    content: "";
+    width: 20px;
+    height: 2px;
+    background-color: #282828;
+}
+
+.process .process-panel .process-icon {
+    color: #282828;
+    font-size: 32px;
+}
+
+.process .process-panel .process-icon {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+/* Process #2 */
+.process-2 {
+    padding-bottom: 65px;
+}
+
+.process-2 .process-panel .process-icon {
+    position: absolute;
+    left: 0;
+}
+
+.process-2 .process-panel .process-content {
+    padding-left: 100px;
+}
+
+.process-2 .process-panel {
+    margin-bottom: 35px
+}
+
+.process-2 .process-panel p {
+    margin-bottom: 0
+}
+
+/* Process #3 */
+
+
+
+
+/* Extra Small Devices, Phones */
+@media only screen and (min-width : 320px)and (max-width : 767px) {
+
+    .process .process-panel {
+        margin-bottom: 30px;
+    }
+
+    .process .process-panel .process-content:before {
+        left: 15px;
+    }
+
+    .process .process-panel .process-content {
+        padding-left: 50px;
+    }
+}
+
+
+/* Small Devices, Tablets */
+@media only screen and (min-width : 768px) and (max-width : 991px) {
+
+    .process .process-panel {
+        margin-bottom: 30px;
+    }
+
+    .process .process-panel .process-content:before {
+        left: 30px;
+    }
+
+    .process .process-panel .process-content {
+        padding-left: 70px;
+    }
+
+}
+
+/* Medium Screens */
+@media only screen and (min-width : 992px) and (max-width : 1200px) {
+    .process .process-panel p {
+        font-size: 13px;
+    }
+
+    .process-1 .process-panel .process-content {
+        padding-left: 60px;
+    }
+
+    .process-1 .process-panel .process-content:before {
+        left: 20px;
+    }
+
+    .process-2 .process-panel .process-content {
+        padding-left: 70px;
+    }
+
+    .process-2 .process-panel .process-content:before {
+        left: 40px;
+    }
+
+}

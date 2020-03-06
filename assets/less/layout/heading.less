@@ -1,0 +1,261 @@
+/*------------------------------------*\
+    #HEADING
+\*------------------------------------*/
+.heading .subheading {
+    color: #616161;
+    font-family: @font-body;
+    font-size: 18px;
+    font-weight: 700;
+    font-style: italic;
+    line-height: 1;
+    margin-bottom: 19px;
+}
+
+.heading h2 {
+    color: #222;
+    font-family: @font-heading;
+    font-size: 40px;
+    font-weight: 600;
+    line-height: 53px;
+    margin-bottom: 0;
+    text-transform: capitalize;
+}
+
+.heading p {
+    color: #616161;
+    font-family: @font-body;
+    font-size: 14px;
+    font-style: italic;
+    line-height: 23px;
+    margin-bottom: 0
+}
+
+.heading .more {
+    color: #333;
+    font-family: @font-heading;
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 24px;
+    text-transform: capitalize;
+    font-style: normal;
+    position: relative;
+    padding-bottom: 4px;
+}
+
+.heading .more:after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #333;
+}
+
+.heading .more:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background-color: @color-theme;
+    z-index: 2;
+    -webkit-transition: .3s ease;
+    -moz-transition: .3s ease;
+    transition: .3s ease;
+}
+
+.heading .more:hover:before {
+    width: 100%;
+}
+
+.heading .more:hover {
+    color: @color-theme;
+}
+
+.heading .more i {
+    margin-left: 5px;
+}
+
+.iarrow {
+    width: 16px;
+    height: 10px;
+    background-image: url(../images/heading/arrow.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    display: inline-block;
+}
+
+.heading .iarrow {
+    margin-left: 8px;
+}
+
+/* Heading #2 */
+.heading-2 h2 {
+    position: relative;
+    padding-bottom: 8px;
+}
+
+.heading-2 h2:before {
+    position: absolute;
+    content: "";
+    width: 46px;
+    height: 2px;
+    background-color: #282828;
+    left: 0;
+    bottom: 0
+}
+
+.heading-2 h2:after {
+    position: absolute;
+    content: "";
+    width: 2px;
+    height: 2px;
+    background-color: #282828;
+    left: 48px;
+    bottom: 0
+}
+
+.heading-2 .subheading {
+    font-size: 13px;
+    margin-bottom: 10px;
+}
+
+/* Heading #3 */
+.heading-3 h2 {
+    margin-bottom: 30px;
+}
+
+/* Heading #4 */
+.heading-4 h2 {
+    margin-bottom: 10px;
+}
+
+.heading-4 .subheading {
+    position: relative;
+    padding-bottom: 14px;
+    margin-bottom: 2px;
+}
+
+.heading-4 .subheading:before {
+    position: absolute;
+    content: "";
+    width: 46px;
+    height: 2px;
+    background-color: @color-theme;
+    left: -19px;
+    bottom: 0
+}
+
+.heading-4 .subheading:after {
+    position: absolute;
+    content: "";
+    width: 2px;
+    height: 2px;
+    background-color: #282828;
+    left: 29px;
+    bottom: 0
+}
+
+/* Heading #6 */
+.heading-6 h2 {
+    margin-bottom: 25px;
+}
+
+.heading-6 p {
+    margin-bottom: 15px;
+}
+
+.heading-6 h2:before {
+    left: 50%;
+    margin-left: -23px;
+}
+
+.heading-6 h2:after {
+    display: none
+}
+
+/* Heading #10 */
+.heading-10 h2 {
+    line-height: 1;
+    padding-top: 12px;
+}
+
+.heading-10 h2:after {
+    position: absolute;
+    content: "";
+    width: 2px;
+    height: 26px;
+    background-color: #282828;
+    right: 30px;
+    top: 50%;
+    margin-top: -6px;
+}
+
+/* Heading #11 */
+.heading-11 p {
+    color: #616161;
+    font-family: @font-body;
+    font-size: 15px;
+    font-weight: 700;
+    font-style: italic;
+    line-height: 27px;
+    margin-bottom: 0
+}
+
+/* Heading #12 */
+.heading-12 h2 {
+    font-size: 34px;
+    color: #222;
+    font-family: @font-heading;
+    margin-bottom: 10px
+}
+
+/* Heading #13 */
+.heading-13 h2 {
+    font-size: 60px;
+    color: #222;
+    font-weight: 800;
+    line-height: 73px;
+    margin-bottom: 18px
+}
+
+
+/* Custom, iPhone Retina */
+@media only screen and (min-width : 320px) and (max-width : 767px) {
+    .heading h2 {
+        font-size: 35px;
+        line-height: 45px;
+    }
+
+    .heading h2 {
+        margin-bottom: 15px;
+    }
+
+    .heading-12 h2 {
+        font-size: 30px;
+        line-height: 40px;
+    }
+
+    .heading-13 h2 {
+        font-size: 45px;
+        line-height: 55px;
+    }
+}
+
+/* Small Devices, Tablets */
+@media only screen and (min-width : 768px) and (max-width : 991px) {
+    .heading h2 {
+        margin-bottom: 15px;
+    }
+}
+
+@media only screen and (min-width : 992px) and (max-width : 1200px) {
+
+    .heading h2 {
+        font-size: 31px;
+        line-height: 43px;
+
+    }
+}

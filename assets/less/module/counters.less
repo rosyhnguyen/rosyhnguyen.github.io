@@ -1,0 +1,108 @@
+/*------------------------------------*\
+    #FACTS-SECTION
+\*------------------------------------*/
+
+.counter {
+    padding-bottom: 95px;
+}
+
+.counter .counter-bio {
+    color: #616161;
+    font-size: 15px;
+    font-weight: 700;
+    font-style: italic;
+    line-height: 27px;
+    margin-bottom: 0;
+}
+
+.counter .counter-panel {
+    text-align: left;
+    font-family: @font-heading;
+    font-weight: 800;
+    position: relative;
+}
+
+.counter .counter-panel .counter-icon {
+    position: absolute;
+    left: 0;
+    color: #282828;
+    font-size: 32px;
+}
+
+.counter .counter-panel .counter-content {
+    padding-left: 60px;
+    position: relative
+}
+
+.counter .counter-panel .counter-content:before {
+    position: absolute;
+    left: 47px;
+    top: 50%;
+    margin-top: -6px;
+    content: "";
+    width: 2px;
+    height: 12px;
+    background-color: rgba(34, 34, 34, 0.2);
+}
+
+.counter .counter-panel .counter-content .count-num {
+    color: @color-theme;
+    font-size: 18px;
+    line-height: 1;
+    display: block;
+    margin-bottom: 17px;
+}
+
+.counter .counter-panel .counter-content .count-dis {
+    color: #282828;
+    font-size: 14px;
+    line-height: 18px;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+
+/* Custom, iPhone Retina */
+@media only screen and (min-width : 320px) and (max-width : 767px) {
+    .counter .counter-bio {
+        text-align: left !important;
+        margin-bottom: 20px;
+    }
+
+    .counter .counter-panel {
+        margin-bottom: 30px;
+    }
+}
+
+/* Small Devices, Tablets */
+@media only screen and (min-width : 768px) and (max-width : 991px) {
+
+    .counter .counter-bio {
+        text-align: left !important;
+        margin-bottom: 20px;
+    }
+
+    .counter .counter-panel {
+        margin-bottom: 30px;
+    }
+
+}
+
+/* Medium screens */
+@media only screen and (min-width : 992px) and (max-width : 1100px) {
+    .counter .counter-panel .counter-icon {
+        position: static;
+    }
+
+    .counter .counter-panel .counter-content:before {
+        left: 4px
+    }
+
+    .counter .counter-panel .counter-content {
+        padding-left: 0;
+    }
+
+    .counter .counter-panel .counter-content .count-dis {
+        font-size: 13px;
+    }
+}

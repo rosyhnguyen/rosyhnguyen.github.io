@@ -1,0 +1,70 @@
+body {
+    margin: 0;
+    padding: 0;
+    background: white;
+    text-align: left;
+    color: black;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 400;
+    font-size: 34px;
+    line-height: 51px;
+    text-rendering: optimizeLegibility;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    -webkit-tap-highlight-color: transparent;
+  }
+#about-small {
+  width: 50%;
+}
+  img#oldweb {
+    max-width: 100%;
+  }
+  img#su-small {
+    max-width: 60%;
+  }
+  img.fit-interview{
+    max-width: 60%;
+  }
+  img.fit-sketch{
+    max-width: 80%;
+  }
+  section {
+    padding-bottom: 50px;
+  }
+  .process-2 {
+    padding-bottom: 0px;
+  }
+  .testimonial-panel .testimonial-content {
+    margin-bottom: 0px;
+  }
+  .taco {
+    max-width: 30%;
+  }
+ .author-name {
+   padding-top: 40px;
+ }
+ p {
+  color: #616161;
+ }
+ .service .service-panel p {
+  color: #616161;
+ }
+ .process .process-panel p {
+   color: #616161;
+ }
+ #top {
+   position: fixed;
+ }
+ .heading-2 h2:before {
+   background-color: #efefef;
+ }
+ .heading-2 h2:after {
+  display: none;
+ }
+ .resume {
+   font-size: 16px;
+ }
+ .resume {
+   list-style: square;
+
+ }

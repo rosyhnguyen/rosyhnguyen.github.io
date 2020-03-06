@@ -1,0 +1,181 @@
+/*------------------------------------*\
+    #Nav
+\*------------------------------------*/
+
+/* Custom, iPhone Retina */
+@media only screen and (max-width : 991px) {
+
+    .navbar-nav {
+        padding: 0 10px;
+        margin: 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .navbar-toggle {
+        border-color: @color-theme;
+        -moz-border-radius: 0;
+        -webkit-border-radius: 0;
+        border-radius: 0;
+        margin-top: 35px;
+    }
+
+    .navbar-toggle .icon-bar {
+        background-color: @color-theme
+    }
+
+    .container > .navbar-header {
+        margin-left: 0
+    }
+
+    .container > .navbar-collapse {
+        width: 100%;
+        background-color: @color-white;
+        margin-right: 0
+    }
+
+    .navbar-nav > li {
+        height: auto !important;
+        margin-right: 0;
+        position: relative;
+    }
+
+    .navbar-nav > li.pull-left {
+        float: none !important
+    }
+    .navbar-nav li a{
+        line-height: 26px;
+        display: block;
+    }
+    .navbar-nav > li > a {
+        line-height: 36px;
+        padding-right: 10px;
+        padding-left: 10px
+    }
+
+    .navbar-nav > li:after {
+        display: none
+    }
+
+    .navbar-nav > li.active {
+        border-bottom: none
+    }
+
+    .navbar-nav > li.has-dropdown > ul.dropdown-menu,
+    ul.mega-menu,
+    .dropdown-menu {
+        background-color: transparent;
+        position: relative;
+        border:none;
+        padding-left:20px;
+    }
+
+    li.has-dropdown > a:before,
+    li.dropdown-submenu > a:before {
+        font-family: fontawesome;
+        content: "\f105";
+        font-size: 13px;
+        position: absolute;
+        right:10px;
+        color:@color-secondary;
+        display: block;
+        line-height:36px;
+    }
+    li.dropdown-submenu > a:before{
+        right: 20px;
+        line-height:26px;
+    }
+    .navbar-nav > li.has-dropdown.show > a,
+    .navbar-nav > li.has-dropdown.show > a:hover,
+    .navbar-nav > li.has-dropdown.show > a:focus {
+        background-color: transparent;
+        border: none;
+        border-bottom: 1px solid rgba(0,0,0, 0.1)
+    }
+
+    .navbar-nav > li.has-dropdown.show > a:before,
+    li.dropdown-submenu.show > a:after {
+        -moz-transform: rotate(90deg);
+        -webkit-transform: rotate(90deg);
+        -ms-transform: rotate(90deg);
+        -o-transform: rotate(90deg);
+        transform: rotate(90deg);
+    }
+
+    li.dropdown-submenu > a:after,
+    li.dropdown-submenu.show > a:hover:after,
+    li.dropdown-submenu.show > a:focus:after {
+        right: 10px;
+    }
+
+    .nav > li > a:hover,
+    .nav > li > a:focus,
+    .dropdown-menu > li > a:hover,
+    .dropdown-menu > li > a:focus,
+    .mega-menu li a:hover,
+    .mega-menu li a:focus {
+        background-color: transparent
+    }
+
+    .mega-menu ul {
+        list-style: none;
+        padding-left: 25px;
+    }
+    .mega-menu ul li {
+        padding-top: 5px
+    }
+
+    ul.mega-menu {
+        list-style: none;
+        display: none;
+    }
+
+    .has-dropdown.show > .mega-menu,
+    .dropdown-submenu.show > .mega-menu,
+    .dropdown-submenu.show > .dropdown-menu,
+    .has-dropdown.show > .dropdown-menu{
+        display: block
+    }
+
+    .dropdown-submenu.show > .mega-menu ul {
+        padding-left: 50px;
+    }
+    .navbar-nav > li:before, .navbar-nav > li:after{
+        display: none;
+    }
+     
+    .navbar-brand{
+        margin-left: 15px;
+        line-height: 100px;
+        padding: 0;
+    }
+    .navbar-light .navbar-toggler{
+        margin-right: 15px;
+    }
+    .dropdown-toggle.menu-item a:after{
+        opacity: 0
+    }
+
+    .mega-dropdown .col{
+        flex-basis: auto;
+    }
+
+    .navbar-nav li a i {
+        margin-right:8px;
+    }
+    .mega-dropdown-menu .container a[href='#'] {
+        color: @color-theme;
+    }
+    .mega-dropdown-menu .container .col-md-3{
+        padding-right:0;
+        padding-left:0;
+    }
+    .header-8 .navbar-nav{
+        margin-right:0;
+    }
+ 
+}
+@media (min-width: 576px){
+    .mega-dropdown .container {
+        max-width: inherit;
+    }
+}

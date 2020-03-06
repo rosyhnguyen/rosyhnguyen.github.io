@@ -1,0 +1,200 @@
+/*------------------------------------*\
+    #PRICING-SECTION
+\*------------------------------------*/
+.pricing .price-table {
+    position: relative;
+    padding: 10px 15px;
+}
+
+.pricing .price-table:before,
+.pricing .price-table:after {
+    position: absolute;
+    content: '';
+    pointer-events: none
+}
+
+.pricing .price-table:before {
+    top: 3px;
+    right: 0;
+    bottom: 3px;
+    left: 0;
+    border-top: 2px solid #2f2f2f;
+    border-bottom: 2px solid #2f2f2f;
+}
+
+.pricing .price-table:after {
+    top: 0;
+    right: 3px;
+    bottom: 0;
+    left: 3px;
+    border-right: 2px solid #2f2f2f;
+    border-left: 2px solid #2f2f2f;
+}
+
+.pricing .price-table .panel {
+    margin-bottom: 0;
+    background-color: #fff;
+    border-radius: 0;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    border: 2px solid #1b1a1a;
+    border-top: none;
+}
+
+.pricing .price-table .panel .panel-body {
+    background-color: #1b1a1a;
+    background-image: url(../images/pricing/pricing-1.png);
+    background-position: top center;
+    background-repeat: no-repeat;
+    padding: 24px 24px 49px 24px;
+    text-align: center;
+}
+
+.pricing .price-table .panel-body .plan {
+    color: #f9f9f9;
+    font-family: @font-body;
+    font-size: 13px;
+    font-weight: 700;
+    font-style: italic;
+    line-height: 1;
+    margin-bottom: 40px;
+}
+
+.pricing .price-table .panel-body h3 {
+    color: @color-white;
+    font-family: @font-heading;
+    font-weight: 500;
+    line-height: 1;
+    margin-bottom: 10px;
+    font-size: 90px;
+}
+
+.pricing .price-table .panel-body .symbol {
+    font-size: 45px;
+}
+
+.pricing .price-table .panel-body .time {
+    font-size: 16px;
+}
+
+.pricing .price-table .panel-body .subtitle {
+    color: #bbb;
+    font-family: @font-lora;
+    font-size: 13px;
+    font-weight: 700;
+    font-style: italic;
+    line-height: 23px;
+    margin-bottom: 0
+}
+
+.pricing .price-table .list-group {
+    background-color: @color-white;
+    background-image: url(../images/pricing/pricing-2.png);
+    background-position: top center;
+    background-repeat: no-repeat;
+    padding: 50px 30px 5px 30px;
+    text-align: center;
+}
+
+.pricing .price-table .list-group li {
+    color: #616161;
+    font-family: @font-body;
+    font-size: 14px;
+    font-weight: 700;
+    font-style: italic;
+    line-height: 40px;
+    border: none;
+    padding: 0;
+    position: relative;
+    margin-bottom: 0
+}
+
+.pricing .price-table .list-group li:after {
+    position: absolute;
+    content: "";
+    bottom: 0;
+    left: 50%;
+    margin-left: -35px;
+    width: 70px;
+    height: 1px;
+    background-color: #e5e4e4;
+}
+
+.pricing .price-table .list-group li:last-child::after {
+    display: none
+}
+
+.pricing .price-table .panel-footer {
+    background-color: transparent;
+    padding: 30px;
+}
+
+.pricing .price-table .btn {
+    line-height: 50px;
+    font-size: 14px;
+    line-height: 50px;
+    text-transform: capitalize;
+    border-radius: 0;
+}
+
+
+
+/* Pricing #2 */
+.pricing-2 .price-table .panel-body .subtitle {
+    margin-bottom: 40px;
+}
+
+.pricing-2 .price-table .panel-body {
+    padding: 24px 30px 30px 30px
+}
+
+
+/* Pricing #3 */
+.pricing-3 .price-table {
+    padding: 0;
+
+}
+
+.pricing-3 .price-table:before,
+.pricing-3 .price-table:after {
+    display: none;
+}
+
+.pricing-4 .price-table .list-group {
+    padding-bottom: 40px;
+}
+
+/* Custom, iPhone Retina */
+@media only screen and (min-width : 320px) and (max-width : 767px) {
+    .pricing .price-table {
+        max-width: 380px;
+        margin: 0 auto 30px;
+    }
+
+    .pricing .price-table .panel-body h3 {
+        font-size: 80px;
+    }
+}
+
+/* Small Devices, Tablets */
+@media only screen and (min-width : 768px) and (max-width : 991px) {
+    .pricing .price-table {
+        max-width: 420px;
+        margin: 0 auto 30px;
+    }
+
+    .pricing .price-table .panel-body h3 {
+        font-size: 80px;
+    }
+}
+
+
+@media only screen and (min-width : 992px) and (max-width : 1200px) {
+    .pricing .price-table .panel-body h3 {
+        font-size: 80px;
+    }
+
+    .pricing .price-table .panel-body .time {
+        display: inherit;
+    }
+}

@@ -1,0 +1,120 @@
+/*------------------------------------*\
+    #Nav
+\*------------------------------------*/
+
+.navbar {
+    min-height: 100px;
+    margin-bottom: 0;
+    top: inherit;
+    padding: 0;
+}
+
+.navbar-collapse {
+    padding-right: 0;
+    padding-left: 0;
+}
+
+.navbar.affix {
+    background-color: @color-white;
+    padding-top: 0;
+    top: 0;
+}
+
+.navbar .logo {
+    line-height: 100px;
+}
+
+.navbar-nav {
+    margin-right: 0
+}
+
+.navbar-nav > li {
+    margin-right: 30px;
+    height: 100px;
+    position: relative;
+}
+
+.navbar-nav li a {
+    font-size: 13px;
+    font-family: @font-thirdy;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: @color-secondary;
+}
+
+.navbar-nav > li > a {
+    line-height: 100px;
+    padding: 0;
+}
+
+.nav .open > a,
+.nav .open > a:hover,
+.nav .open > a:focus {
+    background-color: transparent;
+    border: none;
+}
+
+.navbar-nav > li.active > ul {
+    margin-top: 0;
+}
+
+.navbar-nav > li > a:hover,
+.navbar-nav > li > a:focus {
+    background-color: transparent
+}
+
+/* Menu Level #1 */
+.navbar-nav > li:before,
+.navbar-nav > li:after {
+    position: absolute;
+    background: @color-secondary;
+    content: '';
+    opacity: 0;
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+    -webkit-transform: translateY(-10px);
+    -moz-transform: translateY(-10px);
+    -o-transform: translateY(-10px);
+    -ms-transform: translateY(-10px);
+    transform: translateY(-10px);
+}
+
+.navbar-nav > li:after {
+    bottom: 38px;
+    width: 15px;
+    height: 2px;
+}
+
+.navbar-nav > li:before {
+    bottom: 35px;
+    width: 2px;
+    height: 5px;
+}
+
+.navbar-nav > li:hover::after,
+.navbar-nav > li:hover::before {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+    -moz-transform: translateY(0);
+    -o-transform: translateY(0);
+    -ms-transform: translateY(0);
+    transform: translateY(0);
+}
+
+.navbar-nav > li.active::after,
+.navbar-nav > li.active:hover::after,
+.navbar-nav > li.active::before,
+.navbar-nav > li.active:hover::before {
+    opacity: 1;
+    transform: none;
+    -webkit-transform: none
+}
+
+.dropdown-toggle::after{
+    display: none;
+}
+.container-p0{
+    padding-right: 0;
+    padding-left: 0;
+}

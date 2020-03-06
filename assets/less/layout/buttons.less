@@ -1,0 +1,128 @@
+/*------------------------------------*\
+    #BUTTONS
+\*------------------------------------*/
+
+
+.btn {
+    position: relative;
+    z-index: 2;
+    font-family: @font-heading;
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 50px;
+    text-transform: capitalize;
+    text-align: center;
+    border-radius: 0;
+    padding: 0;
+    width: 180px;
+    height: 50px;
+    text-align: center;
+    border: none;
+    font-style: normal;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+}
+
+.btn-primary {
+    background-color: @color-theme;
+    color: @color-white;
+}
+
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active,
+.btn-primary:not(:disabled):not(.disabled).active,
+.btn-primary:not(:disabled):not(.disabled):active {
+    background-color: @color-theme;
+    color: @color-white;
+}
+
+.btn-secondary {
+    background-color: @color-heading;
+    color: @color-white;
+}
+
+.btn-secondary:hover,
+.btn-secondary:focus,
+.btn-secondary:active {
+    background-color: @color-heading;
+    color: @color-white;
+}
+
+
+.btn i {
+    margin-right: 16px;
+    position: relative;
+    padding-right: 17px;
+}
+
+.btn i:after {
+    position: absolute;
+    top: 50%;
+    margin-top: -5px;
+    right: 0;
+    content: "";
+    width: 2px;
+    height: 10px;
+    background-color: rgba(255, 255, 255, 0.2);
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+}
+
+
+.btn:hover i:after {
+    background-color: #fff;
+}
+
+.btn-block {
+    width: 100%;
+}
+
+
+.btn.focus,
+.btn:focus {
+    outline: 0;
+    box-shadow: none;
+}
+
+
+.btn-hover:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    z-index: -1;
+    transition: width .3s linear;
+}
+
+.btn-hover:hover:before {
+    width: 100%;
+}
+
+.btn-secondary.btn-hover:before {
+    background-color: @color-theme;
+}
+
+.btn-primary.btn-hover:before {
+    background-color: @color-white;
+}
+
+.btn-primary.btn-hover-inverse:before {
+    background-color: @color-heading;
+}
+
+.btn-primary.btn-hover:hover {
+    color: @color-theme;
+}
+
+.btn-primary.btn-hover-inverse:hover {
+    color: @color-white;
+}
+
+.btn-primary.btn-hover:hover i:after {
+    background-color: @color-theme;
+}

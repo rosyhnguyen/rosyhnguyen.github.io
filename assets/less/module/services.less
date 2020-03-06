@@ -1,0 +1,410 @@
+/*------------------------------------*\
+    #Services
+\*------------------------------------*/
+.service .service-panel {
+    position: relative
+}
+
+.service .service-panel .service-icon {
+    color: #282828;
+    font-size: 32px;
+    transition: .3s ease;
+}
+
+.service .service-panel h3 {
+    color: #282828;
+    font-family: @font-heading;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 29px;
+    text-transform: capitalize;
+    position: relative;
+    padding-bottom: 10px;
+    margin-bottom: 14px;
+}
+
+.service .service-panel h3:before {
+    position: absolute;
+    content: "";
+    width: 46px;
+    height: 2px;
+    background-color: @color-theme;
+    left: -10px;
+    bottom: 0
+}
+
+.service .service-panel h3:after {
+    position: absolute;
+    content: "";
+    width: 2px;
+    height: 2px;
+    background-color: #282828;
+    left: 39px;
+    bottom: 0
+}
+
+.service .service-panel p {
+    color: @color-body;
+    font-family: @font-body;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 23px;
+    margin-bottom: 10px;
+}
+
+.service .service-panel .service-more {
+    color: #222;
+    font-family: @font-heading;
+    font-size: 14px;
+    font-weight: 800;
+    line-height: 40px;
+    text-transform: capitalize;
+    padding: 0;
+    display: inline-block;
+    position: relative;
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+}
+
+.service .service-panel .service-more i {
+    margin-right: 9px;
+    display: inline-block;
+}
+
+.service .service-panel .service-more span {
+    display: inline-block;
+    -webkit-transition: all 0.4s ease;
+    -moz-transition: all 0.4s ease;
+    transition: all 0.4s ease;
+    -webkit-transform: translateX(-20px);
+    transform: translateX(-20px);
+    opacity: 0;
+}
+
+.service .service-panel:hover .service-more span,
+.service .service-panel .service-more.active span {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+.service .service-panel .service-more:hover {
+    color: @color-theme;
+}
+
+
+/* Service #1 */
+.service-1 .service-panel .service-icon {
+    position: absolute;
+    top: 0;
+    left: 19px;
+}
+
+.service-1 .service-panel .service-content {
+    padding-left: 100px;
+}
+
+/* Service #2 */
+.service-2 {
+    padding-bottom: 50px
+}
+
+.service-2 .service-panel p {
+    margin-bottom: 50px
+}
+
+.service-2 .service-carousel {
+    position: relative;
+}
+
+
+.service-2 .carousel-navs .owl-nav [class*=owl-] {
+    top: -98px;
+}
+
+.service-2 .carousel-navs .owl-nav .owl-prev {
+    right: 50px;
+    left: auto;
+}
+
+.service-2 .carousel-navs .owl-nav .owl-prev:after {
+    content: "";
+    position: absolute;
+    top: 20px;
+    right: -1px;
+    width: 2px;
+    height: 10px;
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Service #3 */
+.service-3 .service-panel {
+    text-align: center
+}
+
+.service-3 .service-panel .service-icon {
+    margin-bottom: 20px;
+}
+
+.service-3 .service-panel h3 {
+    padding-bottom: 0;
+    margin-bottom: 0;
+    transition: .3s ease;
+}
+
+.service-3 .service-panel h3:before,
+.service-3 .service-panel h3:after {
+    display: none
+}
+
+.service-3 .nav-tabs {
+    text-align: center;
+    border-bottom: none
+}
+
+.service-3 .nav-tabs > li {
+    float: none;
+    display: inline-block;
+    text-align: center;
+}
+
+.service-3 .nav-tabs > li {
+    margin-right: 80px;
+}
+
+.service-3 .nav-tabs > li:last-child {
+    margin-right: 0
+}
+
+.service-3 .nav-tabs > li > a {
+    border: none;
+    border-radius: 0;
+    padding: 0;
+    transition: .3s ease;
+}
+
+.service-3 .nav-tabs > li > a,
+.service-3 .nav-tabs > li > a:focus,
+.service-3 .nav-tabs > li > a:hover {
+    background-color: transparent;
+    border: none;
+}
+
+.service-3 .nav-tabs > li > a.active,
+.service-3 .nav-tabs > li > a.active:focus,
+.service-3 .nav-tabs > li > a.active:hover {
+    background-color: transparent;
+    color: @color-theme;
+    border: none;
+}
+
+.service-3 .nav-tabs > li > a.active .service-icon,
+.service-3 .nav-tabs > li > a.active h3,
+.service-3 .nav-tabs > li > a:hover .service-icon,
+.service-3 .nav-tabs > li > a:hover h3 {
+    color: @color-theme
+}
+
+.service-3 .tab-content {
+    padding-top: 35px;
+}
+
+.service-3 .tab-content .head {
+    color: #616161;
+    font-family: @font-body;
+    font-size: 15px;
+    font-weight: 700;
+    font-style: italic;
+    line-height: 27px;
+    text-align: right
+}
+
+.service-3 .tab-content p {
+    color: @color-body;
+    font-family: @font-body;
+    font-size: 14px;
+    font-style: italic;
+    line-height: 23px;
+    margin-bottom: 24px;
+}
+
+.service-3 .tab-content p:last-child {
+    margin-bottom: 0;
+}
+
+/* Service #4 */
+.service-4 {
+    padding-bottom: 65px;
+}
+
+.service-4 .service-panel .service-icon {
+    position: absolute;
+    left: 0;
+}
+
+.service-4 .service-panel .service-content {
+    padding-left: 81px;
+}
+
+.service-4 .service-panel {
+    margin-bottom: 35px
+}
+
+.service-4 .service-panel p {
+    margin-bottom: 0
+}
+
+/* Service #5 */
+.service-5 .service-panel {
+    text-align: center;
+}
+
+.service-5 .service-panel h3:before,
+.service-5 .service-panel h3:after,
+.service-5 .service-panel .service-more:before {
+    display: none
+}
+
+.service-5 .service-panel p {
+    margin-bottom: 0;
+}
+
+.service-5 .service-panel .service-icon {
+    font-size: 64px;
+}
+
+.service-5 .service-panel .service-more {
+    border: none;
+    width: auto;
+    transition: 0.3s ease-in-out;
+    padding: 0;
+    font-weight: 800;
+
+}
+
+.service-5 .service-panel:hover  .service-more{
+    color: @color-theme;
+}
+
+.service-5 .owl-dots {
+    margin-top: 26px;
+}
+
+
+/* Service #6 */
+.service-6 .service-panel .service-content {
+    padding-left: 0;
+}
+
+/* Custom, iPhone Retina */
+@media only screen and (min-width : 320px) and (max-width : 767px) {
+    .service-2 .carousel-navs .owl-nav [class*=owl-] {
+        top: 100%;
+        text-align: center;
+    }
+
+    .service-2 .carousel-navs .owl-nav .owl-next {
+        right: 50%;
+        margin-right: -50px;
+    }
+
+    .service-2 .carousel-navs .owl-nav .owl-prev {
+        left: 50%;
+        right: auto;
+        margin-left: -50px;
+    }
+
+    .service-3 .nav-tabs > li,
+    .service-3 .nav-tabs > li:last-child {
+        margin: 0 10px 15px;
+    }
+
+    .service-3 .tab-content {
+        padding-top: 20px;
+    }
+
+    .service-3 .tab-content .head {
+        text-align: left;
+        margin-bottom: 15px;
+    }
+
+    .service-3 .service-panel .service-icon {
+        margin-bottom: 0;
+    }
+
+    .service-3 .service-panel h3 {
+        font-size: 15px;
+    }
+
+
+
+    .service-3 .service-panel .service-icon {
+        font-size: 25px;
+        margin-bottom: 0;
+    }
+
+    .service-4 .service-img {
+        margin-bottom: 30px;
+    }
+}
+
+/* Small Devices, Tablets */
+@media only screen and (min-width : 768px) and (max-width : 991px) {
+
+    .service .service-panel h3 {
+        font-size: 13px;
+    }
+
+    .service-2 .heading p {
+        padding-right: 100px;
+    }
+
+    .service-3 .nav-tabs > li {
+        margin-right: 30px;
+    }
+
+    .service-3 .tab-content .head {
+        text-align: left;
+        margin-bottom: 15px;
+    }
+
+    .service-3 .service-panel .service-icon {
+        margin-bottom: 0;
+    }
+
+    .service-4 .service-img {
+        margin-bottom: 30px;
+    }
+    .service-4 .service-img img{
+        display: block;
+        margin: auto;
+    }
+}
+
+@media only screen and (min-width : 992px) and (max-width : 1024px) {
+    .service-3 .nav-tabs > li {
+        margin-right: 69px;
+    }
+
+    .service-4 .service-img img {
+        width: 100%;
+    }
+
+}
+
+@media only screen and (min-width : 992px) and (max-width : 1200px) {
+    .service-3 .nav-tabs > li {
+        margin-right: 35px;
+    }
+
+    .service-3 .service-panel h3 {
+        font-size: 17px;
+    }
+
+    .service-3 .service-panel .service-icon {
+        margin-bottom: 10px;
+    }
+    .service-4 .service-img{
+        margin-bottom: 30px;
+    }
+}
