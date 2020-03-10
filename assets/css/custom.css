@@ -65,6 +65,7 @@ body {
   font-style: italic;
   color: #25d4ce;
   font-weight: bold;
+  font-size: 20px;
  }
  .heading-2 h2:before {
    background-color: #efefef;
