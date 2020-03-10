@@ -1,12 +1,12 @@
 {
-  "name": "celia",
+  "name": "rosy",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
     "lite": "lite-server",
     "start": "npm run lite"
   },
-  "author": "Rosy",
+  "author": "Rosy H Nguyen",
   "license": "ISC",
   "description": "",
   "devDependencies": {

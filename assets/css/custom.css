@@ -43,17 +43,28 @@ body {
  .author-name {
    padding-top: 40px;
  }
+ .about-1 .about-content p {
+   color: #444444;
+   font-size: 16px;
+ }
  p {
-  color: #616161;
+  color: #444444;
+  font-size: 16px;
+ }
+ .heading p {
+   font-size: 16px;
  }
  .service .service-panel p {
-  color: #616161;
+  font-size: 16px;
  }
  .process .process-panel p {
-   color: #616161;
+  font-size: 16px;
+  color: #666666;
  }
- #top {
-   position: fixed;
+ #fittext {
+  font-style: italic;
+  color: #25d4ce;
+  font-weight: bold;
  }
  .heading-2 h2:before {
    background-color: #efefef;
@@ -66,5 +77,21 @@ body {
  }
  .resume {
    list-style: square;
-
+ }
+ li.has-dropdown > a:before, li.dropdown-submenu > a:before {
+   display: none;
+ }
+ .carousel-navs .owl-nav .owl-prev:before, .carousel-navs .owl-nav .owl-next:before {
+   color: black;
+ }
+ .carousel-navs .owl-nav [class*=owl-] {
+   background-color: white;
+ }
+ .btn {
+   width: fit-content;
+ }
+ @media only screen and (min-width: 768px) {
+  #logor {
+    position: fixed;
+  }
  }
