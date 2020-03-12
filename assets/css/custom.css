@@ -91,6 +91,14 @@ body {
  .btn {
    width: fit-content;
  }
+ .email a {
+   font-size: 13px;
+   color: #9b9b9b;
+ }
+ .email {
+  line-height: 8px;
+
+ }
  @media only screen and (min-width: 768px) {
   #logor {
     position: fixed;
