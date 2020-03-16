@@ -88,15 +88,12 @@ body {
  .carousel-navs .owl-nav [class*=owl-] {
    background-color: white;
  }
- .btn {
-   width: fit-content;
- }
  .email a {
    font-size: 13px;
    color: #9b9b9b;
  }
  .email {
-  line-height: 8px;
+  line-height: 13px;
 
  }
  @media only screen and (min-width: 768px) {
