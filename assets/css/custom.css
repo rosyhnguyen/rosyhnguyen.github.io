@@ -94,8 +94,10 @@ body {
  }
  .email {
   line-height: 13px;
-
  }
+.fa-heart {
+  color: red;
+}
  @media only screen and (min-width: 768px) {
   #logor {
     position: fixed;
