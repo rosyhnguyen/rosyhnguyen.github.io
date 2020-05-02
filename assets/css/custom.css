@@ -13,6 +13,17 @@ body {
     -webkit-font-smoothing: antialiased;
     -webkit-tap-highlight-color: transparent;
   }
+section {
+  padding-top: 100px;
+  padding-bottom: 100px;
+}
+.btn-secondary {
+  color: #1a73e8;
+  background-color: #f4f8fe;
+  border: 0.5px solid #dadce0;
+  box-shadow: none;
+  border-radius: 5px;
+}
 .portfolio-creative .portfolio-title h4 {
   font-size: 24px;
 }
