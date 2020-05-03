@@ -14,8 +14,12 @@ body {
     -webkit-tap-highlight-color: transparent;
   }
 section {
-  padding-top: 100px;
-  padding-bottom: 100px;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+h3, .h3, h4, .h4 {
+  font-size: 16px;
+  line-height: 1.5;
 }
 .btn-secondary {
   color: #1a73e8;
@@ -24,6 +28,7 @@ section {
   box-shadow: none;
   border-radius: 5px;
 }
+
 .portfolio-creative .portfolio-title h4 {
   font-size: 24px;
 }
@@ -32,6 +37,9 @@ ul.list li {
 }
 .heading p {
   line-height: 40px;
+}
+.service .service-panel p {
+  color: black;
 }
 .hades.tparrows {
   visibility: hidden;
@@ -68,7 +76,8 @@ ul.list li {
  }
  .about-1 .about-content p {
    color: #444444;
-   font-size: 16px;
+   font-size: 20px;
+   line-height: 30px;
  }
  p {
   color: #444444;
