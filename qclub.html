@@ -1,0 +1,656 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>QReward App UX/UI Design</title><style>
+    /* webkit printing magic: print all background colors */
+    html {
+        -webkit-print-color-adjust: exact;
+    }
+    * {
+        box-sizing: border-box;
+        -webkit-print-color-adjust: exact;
+    }
+    
+    html,
+    body {
+        margin: 0;
+        padding: 0;
+    }
+    @media only screen {
+        body {
+            margin: 2em auto;
+            max-width: 900px;
+            color: rgb(55, 53, 47);
+        }
+    }
+    
+    body {
+        line-height: 1.5;
+        /*white-space: pre-wrap;*/
+    }
+    
+    a,
+    a.visited {
+        color: inherit;
+        text-decoration: underline;
+    }
+    
+    .pdf-relative-link-path {
+        font-size: 80%;
+        color: #444;
+    }
+    
+    h1,
+    h2,
+    h3 {
+        letter-spacing: -0.01em;
+        line-height: 1.2;
+        font-weight: 600;
+        margin-bottom: 0;
+    }
+    
+    .page-title {
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin-top: 0;
+        margin-bottom: 0.75em;
+    }
+    
+    h1 {
+        font-size: 1.875rem;
+        margin-top: 1.875rem;
+    }
+    
+    h2 {
+        font-size: 1.5rem;
+        margin-top: 1.5rem;
+    }
+    
+    h3 {
+        font-size: 1.25rem;
+        margin-top: 1.25rem;
+    }
+    
+    .source {
+        border: 1px solid #ddd;
+        border-radius: 3px;
+        padding: 1.5em;
+        word-break: break-all;
+    }
+    
+    .callout {
+        border-radius: 3px;
+        padding: 1rem;
+    }
+    
+    figure {
+        margin: 1.25em 0;
+        page-break-inside: avoid;
+    }
+    
+    figcaption {
+        opacity: 0.5;
+        font-size: 85%;
+        margin-top: 0.5em;
+    }
+    
+    mark {
+        background-color: transparent;
+    }
+    
+    .indented {
+        padding-left: 1.5em;
+    }
+    
+    hr {
+        background: transparent;
+        display: block;
+        width: 100%;
+        height: 1px;
+        visibility: visible;
+        border: none;
+        border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+    }
+    
+    img {
+        max-width: 100%;
+    }
+    
+    @media only print {
+        img {
+            max-height: 100vh;
+            object-fit: contain;
+        }
+    }
+    
+    @page {
+        margin: 1in;
+    }
+    
+    .collection-content {
+        font-size: 0.875rem;
+    }
+    
+    .column-list {
+        display: flex;
+        justify-content: space-between;
+    }
+    
+    .column {
+        padding: 0 1em;
+    }
+    
+    .column:first-child {
+        padding-left: 0;
+    }
+    
+    .column:last-child {
+        padding-right: 0;
+    }
+    
+    .table_of_contents-item {
+        display: block;
+        font-size: 0.875rem;
+        line-height: 1.3;
+        padding: 0.125rem;
+    }
+    
+    .table_of_contents-indent-1 {
+        margin-left: 1.5rem;
+    }
+    
+    .table_of_contents-indent-2 {
+        margin-left: 3rem;
+    }
+    
+    .table_of_contents-indent-3 {
+        margin-left: 4.5rem;
+    }
+    
+    .table_of_contents-link {
+        text-decoration: none;
+        opacity: 0.7;
+        border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+    }
+    
+    table,
+    th,
+    td {
+        border: 1px solid rgba(55, 53, 47, 0.09);
+        border-collapse: collapse;
+    }
+    
+    table {
+        border-left: none;
+        border-right: none;
+    }
+    
+    th,
+    td {
+        font-weight: normal;
+        padding: 0.25em 0.5em;
+        line-height: 1.5;
+        min-height: 1.5em;
+        text-align: left;
+    }
+    
+    th {
+        color: rgba(55, 53, 47, 0.6);
+    }
+    
+    ol,
+    ul {
+        margin: 0;
+        margin-block-start: 0.6em;
+        margin-block-end: 0.6em;
+    }
+    
+    li > ol:first-child,
+    li > ul:first-child {
+        margin-block-start: 0.6em;
+    }
+    
+    ul > li {
+        list-style: disc;
+    }
+    
+    ul.to-do-list {
+        text-indent: -1.7em;
+    }
+    
+    ul.to-do-list > li {
+        list-style: none;
+    }
+    
+    .to-do-children-checked {
+        text-decoration: line-through;
+        opacity: 0.375;
+    }
+    
+    ul.toggle > li {
+        list-style: none;
+    }
+    
+    ul {
+        padding-inline-start: 1.7em;
+    }
+    
+    ul > li {
+        padding-left: 0.1em;
+    }
+    
+    ol {
+        padding-inline-start: 1.6em;
+    }
+    
+    ol > li {
+        padding-left: 0.2em;
+    }
+    
+    .mono ol {
+        padding-inline-start: 2em;
+    }
+    
+    .mono ol > li {
+        text-indent: -0.4em;
+    }
+    
+    .toggle {
+        padding-inline-start: 0em;
+        list-style-type: none;
+    }
+    
+    /* Indent toggle children */
+    .toggle > li > details {
+        padding-left: 1.7em;
+    }
+    
+    .toggle > li > details > summary {
+        margin-left: -1.1em;
+    }
+    
+    .selected-value {
+        display: inline-block;
+        padding: 0 0.5em;
+        background: rgba(206, 205, 202, 0.5);
+        border-radius: 3px;
+        margin-right: 0.5em;
+        margin-top: 0.3em;
+        margin-bottom: 0.3em;
+        white-space: nowrap;
+    }
+    
+    .collection-title {
+        display: inline-block;
+        margin-right: 1em;
+    }
+    
+    time {
+        opacity: 0.5;
+    }
+    
+    .icon {
+        display: inline-block;
+        max-width: 1.2em;
+        max-height: 1.2em;
+        text-decoration: none;
+        vertical-align: text-bottom;
+        margin-right: 0.5em;
+    }
+    
+    img.icon {
+        border-radius: 3px;
+    }
+    
+    .user-icon {
+        width: 1.5em;
+        height: 1.5em;
+        border-radius: 100%;
+        margin-right: 0.5rem;
+    }
+    
+    .user-icon-inner {
+        font-size: 0.8em;
+    }
+    
+    .text-icon {
+        border: 1px solid #000;
+        text-align: center;
+    }
+    
+    .page-cover-image {
+        display: block;
+        object-fit: cover;
+        width: 100%;
+        height: 30vh;
+    }
+    
+    .page-header-icon {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+    }
+    
+    .page-header-icon-with-cover {
+        margin-top: -0.72em;
+        margin-left: 0.07em;
+    }
+    
+    .page-header-icon img {
+        border-radius: 3px;
+    }
+    
+    .link-to-page {
+        margin: 1em 0;
+        padding: 0;
+        border: none;
+        font-weight: 500;
+    }
+    
+    p > .user {
+        opacity: 0.5;
+    }
+    
+    td > .user,
+    td > time {
+        white-space: nowrap;
+    }
+    
+    input[type="checkbox"] {
+        transform: scale(1.5);
+        margin-right: 0.6em;
+        vertical-align: middle;
+    }
+    
+    p {
+        margin-top: 0.5em;
+        margin-bottom: 0.5em;
+    }
+    
+    .image {
+        border: none;
+        margin: 1.5em 0;
+        padding: 0;
+        border-radius: 0;
+        text-align: center;
+    }
+    
+    .code,
+    code {
+        background: rgba(135, 131, 120, 0.15);
+        border-radius: 3px;
+        padding: 0.2em 0.4em;
+        border-radius: 3px;
+        font-size: 85%;
+        tab-size: 2;
+    }
+    
+    code {
+        color: #eb5757;
+    }
+    
+    .code {
+        padding: 1.5em 1em;
+    }
+    
+    .code-wrap {
+        white-space: pre-wrap;
+        word-break: break-all;
+    }
+    
+    .code > code {
+        background: none;
+        padding: 0;
+        font-size: 100%;
+        color: inherit;
+    }
+    
+    blockquote {
+        font-size: 1.25em;
+        margin: 1em 0;
+        padding-left: 1em;
+        border-left: 3px solid rgb(55, 53, 47);
+    }
+    
+    .bookmark {
+        text-decoration: none;
+        max-height: 8em;
+        padding: 0;
+        display: flex;
+        width: 100%;
+        align-items: stretch;
+    }
+    
+    .bookmark-title {
+        font-size: 0.85em;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        height: 1.75em;
+        white-space: nowrap;
+    }
+    
+    .bookmark-text {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .bookmark-info {
+        flex: 4 1 180px;
+        padding: 12px 14px 14px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    
+    .bookmark-image {
+        width: 33%;
+        flex: 1 1 180px;
+        display: block;
+        position: relative;
+        object-fit: cover;
+        border-radius: 1px;
+    }
+    
+    .bookmark-description {
+        color: rgba(55, 53, 47, 0.6);
+        font-size: 0.75em;
+        overflow: hidden;
+        max-height: 4.5em;
+        word-break: break-word;
+    }
+    
+    .bookmark-href {
+        font-size: 0.75em;
+        margin-top: 0.25em;
+    }
+    
+    .sans { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+    .code { font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace; }
+    .serif { font-family: Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif; }
+    .mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+    .pdf .sans { font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+    
+    .pdf .code { font-family: Source Code Pro, "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+    
+    .pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+    
+    .pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+    
+    .highlight-default {
+    }
+    .highlight-gray {
+        color: rgb(155,154,151);
+    }
+    .highlight-brown {
+        color: rgb(100,71,58);
+    }
+    .highlight-orange {
+        color: rgb(217,115,13);
+    }
+    .highlight-yellow {
+        color: rgb(223,171,1);
+    }
+    .highlight-teal {
+        color: rgb(15,123,108);
+    }
+    .highlight-blue {
+        color: rgb(11,110,153);
+    }
+    .highlight-purple {
+        color: rgb(105,64,165);
+    }
+    .highlight-pink {
+        color: rgb(173,26,114);
+    }
+    .highlight-red {
+        color: rgb(224,62,62);
+    }
+    .highlight-gray_background {
+        background: rgb(235,236,237);
+    }
+    .highlight-brown_background {
+        background: rgb(233,229,227);
+    }
+    .highlight-orange_background {
+        background: rgb(250,235,221);
+    }
+    .highlight-yellow_background {
+        background: rgb(251,243,219);
+    }
+    .highlight-teal_background {
+        background: rgb(221,237,234);
+    }
+    .highlight-blue_background {
+        background: rgb(221,235,241);
+    }
+    .highlight-purple_background {
+        background: rgb(234,228,242);
+    }
+    .highlight-pink_background {
+        background: rgb(244,223,235);
+    }
+    .highlight-red_background {
+        background: rgb(251,228,228);
+    }
+    .block-color-default {
+        color: inherit;
+        fill: inherit;
+    }
+    .block-color-gray {
+        color: rgba(55, 53, 47, 0.6);
+        fill: rgba(55, 53, 47, 0.6);
+    }
+    .block-color-brown {
+        color: rgb(100,71,58);
+        fill: rgb(100,71,58);
+    }
+    .block-color-orange {
+        color: rgb(217,115,13);
+        fill: rgb(217,115,13);
+    }
+    .block-color-yellow {
+        color: rgb(223,171,1);
+        fill: rgb(223,171,1);
+    }
+    .block-color-teal {
+        color: rgb(15,123,108);
+        fill: rgb(15,123,108);
+    }
+    .block-color-blue {
+        color: rgb(11,110,153);
+        fill: rgb(11,110,153);
+    }
+    .block-color-purple {
+        color: rgb(105,64,165);
+        fill: rgb(105,64,165);
+    }
+    .block-color-pink {
+        color: rgb(173,26,114);
+        fill: rgb(173,26,114);
+    }
+    .block-color-red {
+        color: rgb(224,62,62);
+        fill: rgb(224,62,62);
+    }
+    .block-color-gray_background {
+        background: rgb(235,236,237);
+    }
+    .block-color-brown_background {
+        background: rgb(233,229,227);
+    }
+    .block-color-orange_background {
+        background: rgb(250,235,221);
+    }
+    .block-color-yellow_background {
+        background: rgb(251,243,219);
+    }
+    .block-color-teal_background {
+        background: rgb(221,237,234);
+    }
+    .block-color-blue_background {
+        background: rgb(221,235,241);
+    }
+    .block-color-purple_background {
+        background: rgb(234,228,242);
+    }
+    .block-color-pink_background {
+        background: rgb(244,223,235);
+    }
+    .block-color-red_background {
+        background: rgb(251,228,228);
+    }
+    .select-value-color-default { background-color: rgba(206,205,202,0.5); }
+    .select-value-color-gray { background-color: rgba(155,154,151, 0.4); }
+    .select-value-color-brown { background-color: rgba(140,46,0,0.2); }
+    .select-value-color-orange { background-color: rgba(245,93,0,0.2); }
+    .select-value-color-yellow { background-color: rgba(233,168,0,0.2); }
+    .select-value-color-green { background-color: rgba(0,135,107,0.2); }
+    .select-value-color-blue { background-color: rgba(0,120,223,0.2); }
+    .select-value-color-purple { background-color: rgba(103,36,222,0.2); }
+    .select-value-color-pink { background-color: rgba(221,0,129,0.2); }
+    .select-value-color-red { background-color: rgba(255,0,26,0.2); }
+    
+    .checkbox {
+        display: inline-flex;
+        vertical-align: text-bottom;
+        width: 16;
+        height: 16;
+        background-size: 16px;
+        margin-left: 2px;
+        margin-right: 5px;
+    }
+    
+    .checkbox-on {
+        background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+    }
+    
+    .checkbox-off {
+        background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+    }
+        
+    </style></head><body>
+        <nav style="font-family:'Open Sans', sans-serif; display:flex; justify-content: flex-end; margin:0; padding: 2em 0; ">
+                       
+            <a href="index.html" style="text-decoration: none; padding:0 20px;">HOME</a>
+      
+            <a href="page-about-me-2.html" style="text-decoration: none;padding:0 20px;">ABOUT</a>
+       
+            <a href="blog.html" style="text-decoration: none;padding:0 20px;">PUBLICATIONS</a>
+       
+    </nav>
+
+        <article id="e80c5020-b2a4-47d5-9d7b-c39f45d34803" class="page sans"><header><img class="page-cover-image" src="QReward%20App%20UX%20UI%20Design%20d05e14b2f1dc4546811127eb6e40099b/Header_mockup.jpg" style="object-position:center 36.31999999999999%"/><div class="page-header-icon page-header-icon-with-cover"><span class="icon">📱</span></div><h1 class="page-title">QReward App UX/UI Design</h1></header><div class="page-body"><ul id="a8a4a738-570c-4495-aa4a-b43c212339c3" class="toggle"><li><details open=""><summary>Table of content</summary><nav id="bda69ddf-1932-4b39-a2e2-3befb3eac3bf" class="block-color-gray table_of_contents"><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#e1378c52-bdde-44b7-b1a8-9e17829cb193"><mark class="highlight-orange">Background</mark></a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#159250bb-11a2-4944-92ab-437e6838c653"><mark class="highlight-blue">Overall context</mark></a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#9f8f5c4f-45e9-4c7c-af98-9a3519fc2d68"><mark class="highlight-blue">My role</mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#5200e264-e7e1-4985-b954-2164e5150f73"><mark class="highlight-orange">Summary</mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#3a9ccfef-0e22-4d26-8c6c-ae1326c79dac"><mark class="highlight-orange">Research Process </mark></a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#64553a95-f236-40c9-b3ee-894b134f026b"><mark class="highlight-blue">In-depth Interviews</mark></a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#d471dba9-078b-48d2-9a1c-757bbd45355b"><mark class="highlight-gray_background">Clarity Issue</mark></a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#aa105e1e-4cda-4fb1-84ad-d07881dd76ac"><mark class="highlight-gray_background">Lack of motivation/incentive </mark></a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#638b7d8b-15b6-45a7-b88a-accd481f5aca"><mark class="highlight-gray_background">The app has no real value</mark></a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#41ff3d7e-6ffd-4d6c-a9cb-4996cef3a785"><mark class="highlight-gray_background">Users prefer not download the app </mark></a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#76b5b75f-5f4f-4f23-91db-2e3e14062df1"><mark class="highlight-gray_background">The app is no fun</mark></a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#685ac777-70e8-4f9f-be7a-fc9332e26f8e"><mark class="highlight-gray_background">Brand trust</mark></a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#f35d4340-ba87-4b43-913d-c60866221acc"><mark class="highlight-blue">Stakeholder Interview</mark></a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#ca8c0483-3100-4bbc-a4fd-e3cb629d1bc9"><mark class="highlight-blue">User Survey</mark></a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#3fc2cc7b-7f26-4965-9f32-562d00447a09"><mark class="highlight-blue">Secondary research</mark></a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#c18c0e84-dc35-4b40-9b77-c86f08fe1630"><mark class="highlight-blue">Competitor analysis </mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#e5aa0539-f2fa-4eec-be28-68e8b5f07b34"><mark class="highlight-orange">Ideate Solution</mark></a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#0219cd8b-20df-4082-a858-433215e6a4f6"><mark class="highlight-blue">Wireframes &amp; Final UI</mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#369cf3b7-2c17-4685-8a20-9a0c59896cab"><mark class="highlight-orange">Usability Testing</mark></a></div></nav></details></li></ul><h1 id="e1378c52-bdde-44b7-b1a8-9e17829cb193" class=""><mark class="highlight-orange">Background</mark></h1><h2 id="159250bb-11a2-4944-92ab-437e6838c653" class=""><mark class="highlight-blue">Overall context</mark></h2><p id="cd7cfe7c-d4a5-4d31-ba77-3a1646e0c8ff" class="">QReward is a really fun customer loyalty app that gets you access to exclusive, relevant, local offers in your community. Each transaction rewards you with Q Bucks. You can also play games to earn QBucks. QReward provide solutions for business to increase customer retention. QReward is first launched in Vancouver, Canada.</p><h2 id="9f8f5c4f-45e9-4c7c-af98-9a3519fc2d68" class=""><mark class="highlight-blue">My role</mark></h2><p id="2f63c948-a7a3-4846-9ce4-7efd502155f6" class="">I worked as full-time <strong>Product Designer</strong> involving from <strong>UX research</strong> to <strong>UI design</strong> to the development handoff phase: stakeholder interview, user interview, research studies, prototyping, usability testing. I report my work to the founder on the daily basis and collaborate with development team outsourced in India.</p><p id="99805023-8a0f-400e-9c7d-2c85d39557fc" class="">
+    </p><ul id="610082c2-a5fa-4164-a2bb-f2b5b55c5040" class="toggle"><li><details open=""><summary>Tools/Softwares I use to build this app</summary><p id="14d5816c-d607-4c42-ac4c-c357f57d84a1" class="">Figma</p><p id="b0ab533c-9eef-4151-aa00-89b49f3c2889" class="">Miro</p><p id="4fea8873-e2ac-411f-95c6-0fca0a852087" class="">Notion</p><p id="e6e81726-249a-4fb3-886f-56b65da47bbc" class="">React Native</p><p id="9f6cac04-af6f-44b5-ae2f-ea54c6a9d5a9" class="">Adobe Suite (Photoshop, Illustrator)</p></details></li></ul><h1 id="5200e264-e7e1-4985-b954-2164e5150f73" class=""><mark class="highlight-orange">Summary</mark></h1>
+    <figure id="f5183755-69ec-49e1-b5bd-653c915b437d"><div class="source"><div style="padding:60.05% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/461259525?autoplay=1&loop=1" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe></div><script src="https://player.vimeo.com/api/player.js"></script></div></figure>
+
+    <p id="d852a8e7-db29-45e8-b25b-f6a000889ea9" class="block-color-blue"><strong><a href="https://www.figma.com/proto/UC2Iv4wPnYyZI1w2sDEWLr/Hi-fi-Reward-App-Prototype?node-id=106%3A17554&amp;viewport=269%2C77%2C0.03272286430001259&amp;scaling=scale-down">Click here to interact with the prototype in a new window </a></strong></p><p id="796a394f-76a5-42c1-a094-c678ddb97c89" class="">
+    </p><p id="cadf66c7-802a-42be-abe3-2121b4f730f0" class="">The main problem when building this app is I need to bring in a lot of concepts into one single app: QReward is a combination of many concepts:</p><ul id="cc39f996-dfff-497d-a039-3a616771601b" class="bulleted-list"><li><strong>Customer loyalty </strong></li></ul><ul id="71316811-9400-4dce-8e08-6fb108178841" class="bulleted-list"><li><strong>Gamification</strong></li></ul><ul id="788e391c-ba25-473b-9625-1b56fce220f3" class="bulleted-list"><li><strong>E-commerce </strong></li></ul><p id="7e4e90f8-8540-4c06-98e8-b8738b8df6d0" class="">In addition, as being the only designer in the company, I have to cover the entire UX/ UI process and the design department.</p><p id="5c9c8a79-eb06-448f-91ce-158be827952d" class="">
+    </p><p id="f0ff4e53-8a05-4199-aa3e-7e6919119c67" class="">To solve this complexity, I apply a wide variety of methods in each phase:</p><ul id="f6d80fce-84fd-49d6-bc75-fa6d4e690870" class="bulleted-list"><li>Research: Surveys, in-depth virtual interviews, stakeholder interview, secondary study, competitor analysis. <strong>Stakeholder interview</strong> and <strong>competitor analysis</strong> are on my main focus because those two methods work well under low startup research budget.</li></ul><ul id="547433e3-165e-4887-a760-83896305b385" class="bulleted-list"><li>Ideate:  I use affinity mapping to group features into 3 main concepts as mentioned above. </li></ul><p id="ca19aa9a-d0cd-413b-b597-f299aae9f738" class=""><strong>Gamification</strong></p><div id="cd13a892-5ff9-49dc-951e-dcb24d50d2e7" class="column-list"><div id="e204e47b-dca5-40a0-9797-51500fcbb61c" style="width:25%" class="column"><figure id="d05e14b2-f1dc-4546-8111-27eb6e40099b" class="image"><a href="QReward%20App%20UX%20UI%20Design%20d05e14b2f1dc4546811127eb6e40099b/secondary.png"><img style="width:732px" src="QReward%20App%20UX%20UI%20Design%20d05e14b2f1dc4546811127eb6e40099b/secondary.png"/></a><figcaption>Users earn QBucks while playing Wac-a-mole</figcaption></figure><p id="7e09c945-9df9-449b-8233-de3ac6f863dc" class="">
+    </p></div><div id="b14b43ce-b915-4b08-b5ad-9402cdfca4c9" style="width:25.000000000000007%" class="column"><figure id="81b77187-bc8c-4adb-8b0c-a100c3c8a632" class="image"><a href="QReward%20App%20UX%20UI%20Design%20d05e14b2f1dc4546811127eb6e40099b/secondary%201.png"><img style="width:732px" src="QReward%20App%20UX%20UI%20Design%20d05e14b2f1dc4546811127eb6e40099b/secondary%201.png"/></a><figcaption>QINGO is our own Bingo version. Win prizes if you redeem any row or column, middle cross, cross X or the outside border plus middle cross</figcaption></figure><p id="3390b94c-2953-405a-9957-b4ad0400147c" class="">
+    </p></div><div id="9d5a9ddc-98f0-45c7-9baf-bb674b81bd58" style="width:25%" class="column"><figure id="5963ac82-e893-4b2b-ac0f-9e3dc24d3ce8" class="image"><a href="QReward%20App%20UX%20UI%20Design%20d05e14b2f1dc4546811127eb6e40099b/secondary%202.png"><img style="width:732px" src="QReward%20App%20UX%20UI%20Design%20d05e14b2f1dc4546811127eb6e40099b/secondary%202.png"/></a><figcaption>Lucky Draw to randomly award users with prizes</figcaption></figure><p id="17fe8ecc-0ace-4507-a0c8-29cb5d8a09e0" class="">
+    </p></div><div id="b88647a3-8d4c-4437-b556-ec686d900610" style="width:25%" class="column"><figure id="36073aed-23ca-41a1-b5bd-628fea6c9116" class="image"><a href="QReward%20App%20UX%20UI%20Design%20d05e14b2f1dc4546811127eb6e40099b/secondary%203.png"><img style="width:732px" src="QReward%20App%20UX%20UI%20Design%20d05e14b2f1dc4546811127eb6e40099b/secondary%203.png"/></a><figcaption>Spin once a day for big prizes. If users want the second spin for the day, they&#x27;ll need to watch 10s ad</figcaption></figure><p id="b1812b92-1ea8-4dc2-a599-b3a44b7f1b57" class="">
+    </p></div></div><p id="1d9d4c6c-94d0-499d-9208-b7fda502a610" class=""><strong>Customer loyalty &amp; E-commerce </strong></p><div id="da5e6059-5611-4a18-8b98-560884d3448c" class="column-list"><div id="ccfe1247-c9af-4e14-a0dc-85932ee28911" style="width:25%" class="column"><figure id="640f90a6-261f-49fd-b794-773d8c84c9e7" class="image"><a href="QReward%20App%20UX%20UI%20Design%20d05e14b2f1dc4546811127eb6e40099b/secondary%204.png"><img style="width:732px" src="QReward%20App%20UX%20UI%20Design%20d05e14b2f1dc4546811127eb6e40099b/secondary%204.png"/></a><figcaption>Enter the draw with your QBucks. Q Dreams will take rewards to the next level.</figcaption></figure></div><div id="eb8c800b-dcf5-4cec-96ab-0c91cd57f1d0" style="width:25%" class="column"><figure id="a8524331-e421-4bda-a439-c5cdb6890b4c" class="image"><a href="QReward%20App%20UX%20UI%20Design%20d05e14b2f1dc4546811127eb6e40099b/secondary%205.png"><img style="width:732px" src="QReward%20App%20UX%20UI%20Design%20d05e14b2f1dc4546811127eb6e40099b/secondary%205.png"/></a><figcaption>QTV is a special feature where we bring great offers to you. As Seen On TV products exclusively for QMembers</figcaption></figure></div><div id="3bf63392-6371-4112-8f83-2a51d581cd35" style="width:25%" class="column"><figure id="9aaeaba4-51ec-4494-b4b0-ad7a00c749c9" class="image"><a href="QReward%20App%20UX%20UI%20Design%20d05e14b2f1dc4546811127eb6e40099b/secondary%206.png"><img style="width:732px" src="QReward%20App%20UX%20UI%20Design%20d05e14b2f1dc4546811127eb6e40099b/secondary%206.png"/></a><figcaption>Walk up to any participating QClub merchant and tap door sticker.</figcaption></figure><p id="ac0659c6-1782-4ae0-b1ac-b47e9844308f" class="">
+    </p></div><div id="15142c92-ebec-4a62-ac8e-00fc3d8f3093" style="width:25%" class="column"><figure id="7705ce9a-828a-4a4e-b24b-8f01d79fa188" class="image"><a href="QReward%20App%20UX%20UI%20Design%20d05e14b2f1dc4546811127eb6e40099b/secondary%207.png"><img style="width:732px" src="QReward%20App%20UX%20UI%20Design%20d05e14b2f1dc4546811127eb6e40099b/secondary%207.png"/></a><figcaption>Engage with other QMembers. Accept or Reject when a QMember offers you a trade.</figcaption></figure><p id="a442d05d-1757-4589-8032-a9103bf66a98" class="">
+    </p></div></div><ul id="4bf3d43e-5562-45a8-b4e9-abdc6cdd9a1e" class="bulleted-list"><li>Prototype: Paper prototyping, low fi wireframes, high fidelity UI on Figma. I <strong>design UI components by modules</strong>. For example, I finalize the  redemption flow, then use the same screens for redemption throughout the app to maintain consistency and save time.</li></ul><h1 id="3a9ccfef-0e22-4d26-8c6c-ae1326c79dac" class=""><mark class="highlight-orange">Research Process </mark></h1><h2 id="64553a95-f236-40c9-b3ee-894b134f026b" class=""><mark class="highlight-blue">In-depth Interviews</mark></h2><p id="45fbcc62-d556-4a19-bae1-c2af7342092b" class="">4 participants</p><p id="94a67b38-43f0-4564-9bd1-7e4f50f7abe9" class="">Criteria: Using at least 1 reward app</p><p id="94d0a6b7-9e7b-433c-8534-adbb8a39087c" class="">30-40 minutes per section </p><p id="1b0b2ddb-2d73-42bd-a1de-9101d5150e62" class="">List of questions asked:</p><ol id="705e3701-4903-45e4-9d6e-5704c20c5263" class="numbered-list" start="1"><li>Have you used any loyalty-rewards mobile applications before? (Describe) Tell us the story</li></ol><ol id="1505d460-f846-489f-a4b1-2165277fb87e" class="numbered-list" start="2"><li>What kind of loyalty-rewards mobile app have you used before?</li></ol><ol id="a73e0b2b-6a11-42ab-a11d-5c51a0a6b375" class="numbered-list" start="3"><li>How often did you use such app?</li></ol><ol id="526aeb73-ef91-4d9e-95a3-8e920a4d7528" class="numbered-list" start="4"><li>The app you&#x27;re using has the tier, how it works for them.</li></ol><ol id="d8ca1e29-aada-4ce4-bd92-f37ab32717a3" class="numbered-list" start="5"><li>What are your pain points when using customer loyalty apps?</li></ol><ol id="3104d3f6-f461-4b48-b767-2b937349dc99" class="numbered-list" start="6"><li>How do you typically redeem your reward points, in store or online? tell us more</li></ol><ol id="4ea3d8b7-1989-4335-be56-9bb5191a865a" class="numbered-list" start="7"><li>Which content do you like seeing from a loyalty customer app. Rank them </li></ol><ol id="dc2c201f-eeb1-48f5-9553-58d2275fef94" class="numbered-list" start="8"><li>Tell as about your most used loyalty program, what motivated you to join the program, and why is it your most used?</li></ol><p id="0e27f24b-d6a7-4192-9068-7220a1cf5e5c" class="">
+    </p><div id="f0c11c73-265c-4c9d-862f-9b0439a05d2e" class="collection-content"><h4 class="collection-title">Summary of Interview participants</h4><table class="collection-content"><thead><tr><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.4);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesTitle"><path d="M7.73943662,8.6971831 C7.77640845,8.7834507 7.81338028,8.8943662 7.81338028,9.00528169 C7.81338028,9.49823944 7.40669014,9.89260563 6.91373239,9.89260563 C6.53169014,9.89260563 6.19894366,9.64612676 6.08802817,9.30105634 L5.75528169,8.33978873 L2.05809859,8.33978873 L1.72535211,9.30105634 C1.61443662,9.64612676 1.2693662,9.89260563 0.887323944,9.89260563 C0.394366197,9.89260563 0,9.49823944 0,9.00528169 C0,8.8943662 0.0246478873,8.7834507 0.0616197183,8.6971831 L2.46478873,2.48591549 C2.68661972,1.90669014 3.24119718,1.5 3.90669014,1.5 C4.55985915,1.5 5.12676056,1.90669014 5.34859155,2.48591549 L7.73943662,8.6971831 Z M2.60035211,6.82394366 L5.21302817,6.82394366 L3.90669014,3.10211268 L2.60035211,6.82394366 Z M11.3996479,3.70598592 C12.7552817,3.70598592 14,4.24823944 14,5.96126761 L14,9.07922535 C14,9.52288732 13.6549296,9.89260563 13.2112676,9.89260563 C12.8169014,9.89260563 12.471831,9.59683099 12.4225352,9.19014085 C12.028169,9.6584507 11.3257042,9.95422535 10.5492958,9.95422535 C9.60035211,9.95422535 8.47887324,9.31338028 8.47887324,7.98239437 C8.47887324,6.58978873 9.60035211,6.08450704 10.5492958,6.08450704 C11.3380282,6.08450704 12.040493,6.33098592 12.4348592,6.81161972 L12.4348592,5.98591549 C12.4348592,5.38204225 11.9172535,4.98767606 11.1285211,4.98767606 C10.6602113,4.98767606 10.2411972,5.11091549 9.80985915,5.38204225 C9.72359155,5.43133803 9.61267606,5.46830986 9.50176056,5.46830986 C9.18133803,5.46830986 8.91021127,5.1971831 8.91021127,4.86443662 C8.91021127,4.64260563 9.0334507,4.44542254 9.19366197,4.34683099 C9.87147887,3.90316901 10.6232394,3.70598592 11.3996479,3.70598592 Z M11.1778169,8.8943662 C11.6830986,8.8943662 12.1760563,8.72183099 12.4348592,8.37676056 L12.4348592,7.63732394 C12.1760563,7.29225352 11.6830986,7.11971831 11.1778169,7.11971831 C10.5616197,7.11971831 10.056338,7.45246479 10.056338,8.0193662 C10.056338,8.57394366 10.5616197,8.8943662 11.1778169,8.8943662 Z M0.65625,11.125 L13.34375,11.125 C13.7061869,11.125 14,11.4188131 14,11.78125 C14,12.1436869 13.7061869,12.4375 13.34375,12.4375 L0.65625,12.4375 C0.293813133,12.4375 4.43857149e-17,12.1436869 0,11.78125 C-4.43857149e-17,11.4188131 0.293813133,11.125 0.65625,11.125 Z"></path></svg></span>Name</th><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.4);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesNumber"><path d="M4.46191,0 C3.8667,0 3.38428,0.482422 3.38428,1.07751 L3.38428,3.38425 L1.07764,3.38425 C0.482422,3.38425 0,3.86667 0,4.46179 C0,5.05688 0.482422,5.53931 1.07764,5.53931 L3.38428,5.53931 L3.38428,8.46063 L1.07764,8.46063 C0.482422,8.46063 0,8.94308 0,9.53818 C0,10.1333 0.482422,10.6157 1.07764,10.6157 L3.38428,10.6157 L3.38428,12.9224 C3.38428,13.5175 3.8667,13.9999 4.46191,13.9999 C5.05664,13.9999 5.53906,13.5175 5.53906,12.9224 L5.53906,10.6157 L8.46045,10.6157 L8.46045,12.9224 C8.46045,13.5175 8.94287,13.9999 9.53809,13.9999 C10.1333,13.9999 10.6157,13.5175 10.6157,12.9224 L10.6157,10.6157 L12.9224,10.6157 C13.5176,10.6157 14,10.1333 14,9.53818 C14,8.94308 13.5176,8.46063 12.9224,8.46063 L10.6157,8.46063 L10.6157,5.53931 L12.9224,5.53931 C13.5176,5.53931 14,5.05688 14,4.46179 C14,3.86667 13.5176,3.38425 12.9224,3.38425 L10.6157,3.38425 L10.6157,1.07751 C10.6157,0.482422 10.1333,0 9.53809,0 C8.94287,0 8.46045,0.482422 8.46045,1.07751 L8.46045,3.38425 L5.53906,3.38425 L5.53906,1.07751 C5.53906,0.482422 5.05664,0 4.46191,0 Z M5.53906,8.46063 L5.53906,5.53931 L8.46045,5.53931 L8.46045,8.46063 L5.53906,8.46063 Z"></path></svg></span>Age</th><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.4);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesSelect"><path d="M7,13 C10.31348,13 13,10.31371 13,7 C13,3.68629 10.31348,1 7,1 C3.68652,1 1,3.68629 1,7 C1,10.31371 3.68652,13 7,13 Z M3.75098,5.32278 C3.64893,5.19142 3.74268,5 3.90869,5 L10.09131,5 C10.25732,5 10.35107,5.19142 10.24902,5.32278 L7.15771,9.29703 C7.07764,9.39998 6.92236,9.39998 6.84229,9.29703 L3.75098,5.32278 Z"></path></svg></span>Sex</th><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.4);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesText"><path d="M7,4.56818 C7,4.29204 6.77614,4.06818 6.5,4.06818 L0.5,4.06818 C0.223858,4.06818 0,4.29204 0,4.56818 L0,5.61364 C0,5.88978 0.223858,6.11364 0.5,6.11364 L6.5,6.11364 C6.77614,6.11364 7,5.88978 7,5.61364 L7,4.56818 Z M0.5,1 C0.223858,1 0,1.223858 0,1.5 L0,2.54545 C0,2.8216 0.223858,3.04545 0.5,3.04545 L12.5,3.04545 C12.7761,3.04545 13,2.8216 13,2.54545 L13,1.5 C13,1.223858 12.7761,1 12.5,1 L0.5,1 Z M0,8.68182 C0,8.95796 0.223858,9.18182 0.5,9.18182 L11.5,9.18182 C11.7761,9.18182 12,8.95796 12,8.68182 L12,7.63636 C12,7.36022 11.7761,7.13636 11.5,7.13636 L0.5,7.13636 C0.223858,7.13636 0,7.36022 0,7.63636 L0,8.68182 Z M0,11.75 C0,12.0261 0.223858,12.25 0.5,12.25 L9.5,12.25 C9.77614,12.25 10,12.0261 10,11.75 L10,10.70455 C10,10.4284 9.77614,10.20455 9.5,10.20455 L0.5,10.20455 C0.223858,10.20455 0,10.4284 0,10.70455 L0,11.75 Z"></path></svg></span>Rewards app using</th><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.4);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesText"><path d="M7,4.56818 C7,4.29204 6.77614,4.06818 6.5,4.06818 L0.5,4.06818 C0.223858,4.06818 0,4.29204 0,4.56818 L0,5.61364 C0,5.88978 0.223858,6.11364 0.5,6.11364 L6.5,6.11364 C6.77614,6.11364 7,5.88978 7,5.61364 L7,4.56818 Z M0.5,1 C0.223858,1 0,1.223858 0,1.5 L0,2.54545 C0,2.8216 0.223858,3.04545 0.5,3.04545 L12.5,3.04545 C12.7761,3.04545 13,2.8216 13,2.54545 L13,1.5 C13,1.223858 12.7761,1 12.5,1 L0.5,1 Z M0,8.68182 C0,8.95796 0.223858,9.18182 0.5,9.18182 L11.5,9.18182 C11.7761,9.18182 12,8.95796 12,8.68182 L12,7.63636 C12,7.36022 11.7761,7.13636 11.5,7.13636 L0.5,7.13636 C0.223858,7.13636 0,7.36022 0,7.63636 L0,8.68182 Z M0,11.75 C0,12.0261 0.223858,12.25 0.5,12.25 L9.5,12.25 C9.77614,12.25 10,12.0261 10,11.75 L10,10.70455 C10,10.4284 9.77614,10.20455 9.5,10.20455 L0.5,10.20455 C0.223858,10.20455 0,10.4284 0,10.70455 L0,11.75 Z"></path></svg></span>Minority</th><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.4);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesRelation"><polygon points="4.5 1 4.5 3 9.586 3 1 11.586 2.414 13 11 4.414 11 9.5 13 9.5 13 1"></polygon></svg></span>Details Notes</th></tr></thead><tbody><tr id="2975b3e5-3b32-45eb-be4e-7ec422ea3fcd"><td class="cell-title"><a href="QReward%20App%20UX%20UI%20Design%20d05e14b2f1dc4546811127eb6e40099b/Summary%20of%20Interview%20participants%20f0c11c73265c4c9d862f9b0439a05d2e/Suha%202975b3e53b3245ebbe4e7ec422ea3fcd.html">Suha</a></td><td class="cell-y8Cd">23</td><td class="cell-2[Hf"><span class="selected-value select-value-color-orange">Female</span></td><td class="cell-_V3i">PC Optimums, Tim Hortons</td><td class="cell-]&#x27;ho">Indian</td><td class="cell-&quot;Wr["><a href="https://www.notion.so/Suha-cabfacd5fc7f47989f863683ffa367f0"><span class="icon">🙆🏽‍♀️</span>Suha</a></td></tr><tr id="52068654-83c8-4603-bbfc-887f196474e7"><td class="cell-title"><a href="QReward%20App%20UX%20UI%20Design%20d05e14b2f1dc4546811127eb6e40099b/Summary%20of%20Interview%20participants%20f0c11c73265c4c9d862f9b0439a05d2e/Scot%205206865483c84603bbfc887f196474e7.html">Scot</a></td><td class="cell-y8Cd">30</td><td class="cell-2[Hf"><span class="selected-value select-value-color-green">Male</span></td><td class="cell-_V3i">Mc Donald&#x27;s</td><td class="cell-]&#x27;ho">East Asian</td><td class="cell-&quot;Wr["><a href="https://www.notion.so/Scott-cc53cfa7f2d04f29a2d6c50fc5657eb0"><span class="icon">👨🏽‍💻</span>Scott</a></td></tr><tr id="f24b29f1-c202-4713-b20e-fbae908e6654"><td class="cell-title"><a href="QReward%20App%20UX%20UI%20Design%20d05e14b2f1dc4546811127eb6e40099b/Summary%20of%20Interview%20participants%20f0c11c73265c4c9d862f9b0439a05d2e/Cathy%20f24b29f1c2024713b20efbae908e6654.html">Cathy</a></td><td class="cell-y8Cd">25</td><td class="cell-2[Hf"><span class="selected-value select-value-color-orange">Female</span></td><td class="cell-_V3i">PC Optimums, Sephora</td><td class="cell-]&#x27;ho">East Asian</td><td class="cell-&quot;Wr["><a href="https://www.notion.so/Cathy-760942df64724238832ba489436e85fc"><span class="icon">🧚🏼‍♀️</span>Cathy</a></td></tr><tr id="3687a26b-1ac8-40cd-8f95-f12a41bb38c7"><td class="cell-title"><a href="QReward%20App%20UX%20UI%20Design%20d05e14b2f1dc4546811127eb6e40099b/Summary%20of%20Interview%20participants%20f0c11c73265c4c9d862f9b0439a05d2e/Renuka%203687a26b1ac840cd8f95f12a41bb38c7.html">Renuka</a></td><td class="cell-y8Cd">30</td><td class="cell-2[Hf"><span class="selected-value select-value-color-orange">Female</span></td><td class="cell-_V3i">PC Optimums, Canadian Tire, RBC rewards, Petrol</td><td class="cell-]&#x27;ho">Indian</td><td class="cell-&quot;Wr["><a href="https://www.notion.so/Renuka-Parashar-b7d8a90c429d4be4a015accf0e53c369"><span class="icon">🙅🏼‍♀️</span>Renuka Parashar</a></td></tr></tbody></table></div><p id="fbddaada-0383-4573-a7cf-80b61ab4f02e" class="">Below are the main problems users encounter with their reward apps.</p><div id="73a89a97-f5a9-45e8-95a3-72c9d280f858" class="column-list"><div id="76b8a830-dfd0-44e6-bfc1-ee50b5000b9f" style="width:50%" class="column"><h3 id="d471dba9-078b-48d2-9a1c-757bbd45355b" class=""><mark class="highlight-gray_background">Clarity Issue</mark></h3></div><div id="61661594-4bb3-45b1-9ec2-6eb1cec8a996" style="width:50%" class="column"><h3 id="aa105e1e-4cda-4fb1-84ad-d07881dd76ac" class=""><mark class="highlight-gray_background">Lack of motivation/incentive </mark></h3></div></div><div id="6ac50f3d-a591-49cf-ba0a-a366ca84aa46" class="column-list"><div id="21c50633-9e7d-4e11-b794-ff589b3a3659" style="width:50%" class="column"><ul id="b17dd2e7-2111-4cea-b69d-5937338f0510" class="bulleted-list"><li>Users don&#x27;t know how to use the app properly</li></ul><p id="1c9c6b1c-3b85-4abf-a927-539850bfcc92" class="">
+    </p></div><div id="328c9f9b-ac66-413f-8c18-39be4e28e113" style="width:50%" class="column"><ul id="88b6e26d-a7d0-40e7-9ebc-85cfdce424fd" class="bulleted-list"><li>Suha downloads the app because her uncle recommends, not because she wants to. Blind follow. </li></ul></div></div><div id="7453ad0c-5561-4f92-866b-b396361a502a" class="column-list"><div id="deb17042-0ba5-43bc-a549-619b2708d707" style="width:50%" class="column"><ul id="fccd646c-4766-4ee7-bd45-96c849898a49" class="bulleted-list"><li>The app is overwhelming</li></ul></div><div id="2972c715-b8c2-4203-b388-a794bb01352c" style="width:50%" class="column"><ul id="8da9c321-8f3c-4536-a3a3-75979463588e" class="bulleted-list"><li>Open the app twice in 1 year</li></ul></div></div><div id="f20d54da-cb5d-4234-a056-2584009afb72" class="column-list"><div id="bafc4316-0164-4dba-9612-6efe76ea2b0e" style="width:50%" class="column"><ul id="01a0b2a7-dabe-4bb1-9edc-d3df37c0749e" class="bulleted-list"><li>No signup guide. No guide how to use the app</li></ul></div><div id="0ec93406-7e07-466f-9970-3d3db5476d6f" style="width:50%" class="column"><ul id="0e1b1e96-3887-4eaf-89cf-2e0b0affa48c" class="bulleted-list"><li>Clerk, store staff ask me to download the app</li></ul></div></div><p id="5e532540-b1cb-4a40-a3b4-f015f65d8e4a" class="">
+    </p><div id="5e71a825-1647-4570-bd57-95e0da79986a" class="column-list"><div id="03277ad0-b0ac-4f18-9370-7b3d6fb45718" style="width:50%" class="column"><h3 id="638b7d8b-15b6-45a7-b88a-accd481f5aca" class=""><mark class="highlight-gray_background">The app has no real value</mark></h3></div><div id="a0ae851c-091c-45c7-852e-99478686ef99" style="width:50%" class="column"><h3 id="41ff3d7e-6ffd-4d6c-a9cb-4996cef3a785" class=""><mark class="highlight-gray_background">Users prefer not download the app </mark></h3></div></div><div id="b4a7b8fa-1a63-4da6-90ac-b7bddb659d33" class="column-list"><div id="5e9a6264-8bfa-45b9-b145-9ec4ac2c3043" style="width:50%" class="column"><ul id="997a411b-b270-4735-ae55-4c684cb9d809" class="bulleted-list"><li>It needs too much points to redeem cash ($1)</li></ul></div><div id="f5f9e977-94be-482a-b60a-96ca8c72ab3f" style="width:50%" class="column"><ul id="1c51995f-a341-4732-b852-1aeaef2cf005" class="bulleted-list"><li>Redeem by phone number, not app</li></ul></div></div><div id="fb4f8b6e-1062-4dbd-97f3-01f9c19f5714" class="column-list"><div id="c27113ab-0424-4e18-b9bd-6efdecaffd91" style="width:50%" class="column"><ul id="1363dd30-9192-4034-9b24-f3a1f98c43ef" class="bulleted-list"><li>No investment in the app so they don&#x27;t mind to delete the app</li></ul></div><div id="622bb0bf-371a-42b6-91fd-aeeaf148a6dc" style="width:50%" class="column"><ul id="c8f424fc-adfa-47b4-8c44-9071f0268849" class="bulleted-list"><li>Messy all over the place so users use apple wallet to integrate/ store all of the rewards</li></ul></div></div><ul id="70c111b2-54f2-4af5-a883-bff3f5a508f5" class="bulleted-list"><li>Offers aren&#x27;t personalized</li></ul><ul id="65de3120-7795-4c81-90da-dbaa1c75cffc" class="bulleted-list"><li>Not enough deals and promotions</li></ul><div id="d1956f5b-36c0-4fab-a607-bd424f71dae6" class="column-list"><div id="626d515b-aa44-4e77-8ccf-18d048d6787d" style="width:50%" class="column"><h3 id="76b5b75f-5f4f-4f23-91db-2e3e14062df1" class=""><mark class="highlight-gray_background">The app is no fun</mark></h3></div><div id="ef98a8c8-20a4-464d-a9f1-2bdb6e470049" style="width:50%" class="column"><h3 id="685ac777-70e8-4f9f-be7a-fc9332e26f8e" class=""><mark class="highlight-gray_background">Brand trust</mark></h3></div></div><div id="d2070a7b-f801-45ed-9173-1ac30f95daeb" class="column-list"><div id="a7157765-d87b-4b8a-86ac-281134f30417" style="width:50%" class="column"><ul id="53460fb9-f232-4587-b1a2-10fd5be39b06" class="bulleted-list"><li>The app is so so boring </li></ul></div><div id="d2f19e1d-0910-412e-bfd7-271d4da81dc5" style="width:50%" class="column"><ul id="86a597b0-025f-4f7c-afa5-f2e1c13ab2b4" class="bulleted-list"><li>Users only download app by big brands</li></ul></div></div><div id="004c2d8a-4d87-4b7c-bd16-f67ecbf2b0a7" class="column-list"><div id="b5e65121-4123-437d-a71d-47b060dcace5" style="width:50%" class="column"><p id="327849bb-aeba-4151-bf4b-dd6f3be010b4" class="">
+    </p></div><div id="1e8163be-2b68-4fb7-b6f0-4c3297295c41" style="width:50%" class="column"><ul id="09b1ce5b-60cb-4b9e-a709-2e8818ee6e3e" class="bulleted-list"><li>For local support, restaurants are the most common category. People don&#x27;t tend to shop local for other categories</li></ul></div></div><h3 id="f35d4340-ba87-4b43-913d-c60866221acc" class=""><mark class="highlight-blue">Stakeholder Interview</mark></h3><p id="8bda1836-4762-43e6-acb4-c20f0463511a" class="">My lead designer and I carried stakeholder interviews 3-4 times every week to understand the nature of the business model. I realize business plays an important role in designing the product. I collected stakeholder answers, grouped problems and brainstormed solutions for each problem groups. Below is the summary of stakeholder interviews:</p><figure id="d6b6ad68-39ed-4506-8f55-e242df545059" class="image"><a href="QReward%20App%20UX%20UI%20Design%20d05e14b2f1dc4546811127eb6e40099b/Screen_Shot_2020-09-09_at_1.43.17_AM.png"><img style="width:576px" src="QReward%20App%20UX%20UI%20Design%20d05e14b2f1dc4546811127eb6e40099b/Screen_Shot_2020-09-09_at_1.43.17_AM.png"/></a></figure><h3 id="ca8c0483-3100-4bbc-a4fd-e3cb629d1bc9" class=""><mark class="highlight-blue">User Survey</mark></h3><p id="bf418503-6992-446c-a508-c19c519642b0" class="">29 responses on Typeform platform</p><p id="b7beacd6-4a86-4b83-8055-e1bbd62af352" class="">Criteria: Using at least 1 reward app</p><p id="3b763c68-34f7-4627-9575-c6e5201ea2c1" class="">List of survey questions</p><ol id="e6dcfa35-aa80-4ed1-94c8-05db1fd2dae1" class="numbered-list" start="1"><li>How many loyalty/reward programs are you currently enrolled with?</li></ol><ol id="c19d10c7-7c41-451c-8797-f2655d490218" class="numbered-list" start="2"><li>Please rate your satisfaction level of the loyalty programs you&#x27;re currently using.</li></ol><ol id="61b2d5c9-e0ea-4749-a68c-334bbb442ce6" class="numbered-list" start="3"><li>What are your motivations in deciding to subscribe to a rewards program?</li></ol><ol id="b71ea2a0-e137-4417-be43-f48049ce59a5" class="numbered-list" start="4"><li>How often do you make use of your loyalty rewards?</li></ol><ol id="f134087d-4090-4d49-8d7e-fe12f283c31f" class="numbered-list" start="5"><li>How do you typically redeem your loyalty points?</li></ol><ol id="eb132efd-330c-446e-b96a-45495c637dc6" class="numbered-list" start="6"><li>What is your age range?</li></ol><ol id="0c841654-8979-4f59-9a4f-f1cc3e912078" class="numbered-list" start="7"><li>What should we call you?</li></ol><p id="6d843b10-f66d-4425-9eb8-c2ff88053de6" class="">
+    </p><p id="1311b950-d012-4447-aff0-c7174201c0fb" class="">Survey result is attached below</p><figure id="524d453a-678b-4b77-af8e-c3c5724825a3"><div class="source"><a href="QReward%20App%20UX%20UI%20Design%20d05e14b2f1dc4546811127eb6e40099b/23Jul2020_QClub_-_Survey_Research.pdf">https://s3-us-west-2.amazonaws.com/secure.notion-static.com/ea5d13c7-9584-4c0f-8749-572098b9ae9a/23Jul2020_QClub_-_Survey_Research.pdf</a></div></figure><h3 id="3fc2cc7b-7f26-4965-9f32-562d00447a09" class=""><mark class="highlight-blue">Secondary research</mark></h3><ul id="97fa3c35-290a-4af0-be83-fdf8d65b720e" class="bulleted-list"><li>A great loyalty app contains 2 elements: Transactional and Experiments. <mark class="highlight-orange">Experimental rewards will have long term impacts. </mark>Experimental rewards of QClub are Qingo/Gamification and Q Dreams. </li></ul><ul id="c37103e8-4056-411f-b269-4607218deaa5" class="bulleted-list"><li>Naturally, emotional design shouldn’t be restricted to transaction-based rewards.</li></ul><ul id="cac5390b-e9f8-4b0e-85e9-0e9b9a60d32a" class="bulleted-list"><li>The direction to develop QClub app: <mark class="highlight-orange">Progressive </mark>loyalty rewards &amp; <mark class="highlight-orange">Emotional Design</mark><strong>.</strong></li></ul><ul id="d35f6420-2053-447c-83c2-d50ccc765ed8" class="bulleted-list"><li>If you are looking for a mechanism that encapsulates the essence of progressive loyalty rewards, <mark class="highlight-orange">loyalty tiers </mark>are one of the most effective - Nielson Research. </li></ul><ul id="f2d5735b-e3d1-4de3-8127-9a44eff71d1d" class="bulleted-list"><li>A new study by Bond Brand Loyalty shows <mark class="highlight-orange">many of Canadian users </mark><strong><mark class="highlight-orange">are not</mark></strong><mark class="highlight-orange"> spending their points</mark>. Right now, there are $16 billion worth of points left unredeemed by members in Canada.</li></ul><ul id="5a1ffcb8-37d3-485a-ae7a-ee5e8e5491a1" class="bulleted-list"><li>60% said <mark class="highlight-orange">program experience, brand alignment, digital experiences, and “human touch” </mark>were the biggest factors in their satisfaction. </li></ul><ul id="6b1fd8a9-cb2e-4082-a1aa-61a34aa6f516" class="bulleted-list"><li>What can keep users coming back every day: <mark class="highlight-orange">The hook model by Eyal. </mark>Clash Royale Game is a great example: Every time you play, you will get a chest, and you will open that chest because that’s your reward. However, you have to wait for a certain amount of time to open the chest (it depends on the type of chests that you get), and at some point, you will close the App and do your real-life activities. After the chest can be opened, it will send you a push notification to let you know that your chest can be opened now, you will go back to the App and open the chest. </li></ul><h3 id="c18c0e84-dc35-4b40-9b77-c86f08fe1630" class=""><mark class="highlight-blue">Competitor analysis </mark></h3><figure id="95d1c8e4-5d1c-4b78-8e56-de4e39f5c0c5" class="image"><a href="QReward%20App%20UX%20UI%20Design%20d05e14b2f1dc4546811127eb6e40099b/Screen_Shot_2020-09-10_at_2.14.43_AM.png"><img style="width:2880px" src="QReward%20App%20UX%20UI%20Design%20d05e14b2f1dc4546811127eb6e40099b/Screen_Shot_2020-09-10_at_2.14.43_AM.png"/></a></figure><h1 id="e5aa0539-f2fa-4eec-be28-68e8b5f07b34" class=""><mark class="highlight-orange">Ideate Solution</mark></h1><h2 id="0219cd8b-20df-4082-a858-433215e6a4f6" class=""><mark class="highlight-blue">Wireframes &amp; Final UI</mark></h2><p id="b8339f39-7d61-4cd1-a5d9-4fd61c5b60bc" class="">I first sketched on paper, then low fi wireframes, then UI details in Figma</p><p id="5a152a0c-4d83-401d-8fd5-3245dff9fab9" class="">I design UI by <strong>modules</strong> so I can reuse the components for different. For example, I try many variations for header design. Once header design is finalized, I&#x27;ll use the same header for almost through out the app.</p><figure id="99b0ecc4-3559-4999-ad7f-b2583230621d" class="image"><a href="QReward%20App%20UX%20UI%20Design%20d05e14b2f1dc4546811127eb6e40099b/Screen_Shot_2020-09-10_at_2.33.52_AM.png"><img style="width:2872px" src="QReward%20App%20UX%20UI%20Design%20d05e14b2f1dc4546811127eb6e40099b/Screen_Shot_2020-09-10_at_2.33.52_AM.png"/></a><figcaption>We tried many header variations to select and curate the final header design</figcaption></figure><figure id="d3f70fa6-34aa-48f6-abe6-517c99eac8bc" class="image"><a href="QReward%20App%20UX%20UI%20Design%20d05e14b2f1dc4546811127eb6e40099b/Screen_Shot_2020-09-10_at_2.55.10_AM.png"><img style="width:2745px" src="QReward%20App%20UX%20UI%20Design%20d05e14b2f1dc4546811127eb6e40099b/Screen_Shot_2020-09-10_at_2.55.10_AM.png"/></a><figcaption>Final Screen for QDream Flow</figcaption></figure><figure id="69e633ae-011e-4e28-9dee-93c3c52d438f" class="image"><a href="QReward%20App%20UX%20UI%20Design%20d05e14b2f1dc4546811127eb6e40099b/QIphone_X_Mock_Up_8.jpg"><img style="width:3000px" src="QReward%20App%20UX%20UI%20Design%20d05e14b2f1dc4546811127eb6e40099b/QIphone_X_Mock_Up_8.jpg"/></a><figcaption>A glance of the final screens</figcaption></figure><p id="1c5b68e2-3ab9-41b8-8f25-dd8b87db526b" class="">Click on this link to interact with the prototype in a new window 👇🏼</p><figure id="ca593966-d5e7-4fb0-875b-f5f47a38429d"><a href="https://www.figma.com/proto/UC2Iv4wPnYyZI1w2sDEWLr/Hi-fi-prototype-set?embed_host=notion&amp;kind=&amp;node-id=99%3A0&amp;scaling=scale-down&amp;viewport=-749%2C-1075%2C0.45865586400032043" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Hi fi prototype set</div><div class="bookmark-description">Created with Figma</div></div><div class="bookmark-href">https://www.figma.com/proto/UC2Iv4wPnYyZI1w2sDEWLr/Hi-fi-prototype-set?embed_host=notion&amp;kind=&amp;node-id=99%3A0&amp;scaling=scale-down&amp;viewport=-749%2C-1075%2C0.45865586400032043</div></div><img src="https://api-cdn.figma.com/resize/thumbnails/0f1a92f4-1925-4fa5-b1ee-29c8613306a0?height=450&amp;bucket=figma-alpha" class="bookmark-image"/></a></figure><figure id="869b36a0-408d-4d22-ace5-28b5bb31ef05"><a href="https://www.figma.com/proto/UC2Iv4wPnYyZI1w2sDEWLr/Hi-fi-prototype-set?embed_host=notion&amp;kind=&amp;node-id=99%3A0&amp;scaling=scale-down&amp;viewport=-749%2C-1075%2C0.45865586400032043" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Hi fi prototype set</div><div class="bookmark-description">Created with Figma</div></div><div class="bookmark-href">https://www.figma.com/proto/UC2Iv4wPnYyZI1w2sDEWLr/Hi-fi-prototype-set?embed_host=notion&amp;kind=&amp;node-id=99%3A0&amp;scaling=scale-down&amp;viewport=-749%2C-1075%2C0.45865586400032043</div></div><img src="https://api-cdn.figma.com/resize/thumbnails/0f1a92f4-1925-4fa5-b1ee-29c8613306a0?height=450&amp;bucket=figma-alpha" class="bookmark-image"/></a></figure><h1 id="369cf3b7-2c17-4685-8a20-9a0c59896cab" class=""><mark class="highlight-orange">Usability Testing</mark></h1><p id="4c7a3466-7291-46df-9523-d1512b8afa21" class="">I have virtually carried usability testing sessions with 3 testers. The testing phase is still ongoing.</p><figure id="71f0919e-8686-44ca-9ff2-58922971a419" class="image"><a href="QReward%20App%20UX%20UI%20Design%20d05e14b2f1dc4546811127eb6e40099b/Screen_Shot_2020-09-10_at_3.04.48_AM.png"><img style="width:2880px" src="QReward%20App%20UX%20UI%20Design%20d05e14b2f1dc4546811127eb6e40099b/Screen_Shot_2020-09-10_at_3.04.48_AM.png"/></a></figure><p id="e34df13b-0ea2-43c0-85d1-9f2f9e4b68de" class="">
+    </p><p id="c422db25-6e79-4790-b63b-c53679922c09" class="">The app will be launched in App store and Google store by the end of this year. 🚀</p></div></article></body></html>
