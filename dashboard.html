@@ -1,0 +1,651 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>QReward App UX/UI Design</title><style>
+    /* webkit printing magic: print all background colors */
+    html {
+        -webkit-print-color-adjust: exact;
+    }
+    * {
+        box-sizing: border-box;
+        -webkit-print-color-adjust: exact;
+    }
+    
+    html,
+    body {
+        margin: 0;
+        padding: 0;
+    }
+    @media only screen {
+        body {
+            margin: 2em auto;
+            max-width: 900px;
+            color: rgb(55, 53, 47);
+        }
+    }
+    
+    body {
+        line-height: 1.5;
+        /*white-space: pre-wrap;*/
+    }
+    
+    a,
+    a.visited {
+        color: inherit;
+        text-decoration: underline;
+    }
+    
+    .pdf-relative-link-path {
+        font-size: 80%;
+        color: #444;
+    }
+    
+    h1,
+    h2,
+    h3 {
+        letter-spacing: -0.01em;
+        line-height: 1.2;
+        font-weight: 600;
+        margin-bottom: 0;
+    }
+    
+    .page-title {
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin-top: 0;
+        margin-bottom: 0.75em;
+    }
+    
+    h1 {
+        font-size: 1.875rem;
+        margin-top: 1.875rem;
+    }
+    
+    h2 {
+        font-size: 1.5rem;
+        margin-top: 1.5rem;
+    }
+    
+    h3 {
+        font-size: 1.25rem;
+        margin-top: 1.25rem;
+    }
+    
+    .source {
+        border: 1px solid #ddd;
+        border-radius: 3px;
+        padding: 1.5em;
+        word-break: break-all;
+    }
+    
+    .callout {
+        border-radius: 3px;
+        padding: 1rem;
+    }
+    
+    figure {
+        margin: 1.25em 0;
+        page-break-inside: avoid;
+    }
+    
+    figcaption {
+        opacity: 0.5;
+        font-size: 85%;
+        margin-top: 0.5em;
+    }
+    
+    mark {
+        background-color: transparent;
+    }
+    
+    .indented {
+        padding-left: 1.5em;
+    }
+    
+    hr {
+        background: transparent;
+        display: block;
+        width: 100%;
+        height: 1px;
+        visibility: visible;
+        border: none;
+        border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+    }
+    
+    img {
+        max-width: 100%;
+    }
+    
+    @media only print {
+        img {
+            max-height: 100vh;
+            object-fit: contain;
+        }
+    }
+    
+    @page {
+        margin: 1in;
+    }
+    
+    .collection-content {
+        font-size: 0.875rem;
+    }
+    
+    .column-list {
+        display: flex;
+        justify-content: space-between;
+    }
+    
+    .column {
+        padding: 0 1em;
+    }
+    
+    .column:first-child {
+        padding-left: 0;
+    }
+    
+    .column:last-child {
+        padding-right: 0;
+    }
+    
+    .table_of_contents-item {
+        display: block;
+        font-size: 0.875rem;
+        line-height: 1.3;
+        padding: 0.125rem;
+    }
+    
+    .table_of_contents-indent-1 {
+        margin-left: 1.5rem;
+    }
+    
+    .table_of_contents-indent-2 {
+        margin-left: 3rem;
+    }
+    
+    .table_of_contents-indent-3 {
+        margin-left: 4.5rem;
+    }
+    
+    .table_of_contents-link {
+        text-decoration: none;
+        opacity: 0.7;
+        border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+    }
+    
+    table,
+    th,
+    td {
+        border: 1px solid rgba(55, 53, 47, 0.09);
+        border-collapse: collapse;
+    }
+    
+    table {
+        border-left: none;
+        border-right: none;
+    }
+    
+    th,
+    td {
+        font-weight: normal;
+        padding: 0.25em 0.5em;
+        line-height: 1.5;
+        min-height: 1.5em;
+        text-align: left;
+    }
+    
+    th {
+        color: rgba(55, 53, 47, 0.6);
+    }
+    
+    ol,
+    ul {
+        margin: 0;
+        margin-block-start: 0.6em;
+        margin-block-end: 0.6em;
+    }
+    
+    li > ol:first-child,
+    li > ul:first-child {
+        margin-block-start: 0.6em;
+    }
+    
+    ul > li {
+        list-style: disc;
+    }
+    
+    ul.to-do-list {
+        text-indent: -1.7em;
+    }
+    
+    ul.to-do-list > li {
+        list-style: none;
+    }
+    
+    .to-do-children-checked {
+        text-decoration: line-through;
+        opacity: 0.375;
+    }
+    
+    ul.toggle > li {
+        list-style: none;
+    }
+    
+    ul {
+        padding-inline-start: 1.7em;
+    }
+    
+    ul > li {
+        padding-left: 0.1em;
+    }
+    
+    ol {
+        padding-inline-start: 1.6em;
+    }
+    
+    ol > li {
+        padding-left: 0.2em;
+    }
+    
+    .mono ol {
+        padding-inline-start: 2em;
+    }
+    
+    .mono ol > li {
+        text-indent: -0.4em;
+    }
+    
+    .toggle {
+        padding-inline-start: 0em;
+        list-style-type: none;
+    }
+    
+    /* Indent toggle children */
+    .toggle > li > details {
+        padding-left: 1.7em;
+    }
+    
+    .toggle > li > details > summary {
+        margin-left: -1.1em;
+    }
+    
+    .selected-value {
+        display: inline-block;
+        padding: 0 0.5em;
+        background: rgba(206, 205, 202, 0.5);
+        border-radius: 3px;
+        margin-right: 0.5em;
+        margin-top: 0.3em;
+        margin-bottom: 0.3em;
+        white-space: nowrap;
+    }
+    
+    .collection-title {
+        display: inline-block;
+        margin-right: 1em;
+    }
+    
+    time {
+        opacity: 0.5;
+    }
+    
+    .icon {
+        display: inline-block;
+        max-width: 1.2em;
+        max-height: 1.2em;
+        text-decoration: none;
+        vertical-align: text-bottom;
+        margin-right: 0.5em;
+    }
+    
+    img.icon {
+        border-radius: 3px;
+    }
+    
+    .user-icon {
+        width: 1.5em;
+        height: 1.5em;
+        border-radius: 100%;
+        margin-right: 0.5rem;
+    }
+    
+    .user-icon-inner {
+        font-size: 0.8em;
+    }
+    
+    .text-icon {
+        border: 1px solid #000;
+        text-align: center;
+    }
+    
+    .page-cover-image {
+        display: block;
+        object-fit: cover;
+        width: 100%;
+        height: 30vh;
+    }
+    
+    .page-header-icon {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+    }
+    
+    .page-header-icon-with-cover {
+        margin-top: -0.72em;
+        margin-left: 0.07em;
+    }
+    
+    .page-header-icon img {
+        border-radius: 3px;
+    }
+    
+    .link-to-page {
+        margin: 1em 0;
+        padding: 0;
+        border: none;
+        font-weight: 500;
+    }
+    
+    p > .user {
+        opacity: 0.5;
+    }
+    
+    td > .user,
+    td > time {
+        white-space: nowrap;
+    }
+    
+    input[type="checkbox"] {
+        transform: scale(1.5);
+        margin-right: 0.6em;
+        vertical-align: middle;
+    }
+    
+    p {
+        margin-top: 0.5em;
+        margin-bottom: 0.5em;
+    }
+    
+    .image {
+        border: none;
+        margin: 1.5em 0;
+        padding: 0;
+        border-radius: 0;
+        text-align: center;
+    }
+    
+    .code,
+    code {
+        background: rgba(135, 131, 120, 0.15);
+        border-radius: 3px;
+        padding: 0.2em 0.4em;
+        border-radius: 3px;
+        font-size: 85%;
+        tab-size: 2;
+    }
+    
+    code {
+        color: #eb5757;
+    }
+    
+    .code {
+        padding: 1.5em 1em;
+    }
+    
+    .code-wrap {
+        white-space: pre-wrap;
+        word-break: break-all;
+    }
+    
+    .code > code {
+        background: none;
+        padding: 0;
+        font-size: 100%;
+        color: inherit;
+    }
+    
+    blockquote {
+        font-size: 1.25em;
+        margin: 1em 0;
+        padding-left: 1em;
+        border-left: 3px solid rgb(55, 53, 47);
+    }
+    
+    .bookmark {
+        text-decoration: none;
+        max-height: 8em;
+        padding: 0;
+        display: flex;
+        width: 100%;
+        align-items: stretch;
+    }
+    
+    .bookmark-title {
+        font-size: 0.85em;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        height: 1.75em;
+        white-space: nowrap;
+    }
+    
+    .bookmark-text {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .bookmark-info {
+        flex: 4 1 180px;
+        padding: 12px 14px 14px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    
+    .bookmark-image {
+        width: 33%;
+        flex: 1 1 180px;
+        display: block;
+        position: relative;
+        object-fit: cover;
+        border-radius: 1px;
+    }
+    
+    .bookmark-description {
+        color: rgba(55, 53, 47, 0.6);
+        font-size: 0.75em;
+        overflow: hidden;
+        max-height: 4.5em;
+        word-break: break-word;
+    }
+    
+    .bookmark-href {
+        font-size: 0.75em;
+        margin-top: 0.25em;
+    }
+    
+    .sans { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+    .code { font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace; }
+    .serif { font-family: Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif; }
+    .mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+    .pdf .sans { font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+    
+    .pdf .code { font-family: Source Code Pro, "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+    
+    .pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+    
+    .pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+    
+    .highlight-default {
+    }
+    .highlight-gray {
+        color: rgb(155,154,151);
+    }
+    .highlight-brown {
+        color: rgb(100,71,58);
+    }
+    .highlight-orange {
+        color: rgb(217,115,13);
+    }
+    .highlight-yellow {
+        color: rgb(223,171,1);
+    }
+    .highlight-teal {
+        color: rgb(15,123,108);
+    }
+    .highlight-blue {
+        color: rgb(11,110,153);
+    }
+    .highlight-purple {
+        color: rgb(105,64,165);
+    }
+    .highlight-pink {
+        color: rgb(173,26,114);
+    }
+    .highlight-red {
+        color: rgb(224,62,62);
+    }
+    .highlight-gray_background {
+        background: rgb(235,236,237);
+    }
+    .highlight-brown_background {
+        background: rgb(233,229,227);
+    }
+    .highlight-orange_background {
+        background: rgb(250,235,221);
+    }
+    .highlight-yellow_background {
+        background: rgb(251,243,219);
+    }
+    .highlight-teal_background {
+        background: rgb(221,237,234);
+    }
+    .highlight-blue_background {
+        background: rgb(221,235,241);
+    }
+    .highlight-purple_background {
+        background: rgb(234,228,242);
+    }
+    .highlight-pink_background {
+        background: rgb(244,223,235);
+    }
+    .highlight-red_background {
+        background: rgb(251,228,228);
+    }
+    .block-color-default {
+        color: inherit;
+        fill: inherit;
+    }
+    .block-color-gray {
+        color: rgba(55, 53, 47, 0.6);
+        fill: rgba(55, 53, 47, 0.6);
+    }
+    .block-color-brown {
+        color: rgb(100,71,58);
+        fill: rgb(100,71,58);
+    }
+    .block-color-orange {
+        color: rgb(217,115,13);
+        fill: rgb(217,115,13);
+    }
+    .block-color-yellow {
+        color: rgb(223,171,1);
+        fill: rgb(223,171,1);
+    }
+    .block-color-teal {
+        color: rgb(15,123,108);
+        fill: rgb(15,123,108);
+    }
+    .block-color-blue {
+        color: rgb(11,110,153);
+        fill: rgb(11,110,153);
+    }
+    .block-color-purple {
+        color: rgb(105,64,165);
+        fill: rgb(105,64,165);
+    }
+    .block-color-pink {
+        color: rgb(173,26,114);
+        fill: rgb(173,26,114);
+    }
+    .block-color-red {
+        color: rgb(224,62,62);
+        fill: rgb(224,62,62);
+    }
+    .block-color-gray_background {
+        background: rgb(235,236,237);
+    }
+    .block-color-brown_background {
+        background: rgb(233,229,227);
+    }
+    .block-color-orange_background {
+        background: rgb(250,235,221);
+    }
+    .block-color-yellow_background {
+        background: rgb(251,243,219);
+    }
+    .block-color-teal_background {
+        background: rgb(221,237,234);
+    }
+    .block-color-blue_background {
+        background: rgb(221,235,241);
+    }
+    .block-color-purple_background {
+        background: rgb(234,228,242);
+    }
+    .block-color-pink_background {
+        background: rgb(244,223,235);
+    }
+    .block-color-red_background {
+        background: rgb(251,228,228);
+    }
+    .select-value-color-default { background-color: rgba(206,205,202,0.5); }
+    .select-value-color-gray { background-color: rgba(155,154,151, 0.4); }
+    .select-value-color-brown { background-color: rgba(140,46,0,0.2); }
+    .select-value-color-orange { background-color: rgba(245,93,0,0.2); }
+    .select-value-color-yellow { background-color: rgba(233,168,0,0.2); }
+    .select-value-color-green { background-color: rgba(0,135,107,0.2); }
+    .select-value-color-blue { background-color: rgba(0,120,223,0.2); }
+    .select-value-color-purple { background-color: rgba(103,36,222,0.2); }
+    .select-value-color-pink { background-color: rgba(221,0,129,0.2); }
+    .select-value-color-red { background-color: rgba(255,0,26,0.2); }
+    
+    .checkbox {
+        display: inline-flex;
+        vertical-align: text-bottom;
+        width: 16;
+        height: 16;
+        background-size: 16px;
+        margin-left: 2px;
+        margin-right: 5px;
+    }
+    
+    .checkbox-on {
+        background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+    }
+    
+    .checkbox-off {
+        background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+    }
+        
+    </style></head><body>
+        <nav style="font-family:'Open Sans', sans-serif; display:flex; justify-content: flex-end; margin:0; padding: 2em 0; ">
+                       
+            <a href="index.html" style="text-decoration: none; padding:0 20px;">HOME</a>
+      
+            <a href="page-about-me-2.html" style="text-decoration: none;padding:0 20px;">ABOUT</a>
+       
+            <a href="blog.html" style="text-decoration: none;padding:0 20px;">PUBLICATIONS</a>
+       
+    </nav>
+	<article id="3a3cebb4-dd0d-47c4-8de5-6b13237399e5" class="page sans"><header><img class="page-cover-image" src="Business%20Dashboard%20For%20QReward%20Program%20bde0cd3931924ab29b0ee6d392f24448/Dashboard_header.jpg" style="object-position:center 76.66%"/><div class="page-header-icon page-header-icon-with-cover"><span class="icon">📊</span></div><h1 class="page-title">Business Dashboard For QReward Program</h1></header><div class="page-body"><ul id="14359330-939e-4f4d-95a7-763dd739f0ff" class="toggle"><li><details open=""><summary>Table of content</summary><nav id="1a56573b-6e93-440e-9558-c7db0807770e" class="block-color-gray table_of_contents"><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#95fe8fac-ed0a-446b-ba82-184350c75a96"><mark class="highlight-orange">Background</mark></a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#7734be9a-98da-4422-b445-e160139bfa3c"><mark class="highlight-blue">Overall context</mark></a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#f20077de-0762-4b56-ab0d-5754546e9232"><mark class="highlight-blue">My role</mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#4258b80b-386e-49cc-849b-c447785bfceb"><mark class="highlight-orange">Summary</mark></a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#3e1f4d4f-5708-4a07-86d7-b99aeb3ccd99"><mark class="highlight-blue">Problem statement </mark></a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#a127e02a-e1ee-46cc-8c03-693a7f6fede2"><mark class="highlight-blue">Solution</mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#2b079d48-bf5d-4589-83a1-81f5c1ff255d"><mark class="highlight-orange">Research Process</mark></a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#80ff891f-8fc9-4b79-b26c-b1ec97432cdc"><mark class="highlight-blue">Stakeholder Interview</mark></a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#a9c7b725-33e4-4cb1-a816-977e6336b721"><mark class="highlight-blue">Competitor Analysis</mark></a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#8bd9edbf-76af-4f02-a597-3f785868a9e3">Udemy</a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#cff36a16-95de-4f73-9e1d-f7fc1f89c65f">Medium</a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#332c2b23-cef4-4673-b219-33b85a5209cc">Quora</a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#dfbafd84-e6db-4e45-9b84-83b49865598c">RBC</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#8dcb7082-910c-4263-8890-9bfcdfd40498"><mark class="highlight-orange">Ideate solution</mark></a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#122a1b56-fe4a-4616-901d-1c7688ed0078">Distilling Step 1</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#59b29b18-b6e6-4427-9781-78245f6760d3"><mark class="highlight-blue">Distilling Step 2,3,4,5</mark></a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#4a8a09eb-539a-46d4-b1cf-be4e7b2cba74"><mark class="highlight-blue">Low fi wireframes by paper and Figma</mark></a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#993e1ec4-4a76-428c-be63-956cf8778feb"><mark class="highlight-blue">High fidelity Design</mark></a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#d2bfbf4b-d2dd-418a-a8bc-93e39117a867"><mark class="highlight-blue">Prototyping </mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#0c7fb0e1-bdae-40d7-b987-9d23ff5977d5"><mark class="highlight-orange">Key learning </mark></a></div></nav><p id="adbfc670-f58d-4ed7-8aa7-3cb6b59b0184" class="">
+</p></details></li></ul><h1 id="95fe8fac-ed0a-446b-ba82-184350c75a96" class=""><mark class="highlight-orange">Background</mark></h1><h2 id="7734be9a-98da-4422-b445-e160139bfa3c" class=""><mark class="highlight-blue">Overall context</mark></h2><p id="16e95b14-10a5-4bb3-a1f8-90031fe42682" class="">QReward is a mobile app that helps businesses to boost sales and increase customer retention. The founder wants businesses to be able to see the insights and the analysis of users interacting with the app. As a product designer,<strong> the task was to design the dashboard for businesses so that they can see the sales and users insights through a web based dashboard</strong>. QReward is app based, but business dashboard is web based. This is a 6-week corporate project. </p><h2 id="f20077de-0762-4b56-ab0d-5754546e9232" class=""><mark class="highlight-blue">My role</mark></h2><p id="3971c941-a203-4491-bda8-ce2ade7a3c78" class="">I worked as <strong>full-time Product Designer</strong> doing everything from <strong>UX research</strong> to <strong>UI design</strong> to the development handoff phase: stakeholder interview, user interview, research studies, prototyping, and usability testing. Our design team had 2 people. </p><ul id="7692c7bf-b83f-4ff4-a199-913622bdf4c3" class="toggle"><li><details open=""><summary>Tools/Software I used to build this dashboard</summary><p id="bf5dcf2f-a79a-4d4a-ae54-7086fcfa7295" class="">Figma</p><p id="ca386171-84e2-4c26-943c-c3afe37b453c" class="">Miro</p><p id="026f63ec-e45a-4432-afab-0108da91de47" class="">Notion</p><p id="32a8fc5c-8f7a-4c9f-872c-51f179b06f95" class="">Adobe Suite (Photoshop, Illustrator)</p></details></li></ul><h1 id="4258b80b-386e-49cc-849b-c447785bfceb" class=""><mark class="highlight-orange">Summary</mark></h1><figure id="f390bcf2-4ce1-49e1-94a7-9ca38ec8f3aa"><div class="source"><a href="https://vimeo.com/471509886">https://vimeo.com/471509886</a></div></figure><p id="fd34983e-8344-4aaf-9ab9-b4d7ba0c1fbc" class="">Click on the link below to interact with the prototype in a new window 👇🏼</p><figure id="08d04c29-a5fb-498e-84b8-f8bf2f50c35d"><a href="https://www.figma.com/proto/NOQgOtfaOLZvrQeyqBm2Bz/Application-Distilling-Prototype?node-id=3%3A9133&amp;viewport=430%2C410%2C0.01694243960082531&amp;scaling=scale-down-width" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Application Distilling Prototype</div><div class="bookmark-description">Created with Figma</div></div><div class="bookmark-href">https://www.figma.com/proto/NOQgOtfaOLZvrQeyqBm2Bz/Application-Distilling-Prototype?node-id=3%3A9133&amp;viewport=430%2C410%2C0.01694243960082531&amp;scaling=scale-down-width</div></div><img src="https://api-cdn.figma.com/resize/thumbnails/8fb40417-1db3-4384-a143-73d9f13a0ab7?height=450&amp;bucket=figma-alpha" class="bookmark-image"/></a></figure><h2 id="3e1f4d4f-5708-4a07-86d7-b99aeb3ccd99" class=""><mark class="highlight-blue">Problem statement </mark></h2><p id="d99165e4-38ec-4ed7-8ff4-df7849b8b5d8" class="">Businesses want to see data and facts. They also want to see insights to make decisions. </p><p id="60541acd-d3bd-4ca0-ae1a-a3a3e185e734" class="">Therefore, the dashboard needs to cover 2 requirements: Informational and Analytical. Informational: Shows data and facts. Based on data and facts, the dashboard provides an analysis of this information and offers recommendations for solving a problem or making a business decision.</p><h2 id="a127e02a-e1ee-46cc-8c03-693a7f6fede2" class=""><mark class="highlight-blue">Solution</mark></h2><p id="9472b2e7-baca-4dc2-b36c-1289bd126295" class="">&quot;There are several different types of dashboards: key performance indicator (KPI) dashboards, analytic dashboards, business intelligence (BI) dashboards, and productized application dashboards.&quot; (Daniel O’Sullivan, 2016). From the list of types of dashboards, I identified QReward dashboard belongs to <strong>productized application dashboards.</strong></p><p id="ab8a71fc-4bdd-49d0-8da8-04e3594a7bd0" class="">To design this type of dashboard, I followed &quot;<mark class="highlight-blue"><strong>Application Distilling</strong></mark>&quot; from Daniel. </p><ul id="45510da4-ab86-4dcf-bf91-cbaf0e774859" class="bulleted-list"><li>Step 1: Take a large whiteboard and write 3 words across the top: Features, Navigations, and Metrics</li></ul><ul id="929a6a18-de29-44d0-aa58-e49c51c6a5ee" class="bulleted-list"><li>Step 2: Give the participants a Sharpie and 3 sticky notepads in different colours. Have them list out everything the application does in each of those categories, and then place each one on the board under its respective heading.</li></ul><ul id="9e00ea74-d246-44d0-9f25-1a88da8a76e8" class="bulleted-list"><li>Step 3: Draw a large rectangle on the board to represent the dashboard with a section across the top or left-hand side for the navigation</li></ul><ul id="a688cc15-d0ab-4aa1-b4e3-ceb93a7c4106" class="bulleted-list"><li>Step 4: Place the links in the navigation area and the features and metrics in the main area. </li></ul><ul id="5ac9d423-549a-4b97-84b3-1cff141cb14d" class="bulleted-list"><li>Step 5: Refine the final sticky notes left standing on the board to their basic elements. E.g. I included a calendar in the design, I needed to decide which level it should default to (day, week, or month). </li></ul><p id="c4d98313-2d19-4fa5-8f82-7555285ec846" class="">As a last step, I mocked up &quot;application distilling&quot; wireframes based on the UI Design System, which was designed by me and the lead designer. Here is the <a href="https://medium.com/tech-designers/cliff-notes-for-building-your-first-design-system-cb30ddba94d0">story</a> of how I came up with the design system for QReward. </p><h1 id="2b079d48-bf5d-4589-83a1-81f5c1ff255d" class=""><mark class="highlight-orange">Research Process</mark></h1><h2 id="80ff891f-8fc9-4b79-b26c-b1ec97432cdc" class=""><mark class="highlight-blue">Stakeholder Interview</mark></h2><p id="cca687f4-bb3d-4d29-ae69-3edfb6449c5f" class=""><mark class="highlight-orange">Why I chose this methodology:</mark> The founder had strong detailed concepts about the app. He strongly believed in his initial sketches and didn&#x27;t want to spend money on research. Stakeholder interview is the only way to deeply understand his concepts to develop the final products based on his ideas while balancing the user centric design.</p><p id="a169e3cc-498b-4d7f-8542-2d4095911013" class="">
+</p><p id="b375a3fe-13fe-48d7-9180-8f608cf24675" class="">My lead designer and I carried stakeholder interviews 3-4 times a week to understand the nature of the business model. I realized business plays an important role in designing the product. I collected stakeholder answers, grouped problems and brainstormed solutions for each problem group. Below is the summary of stakeholder interviews:</p><figure id="bde0cd39-3192-4ab2-9b0e-e6d392f24448" class="image"><a href="Business%20Dashboard%20For%20QReward%20Program%20bde0cd3931924ab29b0ee6d392f24448/Screen_Shot_2020-09-09_at_1.43.17_AM.png"><img style="width:576px" src="Business%20Dashboard%20For%20QReward%20Program%20bde0cd3931924ab29b0ee6d392f24448/Screen_Shot_2020-09-09_at_1.43.17_AM.png"/></a><figcaption>A summary of our stakeholder interview </figcaption></figure><h2 id="a9c7b725-33e4-4cb1-a816-977e6336b721" class=""><mark class="highlight-blue">Competitor Analysis</mark></h2><p id="ce7df7cc-231b-4d2f-b927-ac43242eb957" class=""><mark class="highlight-orange">Why I chose this methodology:</mark> Dashboard is tough to design because it&#x27;s a B2B product. Our research budget wasn&#x27;t enough for business. Competitor Analysis saved us a lot of money. In addition, dashboard needs in-depth insights so methodology like survey won&#x27;t fit in.  </p><p id="a9f734ba-2fb9-42f2-ae41-0815f088dc94" class="">I researched all the dashboards that I daily use (Udemy, Medium, Quora, Shopify). I registered to other platforms (RBC) to learn about how their dashboards work.</p><h3 id="8bd9edbf-76af-4f02-a597-3f785868a9e3" class="">Udemy</h3><p id="3d90c34d-aa54-4968-8c48-b96396ce3588" class="">The thing I like the most about their dashboard is the &quot;Create announcement&quot; feature. Instructor can send email newsletters to all student databases once a week, 4 per month. I applied this feature to our design: Businesses can create announcements from the dashboard and these messages will be sent directly to the user app.</p><div id="5ca03be8-1952-4002-9adf-acb4824a2864" class="column-list"><div id="4e95bb0b-9b77-4203-9b1e-25bc5a7ce2f1" style="width:50%" class="column"><figure id="62a0a0b6-c5b4-403a-8681-9fe4dc26e39d" class="image"><a href="Business%20Dashboard%20For%20QReward%20Program%20bde0cd3931924ab29b0ee6d392f24448/Screen_Shot_2020-06-08_at_6.30.41_PM.png"><img style="width:2854px" src="Business%20Dashboard%20For%20QReward%20Program%20bde0cd3931924ab29b0ee6d392f24448/Screen_Shot_2020-06-08_at_6.30.41_PM.png"/></a><figcaption>The Overview tab</figcaption></figure></div><div id="37cc4ff6-9700-4a0b-baeb-fc8d19fd31c2" style="width:50%" class="column"><figure id="4430adba-ab33-4a4f-8041-8eb0c9443458" class="image"><a href="Business%20Dashboard%20For%20QReward%20Program%20bde0cd3931924ab29b0ee6d392f24448/Screen_Shot_2020-06-04_at_12.47.50_PM.png"><img style="width:2859px" src="Business%20Dashboard%20For%20QReward%20Program%20bde0cd3931924ab29b0ee6d392f24448/Screen_Shot_2020-06-04_at_12.47.50_PM.png"/></a><figcaption>The Overview tab</figcaption></figure><p id="d1fd1232-8e76-49ca-b2e7-635a595672d5" class="">
+</p></div></div><div id="5102a603-db3a-477e-a80e-5e1efbad099b" class="column-list"><div id="e140abe8-b2c9-475c-9c23-00c8f226eb33" style="width:50%" class="column"><figure id="4131b62c-d9b3-4d26-a6cc-6091ec8e13c5" class="image"><a href="Business%20Dashboard%20For%20QReward%20Program%20bde0cd3931924ab29b0ee6d392f24448/Screen_Shot_2020-06-16_at_5.05.28_PM.png"><img style="width:2828px" src="Business%20Dashboard%20For%20QReward%20Program%20bde0cd3931924ab29b0ee6d392f24448/Screen_Shot_2020-06-16_at_5.05.28_PM.png"/></a><figcaption>&quot;Create Announcement&quot; feature</figcaption></figure></div><div id="8784994e-db00-4c64-9b31-48b2632f350a" style="width:50%" class="column"><figure id="a6813767-b280-4b2b-b49a-0d5db1b14d4c" class="image"><a href="Business%20Dashboard%20For%20QReward%20Program%20bde0cd3931924ab29b0ee6d392f24448/Screen_Shot_2020-06-09_at_12.17.28_AM.png"><img style="width:2831px" src="Business%20Dashboard%20For%20QReward%20Program%20bde0cd3931924ab29b0ee6d392f24448/Screen_Shot_2020-06-09_at_12.17.28_AM.png"/></a><figcaption>Instructors can see the figures for the sent announcements.</figcaption></figure><p id="7237c2cb-fb22-456f-b565-938c4cf524ed" class="">
+</p></div></div><div id="1c3eced2-197b-470e-a3f7-6827737e229c" class="column-list"><div id="b06a0874-6d56-44c1-ad6a-401e0e561d84" style="width:50%" class="column"><figure id="c4918c06-d93a-4a47-ae3e-aac545affd5e" class="image"><a href="Business%20Dashboard%20For%20QReward%20Program%20bde0cd3931924ab29b0ee6d392f24448/Screen_Shot_2020-06-05_at_7.02.51_PM.png"><img style="width:2835px" src="Business%20Dashboard%20For%20QReward%20Program%20bde0cd3931924ab29b0ee6d392f24448/Screen_Shot_2020-06-05_at_7.02.51_PM.png"/></a><figcaption>The profile button on the top right allows switching between tabs</figcaption></figure><p id="536e7b7b-f7cb-4fcf-bfdd-f7dfbb84c78b" class="">
+</p></div><div id="63028cbc-33b0-4686-89ee-9239fc211216" style="width:50%" class="column"><figure id="41b4ea90-642d-4991-b05f-e67b3c356f09" class="image"><a href="Business%20Dashboard%20For%20QReward%20Program%20bde0cd3931924ab29b0ee6d392f24448/Screen_Shot_2020-06-05_at_7.02.45_PM.png"><img style="width:2842px" src="Business%20Dashboard%20For%20QReward%20Program%20bde0cd3931924ab29b0ee6d392f24448/Screen_Shot_2020-06-05_at_7.02.45_PM.png"/></a><figcaption>I plan to put all notifications and profile settings behind the profile pic</figcaption></figure><p id="5985fd33-0c32-40aa-a396-5385bdec627c" class="">
+</p></div></div><div id="abc06589-79b0-487a-9e85-8cfcf85da027" class="column-list"><div id="e237f0a4-60b2-4001-9242-f050541c7328" style="width:50%" class="column"><figure id="38159c3f-b478-4c61-b9a1-e95ed4b4a94a" class="image"><a href="Business%20Dashboard%20For%20QReward%20Program%20bde0cd3931924ab29b0ee6d392f24448/Screen_Shot_2020-06-04_at_1.36.53_PM.png"><img style="width:2840px" src="Business%20Dashboard%20For%20QReward%20Program%20bde0cd3931924ab29b0ee6d392f24448/Screen_Shot_2020-06-04_at_1.36.53_PM.png"/></a><figcaption>The statistics on each student</figcaption></figure></div><div id="dcee03f5-1143-4833-9023-020ff41856c9" style="width:50%" class="column"><figure id="8f0982f7-6797-40d9-9642-72064b4f5d7b" class="image"><a href="Business%20Dashboard%20For%20QReward%20Program%20bde0cd3931924ab29b0ee6d392f24448/Screen_Shot_2020-09-22_at_1.38.30_AM.png"><img style="width:2850px" src="Business%20Dashboard%20For%20QReward%20Program%20bde0cd3931924ab29b0ee6d392f24448/Screen_Shot_2020-09-22_at_1.38.30_AM.png"/></a><figcaption>The review/feedback section is very relevant to the QReward dashboard</figcaption></figure></div></div><h3 id="cff36a16-95de-4f73-9e1d-f7fc1f89c65f" class="">Medium</h3><p id="55d50adc-2a7a-4fb9-8905-55c1b4fcdd30" class="">The thing I like the most about Medium&#x27;s dashboard is the correspondence of 3 bar graphs. I took this as inspiration for our &quot;Analytics&quot; on the QReward dashboard.</p><div id="10479dbd-c058-4ac4-bf14-812d7492ed20" class="column-list"><div id="3ae787a0-891f-44ce-9561-0d111e9aea27" style="width:50%" class="column"><figure id="94d6f02f-76a4-4803-8276-bf6b26a40726" class="image"><a href="Business%20Dashboard%20For%20QReward%20Program%20bde0cd3931924ab29b0ee6d392f24448/Screen_Shot_2020-06-08_at_6.35.19_PM.png"><img style="width:2152px" src="Business%20Dashboard%20For%20QReward%20Program%20bde0cd3931924ab29b0ee6d392f24448/Screen_Shot_2020-06-08_at_6.35.19_PM.png"/></a></figure></div><div id="b6cfec7a-ded8-4358-aadd-cc23048e7aef" style="width:50%" class="column"><figure id="4ea7b3ca-1c69-48fb-a8a9-499d85e61976" class="image"><a href="Business%20Dashboard%20For%20QReward%20Program%20bde0cd3931924ab29b0ee6d392f24448/Screen_Shot_2020-09-22_at_1.44.04_AM.png"><img style="width:2453px" src="Business%20Dashboard%20For%20QReward%20Program%20bde0cd3931924ab29b0ee6d392f24448/Screen_Shot_2020-09-22_at_1.44.04_AM.png"/></a></figure><p id="40840cb2-a6b1-4f6e-bf13-f071535dbed6" class="">
+</p></div></div><div id="849afbe5-dee2-4da1-b674-7f7f635296a1" class="column-list"><div id="5e9454bd-62bc-47e9-8eee-05b17f81ec3e" style="width:50%" class="column"><h3 id="332c2b23-cef4-4673-b219-33b85a5209cc" class="">Quora</h3></div><div id="172a93b0-4a51-430f-b63b-91ae45d6a4a1" style="width:50%" class="column"><h3 id="dfbafd84-e6db-4e45-9b84-83b49865598c" class="">RBC</h3></div></div><div id="13eb2acc-61be-4fd6-99ec-2dce071a5db7" class="column-list"><div id="bd0a219b-8e1f-405e-a9cb-319dfc07665e" style="width:50%" class="column"><p id="a0cc02be-1202-4286-9c45-2821563d4036" class="">Quora uses bar graphs wisely to display the numbers of views.</p></div><div id="a8e9d267-9c0b-4d5f-9fa7-c6aefc93d3e7" style="width:50%" class="column"><p id="007e22d1-a55f-4109-8ff8-1063f17873ae" class="">RBC uses line graphs over the time period. I decide to allow businesses to view their statistics over 7 days, last month, and every month.</p></div></div><div id="7c757caa-810c-40b4-81ea-a2b5f8ce46f8" class="column-list"><div id="ef509722-fc31-4aac-a6a1-06daf4f45685" style="width:50%" class="column"><figure id="1343d732-4d41-4e56-8745-a72b63910883" class="image"><a href="Business%20Dashboard%20For%20QReward%20Program%20bde0cd3931924ab29b0ee6d392f24448/Screen_Shot_2020-06-05_at_6.24.24_PM.png"><img style="width:2050px" src="Business%20Dashboard%20For%20QReward%20Program%20bde0cd3931924ab29b0ee6d392f24448/Screen_Shot_2020-06-05_at_6.24.24_PM.png"/></a></figure></div><div id="b4b06874-d86a-4a01-a4e8-0eabf5117933" style="width:50%" class="column"><figure id="abf5dc9d-8265-412f-bea2-d43af35f10dd" class="image"><a href="Business%20Dashboard%20For%20QReward%20Program%20bde0cd3931924ab29b0ee6d392f24448/Screen_Shot_2020-06-05_at_11.07.17_AM.png"><img style="width:2880px" src="Business%20Dashboard%20For%20QReward%20Program%20bde0cd3931924ab29b0ee6d392f24448/Screen_Shot_2020-06-05_at_11.07.17_AM.png"/></a></figure><p id="ee7b2769-b849-417e-bded-a9571fcc2e5e" class="">
+</p></div></div><h1 id="8dcb7082-910c-4263-8890-9bfcdfd40498" class=""><mark class="highlight-orange">Ideate solution</mark></h1><p id="38b52e08-88ec-42ad-aeb4-4b6b9f1ee609" class="">As mentioned above, to design this <strong>productized application dashboard</strong>, I followed &quot;<mark class="highlight-blue"><strong>Application Distilling</strong></mark>&quot; from Daniel O’Sullivan.</p><figure id="86f90165-3abc-464c-b9c9-66685144071d"><a href="https://www.invisionapp.com/inside-design/designing-better-dashboards/" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">6 steps to designing better dashboards | Inside Design Blog</div><div class="bookmark-description">The beautiful and all-knowing dashboard can be a daunting thing to design. It&#x27;s an application&#x27;s intuitive and friendly concierge who&#x27;s always there to welcome you, fill you in on what&#x27;s been going on, and send you on your way. There are several different types of dashboards: key performance indicator (KPI) dashboards, analytic dashboards, business intelligence (BI) dashboards, and productized application dashboards.</div></div><div class="bookmark-href"><img src="https://marketing.invisionapp-cdn.com/www-inside-design/static/img/favicon.ico" class="icon bookmark-icon"/>https://www.invisionapp.com/inside-design/designing-better-dashboards/</div></div><img src="https://s3.amazonaws.com/www-inside-design/uploads/2016/01/6-steps-to-designing-better-dashboards-feature-810x810.jpg" class="bookmark-image"/></a></figure><p id="d135cf0a-e464-4964-83ff-f090d3a71755" class="">
+</p><h2 id="122a1b56-fe4a-4616-901d-1c7688ed0078" class="block-color-blue">Distilling Step 1</h2><p id="56180a88-939c-476e-8ed6-34dac9fd7806" class="">I opened a large whiteboard on Miro and write 3 words across the top: Features, Navigations, and Metrics. I used 3 sticky notepads in different colours. Have them list out everything the application does in each of those categories, and then place each one on the board under its respective heading.</p><figure id="8e3db555-49c8-4ced-8efc-657547f8ad05" class="image"><a href="Business%20Dashboard%20For%20QReward%20Program%20bde0cd3931924ab29b0ee6d392f24448/Miro_Distill_Step_1.jpg"><img style="width:2262px" src="Business%20Dashboard%20For%20QReward%20Program%20bde0cd3931924ab29b0ee6d392f24448/Miro_Distill_Step_1.jpg"/></a></figure><h2 id="59b29b18-b6e6-4427-9781-78245f6760d3" class=""><mark class="highlight-blue">Distilling Step 2,3,4,5</mark></h2><p id="c85a6e0a-311e-4e81-a0e9-df40a734dace" class="">I drew a large rectangle on the board to represent the dashboard with a section across the top or left-hand side for the navigation. Place the links in the navigation area and the features and metrics in the main area. This step takes a considerable amount of time with lots of back and forth. </p><p id="de681b6e-6a17-4362-b5d6-a6070beef326" class="">I worked on this step again and again 3 different times: <strong>First time with the lead designer, the second time with the founder, the third me alone.</strong></p><figure id="4fbcadcf-439b-4728-8094-a392624ea782" class="image"><a href="Business%20Dashboard%20For%20QReward%20Program%20bde0cd3931924ab29b0ee6d392f24448/QClub_-_Overview_tab.jpg"><img style="width:2495px" src="Business%20Dashboard%20For%20QReward%20Program%20bde0cd3931924ab29b0ee6d392f24448/QClub_-_Overview_tab.jpg"/></a><figcaption>Overview Tab </figcaption></figure><figure id="290108b2-64fb-43ef-9127-b6c940c1a8d4" class="image"><a href="Business%20Dashboard%20For%20QReward%20Program%20bde0cd3931924ab29b0ee6d392f24448/QClub_-_Qpon_tab.jpg"><img style="width:2285px" src="Business%20Dashboard%20For%20QReward%20Program%20bde0cd3931924ab29b0ee6d392f24448/QClub_-_Qpon_tab.jpg"/></a><figcaption>Qpon Tab</figcaption></figure><div id="2545a78b-f847-4883-91ff-606c5072a5c8" class="column-list"><div id="097f80dc-e801-4404-999c-f12c03d4ea79" style="width:50%" class="column"><figure id="4c17a54c-29b3-41eb-91e1-f38521f1db92" class="image"><a href="Business%20Dashboard%20For%20QReward%20Program%20bde0cd3931924ab29b0ee6d392f24448/QClub_-_Inventory.jpg"><img style="width:1413px" src="Business%20Dashboard%20For%20QReward%20Program%20bde0cd3931924ab29b0ee6d392f24448/QClub_-_Inventory.jpg"/></a><figcaption>Inventory Tab</figcaption></figure></div><div id="6c0a8d7f-4f3c-4aca-893e-370ad9b11297" style="width:50%" class="column"><figure id="6305d5ca-5639-4868-b236-f4fdef0d62c2" class="image"><a href="Business%20Dashboard%20For%20QReward%20Program%20bde0cd3931924ab29b0ee6d392f24448/QClub_-_History.jpg"><img style="width:1651px" src="Business%20Dashboard%20For%20QReward%20Program%20bde0cd3931924ab29b0ee6d392f24448/QClub_-_History.jpg"/></a><figcaption>Customer History Tab</figcaption></figure><p id="2de199a2-cdf1-46de-9ca1-6feeedab3011" class="">
+</p></div></div><figure id="0f17a1dd-8e58-45db-ace3-d89f52cb35ac" class="image"><a href="Business%20Dashboard%20For%20QReward%20Program%20bde0cd3931924ab29b0ee6d392f24448/QClub_-_Analytics.jpg"><img style="width:2599px" src="Business%20Dashboard%20For%20QReward%20Program%20bde0cd3931924ab29b0ee6d392f24448/QClub_-_Analytics.jpg"/></a><figcaption>Analytics Tab</figcaption></figure><figure id="1016897c-49a5-4e24-b65a-c9a426389ff1" class="image"><a href="Business%20Dashboard%20For%20QReward%20Program%20bde0cd3931924ab29b0ee6d392f24448/QClub_-_Tool_Setting.jpg"><img style="width:2187px" src="Business%20Dashboard%20For%20QReward%20Program%20bde0cd3931924ab29b0ee6d392f24448/QClub_-_Tool_Setting.jpg"/></a><figcaption>Tool Setting Tab</figcaption></figure><h2 id="4a8a09eb-539a-46d4-b1cf-be4e7b2cba74" class=""><mark class="highlight-blue">Low fi wireframes by paper and Figma</mark></h2><figure id="5831719c-9234-4841-87f1-b043ffacba7c" class="image"><a href="Business%20Dashboard%20For%20QReward%20Program%20bde0cd3931924ab29b0ee6d392f24448/a_hois._Greedle!_Leden-Q.jpg"><img style="width:3385px" src="Business%20Dashboard%20For%20QReward%20Program%20bde0cd3931924ab29b0ee6d392f24448/a_hois._Greedle!_Leden-Q.jpg"/></a><figcaption>Paper Wireframe for &quot;Overview&quot; tab</figcaption></figure><figure id="290d54a4-a09a-4464-bf72-b7faf43d0d8b" class="image"><a href="Business%20Dashboard%20For%20QReward%20Program%20bde0cd3931924ab29b0ee6d392f24448/Screen_Shot_2020-10-23_at_4.17.01_PM.png"><img style="width:1632px" src="Business%20Dashboard%20For%20QReward%20Program%20bde0cd3931924ab29b0ee6d392f24448/Screen_Shot_2020-10-23_at_4.17.01_PM.png"/></a><figcaption>Figma Wireframe for &quot;Overview&quot;</figcaption></figure><figure id="682a636e-5c10-47d5-8f5b-d1e3e00c4f68" class="image"><a href="Business%20Dashboard%20For%20QReward%20Program%20bde0cd3931924ab29b0ee6d392f24448/Paper1.jpg"><img style="width:912px" src="Business%20Dashboard%20For%20QReward%20Program%20bde0cd3931924ab29b0ee6d392f24448/Paper1.jpg"/></a><figcaption>Paper Wireframe for &quot;Analytics&quot; tab</figcaption></figure><figure id="0b20774c-a179-4bc1-874d-83bffd1410ac" class="image"><a href="Business%20Dashboard%20For%20QReward%20Program%20bde0cd3931924ab29b0ee6d392f24448/Screen_Shot_2020-10-23_at_4.16.48_PM.png"><img style="width:2532px" src="Business%20Dashboard%20For%20QReward%20Program%20bde0cd3931924ab29b0ee6d392f24448/Screen_Shot_2020-10-23_at_4.16.48_PM.png"/></a><figcaption>Figma Wireframe for &quot;Analytics&quot;</figcaption></figure><h2 id="993e1ec4-4a76-428c-be63-956cf8778feb" class=""><mark class="highlight-blue">High fidelity Design</mark></h2><p id="ae9ece90-f145-4f21-91ca-c13f9a0ee9a3" class="">The primary of the QReward brand is red. I mixed up a few colour selections and decided to go with the orange option.</p><figure id="c3d7b4ee-feea-42d4-a081-71a6bbe472ff" class="image"><a href="Business%20Dashboard%20For%20QReward%20Program%20bde0cd3931924ab29b0ee6d392f24448/Screen_Shot_2020-09-13_at_6.39.49_PM.png"><img style="width:1863px" src="Business%20Dashboard%20For%20QReward%20Program%20bde0cd3931924ab29b0ee6d392f24448/Screen_Shot_2020-09-13_at_6.39.49_PM.png"/></a></figure><figure id="33268534-391a-4878-994e-1cc393653003" class="image"><a href="Business%20Dashboard%20For%20QReward%20Program%20bde0cd3931924ab29b0ee6d392f24448/Website-Showcase-Mock-Up_02.jpg"><img style="width:3000px" src="Business%20Dashboard%20For%20QReward%20Program%20bde0cd3931924ab29b0ee6d392f24448/Website-Showcase-Mock-Up_02.jpg"/></a></figure><figure id="f67fba5a-29d4-443f-846d-2b483a08c0f9" class="image"><a href="Business%20Dashboard%20For%20QReward%20Program%20bde0cd3931924ab29b0ee6d392f24448/Website_Showcase_Mock-Up_04.jpg"><img style="width:3000px" src="Business%20Dashboard%20For%20QReward%20Program%20bde0cd3931924ab29b0ee6d392f24448/Website_Showcase_Mock-Up_04.jpg"/></a></figure><h2 id="d2bfbf4b-d2dd-418a-a8bc-93e39117a867" class=""><mark class="highlight-blue">Prototyping </mark></h2><p id="36851c31-edac-4e80-bb7e-4ced859ab92c" class="">Click on the link below to interact with the prototype in a new window 👇🏼</p><figure id="ddb2896f-722e-4172-b581-1dd74fe7f47e"><a href="https://www.figma.com/proto/x0juFqEhyjK7JvibBE0kGs/India-Team?node-id=22%3A1786&amp;viewport=-1480%2C364%2C0.4470716118812561&amp;scaling=scale-down" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">India Team</div><div class="bookmark-description">Created with Figma</div></div><div class="bookmark-href">https://www.figma.com/proto/x0juFqEhyjK7JvibBE0kGs/India-Team?node-id=22%3A1786&amp;viewport=-1480%2C364%2C0.4470716118812561&amp;scaling=scale-down</div></div><img src="https://api-cdn.figma.com/resize/thumbnails/4c862245-7afd-487a-b517-65aa676d376b?height=400&amp;bucket=figma-alpha" class="bookmark-image"/></a></figure><p id="89452334-4aee-4297-836a-33794ea3c1b2" class="">The dashboard will be live by the end of this year. 🚀</p><h1 id="0c7fb0e1-bdae-40d7-b987-9d23ff5977d5" class=""><mark class="highlight-orange">Key learning </mark></h1><p id="f977d3c6-3be6-411b-9a8c-ec4fe447105a" class="">This is the first time I&#x27;ve built the design system from scratch for a company. I collected my tips about fonts, colour, hand off, buttons, other design elements, and published an article on Medium. The design community loves my article so much that it motivates me to set up my own publication on Medium to share my product design journey with design buddies.  </p><figure id="1fdce6c4-25ad-450f-9e23-3961a4ed46d8"><a href="https://medium.com/tech-designers/cliff-notes-for-building-your-first-design-system-cb30ddba94d0?source=friends_link&amp;sk=2274c1ebf065e412e106b025e33cf19d" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Cliff-notes for building your first design system</div><div class="bookmark-description">When I first created my design system as a product designer. I didn&#x27;t know where to start and how to start. It took me almost 4 weeks to finish and countless time to update. This note will save you a lot of time.</div></div><div class="bookmark-href"><img src="https://miro.medium.com/1*m-R_BkNf1Qjr1YbyOIJY2w.png" class="icon bookmark-icon"/>https://medium.com/tech-designers/cliff-notes-for-building-your-first-design-system-cb30ddba94d0?source=friends_link&amp;sk=2274c1ebf065e412e106b025e33cf19d</div></div><img src="https://miro.medium.com/max/1200/1*dWHLGEWM1-sUKM3d3MDf0g.png" class="bookmark-image"/></a></figure><p id="0d7f16eb-372d-4ffc-a042-51347f0c26a1" class="">
+</p><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="b9d0e1ee-aa9e-4db7-8a8f-df08a2f0cefa"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%">Additionally, dashboard as well as other B2B products strongly depend on business model and stakeholder viewpoints. My lead designer and I spent full 2 weeks interviewing and listening to the founder and sales team. I even tried to register an account on our competitor dashboard (GetintheLoop) and big name dashboard (Shopify) to learn about how real dashboards work. </div></figure><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="3eab570a-8114-4826-bc3b-cc2a8f213c81"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%">After all, paper prototyping is the best. Just coloured pens replacing the most state-of-art tools. </div></figure><p id="d28013c8-01b5-4fc8-bda7-f9c41732f3d1" class="">
+</p><p id="b561a8ca-8fc1-4df5-865c-74f5bfe8c6a0" class="">
+</p></div></article>
+</body></html>
