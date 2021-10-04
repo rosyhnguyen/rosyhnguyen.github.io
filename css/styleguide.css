@@ -29,6 +29,7 @@
   --font-size-xxxl: 32px;
  
   --font-family-inter: "Inter", Helvetica;
+  --font-family-open_sans: "Open Sans", Helvetica;
   --font-family-poppins: "Poppins", Helvetica;
 }
 .inter-normal-shark-20px {
@@ -135,9 +136,9 @@
   font-weight: 500;
 }
 
-.poppins-normal-mine-shaft-20px {
+.opensans-normal-mine-shaft-20px {
   color: var(--mine-shaft);
-  font-family: var(--font-family-poppins);
+  font-family: var(--font-family-open_sans);
   font-size: var(--font-size-l);
   font-style: normal;
   font-weight: 400;

@@ -451,7 +451,7 @@
   left: 0px;
   position: absolute;
   top: 0px;
-  width: 1424px;
+  width: 1426px;
 }
 
 .desktop .rectangle-28-srN1s4 {
@@ -466,20 +466,16 @@
 
 .desktop .group-22-srN1s4 {
   background-color: transparent;
-  height: 30px;
-  left: 114px;
+  height: 27px;
+  left: 903px;
   position: absolute;
   top: 77px;
-  width: 536px;
+  width: 403px;
 }
 
 .desktop .home-shIp1o {
   background-color: transparent;
-  color: var(--mine-shaft);
-  font-family: var(--font-family-poppins);
-  font-size: var(--font-size-l);
-  font-style: normal;
-  font-weight: 600;
+  cursor: pointer;
   height: auto;
   left: 0px;
   letter-spacing: 0.00px;
@@ -491,10 +487,11 @@
   width: auto;
 }
 
-.desktop .portfolio-shIp1o {
+.desktop .about-shIp1o {
   background-color: transparent;
+  cursor: pointer;
   height: auto;
-  left: 126px;
+  left: 134px;
   letter-spacing: 0.00px;
   line-height: normal;
   mix-blend-mode: normal;
@@ -505,24 +502,11 @@
   width: auto;
 }
 
-.desktop .experience-shIp1o {
+.desktop .publications-shIp1o {
   background-color: transparent;
+  cursor: pointer;
   height: auto;
-  left: 273px;
-  letter-spacing: 0.00px;
-  line-height: normal;
-  mix-blend-mode: normal;
-  opacity: 0.9;
-  position: absolute;
-  text-align: center;
-  top: 0px;
-  width: auto;
-}
-
-.desktop .contact-shIp1o {
-  background-color: transparent;
-  height: auto;
-  left: 446px;
+  left: 257px;
   letter-spacing: 0.00px;
   line-height: normal;
   mix-blend-mode: normal;
@@ -569,6 +553,62 @@
   width: 482px;
 }
 
+.desktop .coming-soon-srN1s4 {
+  background-color: transparent;
+  color: var(--mine-shaft);
+  font-family: var(--font-family-inter);
+  font-size: var(--font-size-xs);
+  font-style: italic;
+  font-weight: 400;
+  height: 15px;
+  left: 254px;
+  letter-spacing: 0.00px;
+  line-height: normal;
+  mix-blend-mode: normal;
+  position: absolute;
+  text-align: left;
+  top: 809px;
+  width: auto;
+}
+
+.desktop .button-srN1s4 {
+  background-color: transparent;
+  height: 56px;
+  left: 120px;
+  position: absolute;
+  top: 737px;
+  width: 345px;
+}
+
+.desktop .rectangle-463-pWgdVp {
+  background-color: var(--thunderbird);
+  border-radius: 8px;
+  height: 56px;
+  left: 0px;
+  mix-blend-mode: normal;
+  position: absolute;
+  top: 0px;
+  width: 343px;
+}
+
+.desktop .view-it-on-figma-pWgdVp {
+  background-color: transparent;
+  color: var(--white);
+  font-family: var(--font-family-inter);
+  font-size: var(--font-size-xl);
+  font-style: normal;
+  font-weight: 700;
+  height: 25px;
+  left: 87px;
+  letter-spacing: 0.00px;
+  line-height: normal;
+  mix-blend-mode: normal;
+  position: absolute;
+  text-align: left;
+  top: 15px;
+  width: auto;
+}
+
 .desktop .rangitikei-1-dg6U5x {
   background-color: transparent;
   height: 625px;
@@ -577,16 +617,6 @@
   position: absolute;
   top: 183px;
   width: 820px;
-}
-
-.desktop .primary-button-dg6U5x {
-  background-color: transparent;
-  height: 56px;
-  left: 120px;
-  mix-blend-mode: normal;
-  position: absolute;
-  top: 747px;
-  width: 343px;
 }
 
 .desktop .ui-element-dg6U5x {
