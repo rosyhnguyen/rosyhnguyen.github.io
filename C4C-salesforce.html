@@ -1,0 +1,684 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Salesforce Customer Portal Redesign</title><style>
+    /* cspell:disable-file */
+    /* webkit printing magic: print all background colors */
+    html {
+        -webkit-print-color-adjust: exact;
+    }
+    * {
+        box-sizing: border-box;
+        -webkit-print-color-adjust: exact;
+    }
+    
+    html,
+    body {
+        margin: 0;
+        padding: 0;
+    }
+    @media only screen {
+        body {
+            margin: 2em auto;
+            max-width: 900px;
+            color: rgb(55, 53, 47);
+        }
+    }
+    
+    body {
+        line-height: 1.5;
+        white-space: pre-wrap;
+    }
+    
+    a,
+    a.visited {
+        color: inherit;
+        text-decoration: underline;
+    }
+    
+    .pdf-relative-link-path {
+        font-size: 80%;
+        color: #444;
+    }
+    
+    h1,
+    h2,
+    h3 {
+        letter-spacing: -0.01em;
+        line-height: 1.2;
+        font-weight: 600;
+        margin-bottom: 0;
+    }
+    
+    .page-title {
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin-top: 0;
+        margin-bottom: 0.75em;
+    }
+    
+    h1 {
+        font-size: 1.875rem;
+        margin-top: 1.875rem;
+    }
+    
+    h2 {
+        font-size: 1.5rem;
+        margin-top: 1.5rem;
+    }
+    
+    h3 {
+        font-size: 1.25rem;
+        margin-top: 1.25rem;
+    }
+    
+    .source {
+        border: 1px solid #ddd;
+        border-radius: 3px;
+        padding: 1.5em;
+        word-break: break-all;
+    }
+    
+    .callout {
+        border-radius: 3px;
+        padding: 1rem;
+    }
+    
+    figure {
+        margin: 1.25em 0;
+        page-break-inside: avoid;
+    }
+    
+    figcaption {
+        opacity: 0.5;
+        font-size: 85%;
+        margin-top: 0.5em;
+    }
+    
+    mark {
+        background-color: transparent;
+    }
+    
+    .indented {
+        padding-left: 1.5em;
+    }
+    
+    hr {
+        background: transparent;
+        display: block;
+        width: 100%;
+        height: 1px;
+        visibility: visible;
+        border: none;
+        border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+    }
+    
+    img {
+        max-width: 100%;
+    }
+    
+    @media only print {
+        img {
+            max-height: 100vh;
+            object-fit: contain;
+        }
+    }
+    
+    @page {
+        margin: 1in;
+    }
+    
+    .collection-content {
+        font-size: 0.875rem;
+    }
+    
+    .column-list {
+        display: flex;
+        justify-content: space-between;
+    }
+    
+    .column {
+        padding: 0 1em;
+    }
+    
+    .column:first-child {
+        padding-left: 0;
+    }
+    
+    .column:last-child {
+        padding-right: 0;
+    }
+    
+    .table_of_contents-item {
+        display: block;
+        font-size: 0.875rem;
+        line-height: 1.3;
+        padding: 0.125rem;
+    }
+    
+    .table_of_contents-indent-1 {
+        margin-left: 1.5rem;
+    }
+    
+    .table_of_contents-indent-2 {
+        margin-left: 3rem;
+    }
+    
+    .table_of_contents-indent-3 {
+        margin-left: 4.5rem;
+    }
+    
+    .table_of_contents-link {
+        text-decoration: none;
+        opacity: 0.7;
+        border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+    }
+    
+    table,
+    th,
+    td {
+        border: 1px solid rgba(55, 53, 47, 0.09);
+        border-collapse: collapse;
+    }
+    
+    table {
+        border-left: none;
+        border-right: none;
+    }
+    
+    th,
+    td {
+        font-weight: normal;
+        padding: 0.25em 0.5em;
+        line-height: 1.5;
+        min-height: 1.5em;
+        text-align: left;
+    }
+    
+    th {
+        color: rgba(55, 53, 47, 0.6);
+    }
+    
+    ol,
+    ul {
+        margin: 0;
+        margin-block-start: 0.6em;
+        margin-block-end: 0.6em;
+    }
+    
+    li > ol:first-child,
+    li > ul:first-child {
+        margin-block-start: 0.6em;
+    }
+    
+    ul > li {
+        list-style: disc;
+    }
+    
+    ul.to-do-list {
+        text-indent: -1.7em;
+    }
+    
+    ul.to-do-list > li {
+        list-style: none;
+    }
+    
+    .to-do-children-checked {
+        text-decoration: line-through;
+        opacity: 0.375;
+    }
+    
+    ul.toggle > li {
+        list-style: none;
+    }
+    
+    ul {
+        padding-inline-start: 1.7em;
+    }
+    
+    ul > li {
+        padding-left: 0.1em;
+    }
+    
+    ol {
+        padding-inline-start: 1.6em;
+    }
+    
+    ol > li {
+        padding-left: 0.2em;
+    }
+    
+    .mono ol {
+        padding-inline-start: 2em;
+    }
+    
+    .mono ol > li {
+        text-indent: -0.4em;
+    }
+    
+    .toggle {
+        padding-inline-start: 0em;
+        list-style-type: none;
+    }
+    
+    /* Indent toggle children */
+    .toggle > li > details {
+        padding-left: 1.7em;
+    }
+    
+    .toggle > li > details > summary {
+        margin-left: -1.1em;
+    }
+    
+    .selected-value {
+        display: inline-block;
+        padding: 0 0.5em;
+        background: rgba(206, 205, 202, 0.5);
+        border-radius: 3px;
+        margin-right: 0.5em;
+        margin-top: 0.3em;
+        margin-bottom: 0.3em;
+        white-space: nowrap;
+    }
+    
+    .collection-title {
+        display: inline-block;
+        margin-right: 1em;
+    }
+    
+    .simple-table {
+        margin-top: 1em;
+        font-size: 0.875rem;
+        empty-cells: show;
+    }
+    .simple-table td {
+        height: 29px;
+        min-width: 120px;
+    }
+    
+    .simple-table th {
+        height: 29px;
+        min-width: 120px;
+    }
+    
+    .simple-table-header-color {
+        background: rgb(247, 246, 243);
+        color: black;
+    }
+    .simple-table-header {
+        font-weight: 500;
+    }
+    
+    time {
+        opacity: 0.5;
+    }
+    
+    .icon {
+        display: inline-block;
+        max-width: 1.2em;
+        max-height: 1.2em;
+        text-decoration: none;
+        vertical-align: text-bottom;
+        margin-right: 0.5em;
+    }
+    
+    img.icon {
+        border-radius: 3px;
+    }
+    
+    .user-icon {
+        width: 1.5em;
+        height: 1.5em;
+        border-radius: 100%;
+        margin-right: 0.5rem;
+    }
+    
+    .user-icon-inner {
+        font-size: 0.8em;
+    }
+    
+    .text-icon {
+        border: 1px solid #000;
+        text-align: center;
+    }
+    
+    .page-cover-image {
+        display: block;
+        object-fit: cover;
+        width: 100%;
+        max-height: 30vh;
+    }
+    
+    .page-header-icon {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+    }
+    
+    .page-header-icon-with-cover {
+        margin-top: -0.72em;
+        margin-left: 0.07em;
+    }
+    
+    .page-header-icon img {
+        border-radius: 3px;
+    }
+    
+    .link-to-page {
+        margin: 1em 0;
+        padding: 0;
+        border: none;
+        font-weight: 500;
+    }
+    
+    p > .user {
+        opacity: 0.5;
+    }
+    
+    td > .user,
+    td > time {
+        white-space: nowrap;
+    }
+    
+    input[type="checkbox"] {
+        transform: scale(1.5);
+        margin-right: 0.6em;
+        vertical-align: middle;
+    }
+    
+    p {
+        margin-top: 0.5em;
+        margin-bottom: 0.5em;
+    }
+    
+    .image {
+        border: none;
+        margin: 1.5em 0;
+        padding: 0;
+        border-radius: 0;
+        text-align: center;
+    }
+    
+    .code,
+    code {
+        background: rgba(135, 131, 120, 0.15);
+        border-radius: 3px;
+        padding: 0.2em 0.4em;
+        border-radius: 3px;
+        font-size: 85%;
+        tab-size: 2;
+    }
+    
+    code {
+        color: #eb5757;
+    }
+    
+    .code {
+        padding: 1.5em 1em;
+    }
+    
+    .code-wrap {
+        white-space: pre-wrap;
+        word-break: break-all;
+    }
+    
+    .code > code {
+        background: none;
+        padding: 0;
+        font-size: 100%;
+        color: inherit;
+    }
+    
+    blockquote {
+        font-size: 1.25em;
+        margin: 1em 0;
+        padding-left: 1em;
+        border-left: 3px solid rgb(55, 53, 47);
+    }
+    
+    .bookmark {
+        text-decoration: none;
+        max-height: 8em;
+        padding: 0;
+        display: flex;
+        width: 100%;
+        align-items: stretch;
+    }
+    
+    .bookmark-title {
+        font-size: 0.85em;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        height: 1.75em;
+        white-space: nowrap;
+    }
+    
+    .bookmark-text {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .bookmark-info {
+        flex: 4 1 180px;
+        padding: 12px 14px 14px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    
+    .bookmark-image {
+        width: 33%;
+        flex: 1 1 180px;
+        display: block;
+        position: relative;
+        object-fit: cover;
+        border-radius: 1px;
+    }
+    
+    .bookmark-description {
+        color: rgba(55, 53, 47, 0.6);
+        font-size: 0.75em;
+        overflow: hidden;
+        max-height: 4.5em;
+        word-break: break-word;
+    }
+    
+    .bookmark-href {
+        font-size: 0.75em;
+        margin-top: 0.25em;
+    }
+    
+    .sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+    .code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+    .serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+    .mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+    .pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+    .pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+    .pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+    .pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+    .pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+    .pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+    .pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+    .pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+    .pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+    .pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+    .pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+    .pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+    .pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+    .pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+    .pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+    .pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+    .highlight-default {
+        color: rgba(55, 53, 47, 1);
+    }
+    .highlight-gray {
+        color: rgba(120, 119, 116, 1);
+        fill: rgba(120, 119, 116, 1);
+    }
+    .highlight-brown {
+        color: rgba(159, 107, 83, 1);
+        fill: rgba(159, 107, 83, 1);
+    }
+    .highlight-orange {
+        color: rgba(217, 115, 13, 1);
+        fill: rgba(217, 115, 13, 1);
+    }
+    .highlight-yellow {
+        color: rgba(203, 145, 47, 1);
+        fill: rgba(203, 145, 47, 1);
+    }
+    .highlight-teal {
+        color: rgba(68, 131, 97, 1);
+        fill: rgba(68, 131, 97, 1);
+    }
+    .highlight-blue {
+        color: rgba(51, 126, 169, 1);
+        fill: rgba(51, 126, 169, 1);
+    }
+    .highlight-purple {
+        color: rgba(144, 101, 176, 1);
+        fill: rgba(144, 101, 176, 1);
+    }
+    .highlight-pink {
+        color: rgba(193, 76, 138, 1);
+        fill: rgba(193, 76, 138, 1);
+    }
+    .highlight-red {
+        color: rgba(212, 76, 71, 1);
+        fill: rgba(212, 76, 71, 1);
+    }
+    .highlight-gray_background {
+        background: rgba(241, 241, 239, 1);
+    }
+    .highlight-brown_background {
+        background: rgba(244, 238, 238, 1);
+    }
+    .highlight-orange_background {
+        background: rgba(251, 236, 221, 1);
+    }
+    .highlight-yellow_background {
+        background: rgba(251, 243, 219, 1);
+    }
+    .highlight-teal_background {
+        background: rgba(237, 243, 236, 1);
+    }
+    .highlight-blue_background {
+        background: rgba(231, 243, 248, 1);
+    }
+    .highlight-purple_background {
+        background: rgba(244, 240, 247, 0.8);
+    }
+    .highlight-pink_background {
+        background: rgba(249, 238, 243, 0.8);
+    }
+    .highlight-red_background {
+        background: rgba(253, 235, 236, 1);
+    }
+    .block-color-default {
+        color: inherit;
+        fill: inherit;
+    }
+    .block-color-gray {
+        color: rgba(120, 119, 116, 1);
+        fill: rgba(120, 119, 116, 1);
+    }
+    .block-color-brown {
+        color: rgba(159, 107, 83, 1);
+        fill: rgba(159, 107, 83, 1);
+    }
+    .block-color-orange {
+        color: rgba(217, 115, 13, 1);
+        fill: rgba(217, 115, 13, 1);
+    }
+    .block-color-yellow {
+        color: rgba(203, 145, 47, 1);
+        fill: rgba(203, 145, 47, 1);
+    }
+    .block-color-teal {
+        color: rgba(68, 131, 97, 1);
+        fill: rgba(68, 131, 97, 1);
+    }
+    .block-color-blue {
+        color: rgba(51, 126, 169, 1);
+        fill: rgba(51, 126, 169, 1);
+    }
+    .block-color-purple {
+        color: rgba(144, 101, 176, 1);
+        fill: rgba(144, 101, 176, 1);
+    }
+    .block-color-pink {
+        color: rgba(193, 76, 138, 1);
+        fill: rgba(193, 76, 138, 1);
+    }
+    .block-color-red {
+        color: rgba(212, 76, 71, 1);
+        fill: rgba(212, 76, 71, 1);
+    }
+    .block-color-gray_background {
+        background: rgba(241, 241, 239, 1);
+    }
+    .block-color-brown_background {
+        background: rgba(244, 238, 238, 1);
+    }
+    .block-color-orange_background {
+        background: rgba(251, 236, 221, 1);
+    }
+    .block-color-yellow_background {
+        background: rgba(251, 243, 219, 1);
+    }
+    .block-color-teal_background {
+        background: rgba(237, 243, 236, 1);
+    }
+    .block-color-blue_background {
+        background: rgba(231, 243, 248, 1);
+    }
+    .block-color-purple_background {
+        background: rgba(244, 240, 247, 0.8);
+    }
+    .block-color-pink_background {
+        background: rgba(249, 238, 243, 0.8);
+    }
+    .block-color-red_background {
+        background: rgba(253, 235, 236, 1);
+    }
+    .select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+    .select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+    .select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+    .select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+    .select-value-color-opaquegray { background-color: rgba(255, 255, 255, 0.0375); }
+    .select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+    .select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+    .select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+    .select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+    .select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+    
+    .checkbox {
+        display: inline-flex;
+        vertical-align: text-bottom;
+        width: 16;
+        height: 16;
+        background-size: 16px;
+        margin-left: 2px;
+        margin-right: 5px;
+    }
+    
+    .checkbox-on {
+        background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+    }
+    
+    .checkbox-off {
+        background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+    }
+        
+    </style></head><body>
+        <nav style="font-family:'Open Sans', sans-serif; display:flex; justify-content: flex-end; margin:0; padding: 2em 0; ">
+        
+            <a href="index.html" style="text-decoration: none; padding:0 20px;">HOME</a>
+        
+            <a href="page-about-me-2.html" style="text-decoration: none;padding:0 20px;">ABOUT</a>
+        
+            <a href="blog.html" style="text-decoration: none;padding:0 20px;">PUBLICATIONS</a>
+        
+        </nav>
+        <article id="200fc597-f1fd-4294-af6b-2f4c486ae33a" class="page sans"><header><img class="page-cover-image" src="Salesforce%20Customer%20Portal%20Redesign%2023cdd1b3b7b2436a940907e315112e4d/C4C.png" style="object-position:center 28.690000000000005%"/><div class="page-header-icon page-header-icon-with-cover"><span class="icon">📶</span></div><h1 class="page-title">Salesforce Customer Portal Redesign</h1></header><div class="page-body"><h2 id="f75f6db3-6aa6-4521-99cb-0528d9c34fae" class=""><mark class="highlight-blue">Hello there,</mark></h2><p id="fce26d4e-85c8-45c1-a7b0-3762d0c913ad" class="">Due to NDA Non-disclosure agreement, please contact me for more in-depth information and data. </p><h2 id="3789ff74-2e89-40c7-86c9-35256d11a4ef" class=""><mark class="highlight-blue">Overview</mark></h2><p id="d68ebecf-4b4e-4b44-a615-3abe4664268f" class="">Centra for Customer Portal (C4C Portal) is built on Salesforce to store and process customer and technical data in the field of industrial certification. Our clients are B2B big electronic brands. The portal was built 3 years ago with no update the last 2 years. </p><h2 id="682795c1-7ce0-4322-a8d4-3c6cacfb2ae7" class=""><mark class="highlight-blue"><strong>My Role</strong></mark></h2><p id="30a6d6ad-8d8c-4308-81e8-a7b41be37861" class="">I led the redesign of Centra for Customer Portal since customer service received many inquiries and complaints from our clients.</p><p id="dc10108f-4815-45a0-a4b0-9a9ce76fe853" class="">Our direct team has 1 UX designer (me), 3 developers and 1 Project manager.</p><h2 id="cf199fd8-901c-471e-aeeb-cadf4fd04bbf" class=""><mark class="highlight-blue">Challenges</mark></h2><p id="09569bb2-a75a-4908-9965-1989ab7eee8e" class="">Understand the Exact Customer Needs due to the complexity of Electrical industry and Certification &amp; testing standards. 80% of uses focuses on model certification.</p><h2 id="78f6984b-8d47-433d-a331-6c0c83caf76f" class=""><mark class="highlight-blue">The Approach</mark></h2><p id="57f2f8f7-4aa9-4e8d-ade7-f3c641d71b3b" class="">Our team decided to follow agile with small sprints and incremental validation pushed to customers until the pain points were addressed one by one. </p><h2 id="f2e88e3d-09a5-4244-b3e6-8e0f0c8ff1be" class=""><mark class="highlight-blue">The Discovery</mark></h2><p id="06f16d1e-093f-43cc-b3ff-de991c1e60eb" class="">Those methodologies were used:</p><h3 id="894611b1-e0b2-4d38-802b-b4dffcd6e75e" class=""><strong>Stakeholders interviews</strong></h3><p id="a1b3f9be-00b0-49fc-891f-c651184c4118" class="">Involve: Developers, customer service team, clients. </p><p id="3fe6ed0c-0f04-4594-b417-0380bc5012bf" class=""><strong>Why we choose it: </strong>Our clients are B2B leading electronics who have very unique insights about technical requirements. The previous version was designed 3 years ago without hearing the clients evolving needs.</p><h3 id="50929c9b-c892-409f-88d7-5af19d065dfe" class=""><strong><strong>Task Analysis</strong></strong></h3><p id="9f967862-46df-4504-85fd-68a2472356a0" class=""><strong>Why we choose it:</strong> A breakdown of the required information and actions is needed help designers and developers understand the current system and its information flows. This methodology makes it possible to allocate tasks appropriately within the new system.</p><p id="b1225462-c976-4042-a6bf-051a74f5a4ff" class="">
+    </p><p id="051dab6e-b995-4d29-b4a6-f31ce77e1257" class=""><strong>What does it take to get certified:</strong>
+    Customer inquiry</p><p id="b93f7660-da08-4bdb-a893-3f9d72554fb6" class="">⬇️</p><p id="e1500d1a-1c81-4ceb-8d2a-45d25f5696f3" class="">Ask for quote &amp; cost </p><p id="acc2dd4b-6e7d-4e0b-9633-733432a8543e" class="">⬇️</p><p id="30d9d9df-5bf8-4c55-841c-e9e4375ae3f4" class="">Sales people get back to C level suite </p><p id="c709c6e9-a4bd-4ba6-9233-0fbf2d8df97c" class="">⬇️</p><p id="2a4874da-12c9-4ae3-80f4-58516ee3f0eb" class="">Qualifiers take 6 weeks, need 3 samples, propose quote </p><p id="20425fd5-f88c-45ed-a8cd-2d70ab1869df" class="">⬇️</p><p id="0e60ffb3-169e-4097-83d1-ea94ff20bb78" class="">Customers approve the code </p><p id="7374f969-f1a8-4a34-ab2c-59818267008a" class="">⬇️</p><p id="369d352a-7282-4acb-bf2f-67aa55fabd6b" class="">We distribute the quote </p><p id="2df35e59-5635-4a0d-9504-777469720559" class="">⬇️</p><p id="19e80b45-bbb4-4fc7-9e09-f8cb032f87a0" class="">Certifiers waits to the sample </p><p id="1ef28947-eacd-4688-b8bd-bde4069bf346" class="">⬇️</p><p id="f2555b58-3a0f-499d-8c74-d4a2180f27fb" class="">How the construction related: Blueprint or certifiers measure to see what are the ports </p><p id="be1c1fd5-679e-49a8-ae44-08adc27b7c07" class="">⬇️</p><p id="40857683-0110-4056-91c0-fed848a5d518" class="">What tests needed to done </p><p id="60142620-56b8-4c29-b9dc-c1838688095e" class="">⬇️</p><p id="67a845f0-93bf-4a88-b8b2-65e402e46af4" class="">Lab pick up, e.g. EMC test </p><p id="19978e4d-0a9d-4ef7-9617-85359676dce7" class="">⬇️</p><p id="1106009f-6eb6-4908-8edd-774ed1825f09" class="">Run the test </p><p id="c4f8ba15-bf9f-40bf-9b87-fea30e391eb0" class="">⬇️</p><p id="3b7707fe-e9b5-4f07-aea6-7636de34eb0b" class="">Pass or fail </p><p id="63de0b95-14be-4622-a118-035d45595371" class="">⬇️</p><p id="c41a77b0-d299-4df0-8a28-6c4e11bc082d" class="">Test report: everything passed? </p><p id="ac06677a-a86a-40a8-99db-7f15646e26b2" class="">⬇️</p><p id="3d38517e-dde9-4813-8555-d6494799a6d4" class="">Test result, how model is constructed </p><p id="6d7e2656-829d-4f7a-b568-e6762c587537" class="">⬇️</p><p id="4a19eeb3-1430-4db6-b884-2e8c64a796cb" class="">Logo stamped, certified process done</p><h1 id="4ff930e0-4fac-4cee-b247-e29335a7b494" class="">Detailed Design and Incremental Validation</h1><p id="1a707481-3568-47f5-9d8e-489471a5e717" class="">Followed the below steps in the design phase:</p><ol type="1" id="4df3a036-7946-4bda-a6fd-5749f39a1d48" class="numbered-list" start="1"><li>Low-fidelity wireframes with variations</li></ol><ol type="1" id="9ffe9ed0-f5e6-47f4-889a-37df93419af4" class="numbered-list" start="2"><li>Mid-fidelity wireframes</li></ol><ol type="1" id="967b9569-8471-44cb-91ac-4d824511c3ac" class="numbered-list" start="3"><li>Final Design</li></ol><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="2afc367e-557b-436e-ad0c-bc123600772d"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%"><strong>“Prototyping was the most effective way to gain meaningful feedback…”</strong></div></figure><h3 id="dfc62b71-2b89-49e2-9d6d-c8775d74eaaf" class="">Current Design</h3><figure id="23cdd1b3-b7b2-436a-9409-07e315112e4d" class="image"><a href="Salesforce%20Customer%20Portal%20Redesign%2023cdd1b3b7b2436a940907e315112e4d/Screen_Shot_2022-06-14_at_12.58.33_AM.png"><img style="width:2880px" src="Salesforce%20Customer%20Portal%20Redesign%2023cdd1b3b7b2436a940907e315112e4d/Screen_Shot_2022-06-14_at_12.58.33_AM.png"/></a></figure><h3 id="795e1c63-5feb-4199-ad93-e61370b41a8a" class="">Redesign Version 1</h3><p id="073d604d-05a0-4c17-a995-ec09c46eb0cf" class="">This version covers critical changes on the home dashboard and project details page discovered by first round discovery sessions. </p><figure id="84043562-5e92-456e-b509-a1a78f816929" class="image"><a href="Salesforce%20Customer%20Portal%20Redesign%2023cdd1b3b7b2436a940907e315112e4d/Home_Version_1.png"><img style="width:1668px" src="Salesforce%20Customer%20Portal%20Redesign%2023cdd1b3b7b2436a940907e315112e4d/Home_Version_1.png"/></a></figure><h3 id="7c779c0d-a166-4a23-a092-c1e070234da3" class="">Redesign Version 2.0</h3><p id="49dd1160-cdf4-42ad-abcb-20d2583342ac" class="">This version covers more in-depth changes on the home dashboard and project details page after validating with customers using <mark class="highlight-blue"><a href="https://www.figma.com/proto/P18mY7NlQdrVWMLYCQk4Sd/C4C-CSA?page-id=2%3A2&amp;node-id=87%3A1220&amp;viewport=3046%2C68%2C0.25&amp;scaling=scale-down-width&amp;starting-point-node-id=87%3A1220&amp;hide-ui=1">Figma prototypes</a></mark></p><figure id="4b35383f-1d7c-43cf-b598-e38bb25e0d76" class="image"><a href="Salesforce%20Customer%20Portal%20Redesign%2023cdd1b3b7b2436a940907e315112e4d/HomeC4C.png"><img style="width:1668px" src="Salesforce%20Customer%20Portal%20Redesign%2023cdd1b3b7b2436a940907e315112e4d/HomeC4C.png"/></a><figcaption>Home Dashboard</figcaption></figure><figure id="98f08a48-49bd-446d-b7f4-b95f6970f459" class="image"><a href="Salesforce%20Customer%20Portal%20Redesign%2023cdd1b3b7b2436a940907e315112e4d/Project_Details.png"><img style="width:1440px" src="Salesforce%20Customer%20Portal%20Redesign%2023cdd1b3b7b2436a940907e315112e4d/Project_Details.png"/></a><figcaption>Project Details Page</figcaption></figure><h3 id="d4290ae9-314e-4eb4-be1e-5dcd332f1496" class="">Redesign Version 3.0+</h3><p id="6d7c6d68-90b4-4212-9d9e-e302d2e5f8ce" class="">The next step is to implement user setting and manage accounts. Please contact me for more information</p><p id="ef7a2cc0-b229-46d2-b56c-db55dd5a4a8a" class="">
+    </p><p id="4f14f88a-2876-4e13-9f93-315ffdcbac1f" class="">
+    </p><p id="b38a18f3-afad-4567-9c99-39b38e2a6d30" class="">
+    </p></div></article></body></html>
