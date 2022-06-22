@@ -1,0 +1,681 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Engineering Proposal System</title><style>
+    /* cspell:disable-file */
+    /* webkit printing magic: print all background colors */
+    html {
+        -webkit-print-color-adjust: exact;
+    }
+    * {
+        box-sizing: border-box;
+        -webkit-print-color-adjust: exact;
+    }
+    
+    html,
+    body {
+        margin: 0;
+        padding: 0;
+    }
+    @media only screen {
+        body {
+            margin: 2em auto;
+            max-width: 900px;
+            color: rgb(55, 53, 47);
+        }
+    }
+    
+    body {
+        line-height: 1.5;
+        white-space: pre-wrap;
+    }
+    
+    a,
+    a.visited {
+        color: inherit;
+        text-decoration: underline;
+    }
+    
+    .pdf-relative-link-path {
+        font-size: 80%;
+        color: #444;
+    }
+    
+    h1,
+    h2,
+    h3 {
+        letter-spacing: -0.01em;
+        line-height: 1.2;
+        font-weight: 600;
+        margin-bottom: 0;
+    }
+    
+    .page-title {
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin-top: 0;
+        margin-bottom: 0.75em;
+    }
+    
+    h1 {
+        font-size: 1.875rem;
+        margin-top: 1.875rem;
+    }
+    
+    h2 {
+        font-size: 1.5rem;
+        margin-top: 1.5rem;
+    }
+    
+    h3 {
+        font-size: 1.25rem;
+        margin-top: 1.25rem;
+    }
+    
+    .source {
+        border: 1px solid #ddd;
+        border-radius: 3px;
+        padding: 1.5em;
+        word-break: break-all;
+    }
+    
+    .callout {
+        border-radius: 3px;
+        padding: 1rem;
+    }
+    
+    figure {
+        margin: 1.25em 0;
+        page-break-inside: avoid;
+    }
+    
+    figcaption {
+        opacity: 0.5;
+        font-size: 85%;
+        margin-top: 0.5em;
+    }
+    
+    mark {
+        background-color: transparent;
+    }
+    
+    .indented {
+        padding-left: 1.5em;
+    }
+    
+    hr {
+        background: transparent;
+        display: block;
+        width: 100%;
+        height: 1px;
+        visibility: visible;
+        border: none;
+        border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+    }
+    
+    img {
+        max-width: 100%;
+    }
+    
+    @media only print {
+        img {
+            max-height: 100vh;
+            object-fit: contain;
+        }
+    }
+    
+    @page {
+        margin: 1in;
+    }
+    
+    .collection-content {
+        font-size: 0.875rem;
+    }
+    
+    .column-list {
+        display: flex;
+        justify-content: space-between;
+    }
+    
+    .column {
+        padding: 0 1em;
+    }
+    
+    .column:first-child {
+        padding-left: 0;
+    }
+    
+    .column:last-child {
+        padding-right: 0;
+    }
+    
+    .table_of_contents-item {
+        display: block;
+        font-size: 0.875rem;
+        line-height: 1.3;
+        padding: 0.125rem;
+    }
+    
+    .table_of_contents-indent-1 {
+        margin-left: 1.5rem;
+    }
+    
+    .table_of_contents-indent-2 {
+        margin-left: 3rem;
+    }
+    
+    .table_of_contents-indent-3 {
+        margin-left: 4.5rem;
+    }
+    
+    .table_of_contents-link {
+        text-decoration: none;
+        opacity: 0.7;
+        border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+    }
+    
+    table,
+    th,
+    td {
+        border: 1px solid rgba(55, 53, 47, 0.09);
+        border-collapse: collapse;
+    }
+    
+    table {
+        border-left: none;
+        border-right: none;
+    }
+    
+    th,
+    td {
+        font-weight: normal;
+        padding: 0.25em 0.5em;
+        line-height: 1.5;
+        min-height: 1.5em;
+        text-align: left;
+    }
+    
+    th {
+        color: rgba(55, 53, 47, 0.6);
+    }
+    
+    ol,
+    ul {
+        margin: 0;
+        margin-block-start: 0.6em;
+        margin-block-end: 0.6em;
+    }
+    
+    li > ol:first-child,
+    li > ul:first-child {
+        margin-block-start: 0.6em;
+    }
+    
+    ul > li {
+        list-style: disc;
+    }
+    
+    ul.to-do-list {
+        text-indent: -1.7em;
+    }
+    
+    ul.to-do-list > li {
+        list-style: none;
+    }
+    
+    .to-do-children-checked {
+        text-decoration: line-through;
+        opacity: 0.375;
+    }
+    
+    ul.toggle > li {
+        list-style: none;
+    }
+    
+    ul {
+        padding-inline-start: 1.7em;
+    }
+    
+    ul > li {
+        padding-left: 0.1em;
+    }
+    
+    ol {
+        padding-inline-start: 1.6em;
+    }
+    
+    ol > li {
+        padding-left: 0.2em;
+    }
+    
+    .mono ol {
+        padding-inline-start: 2em;
+    }
+    
+    .mono ol > li {
+        text-indent: -0.4em;
+    }
+    
+    .toggle {
+        padding-inline-start: 0em;
+        list-style-type: none;
+    }
+    
+    /* Indent toggle children */
+    .toggle > li > details {
+        padding-left: 1.7em;
+    }
+    
+    .toggle > li > details > summary {
+        margin-left: -1.1em;
+    }
+    
+    .selected-value {
+        display: inline-block;
+        padding: 0 0.5em;
+        background: rgba(206, 205, 202, 0.5);
+        border-radius: 3px;
+        margin-right: 0.5em;
+        margin-top: 0.3em;
+        margin-bottom: 0.3em;
+        white-space: nowrap;
+    }
+    
+    .collection-title {
+        display: inline-block;
+        margin-right: 1em;
+    }
+    
+    .simple-table {
+        margin-top: 1em;
+        font-size: 0.875rem;
+        empty-cells: show;
+    }
+    .simple-table td {
+        height: 29px;
+        min-width: 120px;
+    }
+    
+    .simple-table th {
+        height: 29px;
+        min-width: 120px;
+    }
+    
+    .simple-table-header-color {
+        background: rgb(247, 246, 243);
+        color: black;
+    }
+    .simple-table-header {
+        font-weight: 500;
+    }
+    
+    time {
+        opacity: 0.5;
+    }
+    
+    .icon {
+        display: inline-block;
+        max-width: 1.2em;
+        max-height: 1.2em;
+        text-decoration: none;
+        vertical-align: text-bottom;
+        margin-right: 0.5em;
+    }
+    
+    img.icon {
+        border-radius: 3px;
+    }
+    
+    .user-icon {
+        width: 1.5em;
+        height: 1.5em;
+        border-radius: 100%;
+        margin-right: 0.5rem;
+    }
+    
+    .user-icon-inner {
+        font-size: 0.8em;
+    }
+    
+    .text-icon {
+        border: 1px solid #000;
+        text-align: center;
+    }
+    
+    .page-cover-image {
+        display: block;
+        object-fit: cover;
+        width: 100%;
+        max-height: 30vh;
+    }
+    
+    .page-header-icon {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+    }
+    
+    .page-header-icon-with-cover {
+        margin-top: -0.72em;
+        margin-left: 0.07em;
+    }
+    
+    .page-header-icon img {
+        border-radius: 3px;
+    }
+    
+    .link-to-page {
+        margin: 1em 0;
+        padding: 0;
+        border: none;
+        font-weight: 500;
+    }
+    
+    p > .user {
+        opacity: 0.5;
+    }
+    
+    td > .user,
+    td > time {
+        white-space: nowrap;
+    }
+    
+    input[type="checkbox"] {
+        transform: scale(1.5);
+        margin-right: 0.6em;
+        vertical-align: middle;
+    }
+    
+    p {
+        margin-top: 0.5em;
+        margin-bottom: 0.5em;
+    }
+    
+    .image {
+        border: none;
+        margin: 1.5em 0;
+        padding: 0;
+        border-radius: 0;
+        text-align: center;
+    }
+    
+    .code,
+    code {
+        background: rgba(135, 131, 120, 0.15);
+        border-radius: 3px;
+        padding: 0.2em 0.4em;
+        border-radius: 3px;
+        font-size: 85%;
+        tab-size: 2;
+    }
+    
+    code {
+        color: #eb5757;
+    }
+    
+    .code {
+        padding: 1.5em 1em;
+    }
+    
+    .code-wrap {
+        white-space: pre-wrap;
+        word-break: break-all;
+    }
+    
+    .code > code {
+        background: none;
+        padding: 0;
+        font-size: 100%;
+        color: inherit;
+    }
+    
+    blockquote {
+        font-size: 1.25em;
+        margin: 1em 0;
+        padding-left: 1em;
+        border-left: 3px solid rgb(55, 53, 47);
+    }
+    
+    .bookmark {
+        text-decoration: none;
+        max-height: 8em;
+        padding: 0;
+        display: flex;
+        width: 100%;
+        align-items: stretch;
+    }
+    
+    .bookmark-title {
+        font-size: 0.85em;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        height: 1.75em;
+        white-space: nowrap;
+    }
+    
+    .bookmark-text {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .bookmark-info {
+        flex: 4 1 180px;
+        padding: 12px 14px 14px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    
+    .bookmark-image {
+        width: 33%;
+        flex: 1 1 180px;
+        display: block;
+        position: relative;
+        object-fit: cover;
+        border-radius: 1px;
+    }
+    
+    .bookmark-description {
+        color: rgba(55, 53, 47, 0.6);
+        font-size: 0.75em;
+        overflow: hidden;
+        max-height: 4.5em;
+        word-break: break-word;
+    }
+    
+    .bookmark-href {
+        font-size: 0.75em;
+        margin-top: 0.25em;
+    }
+    
+    .sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+    .code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+    .serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+    .mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+    .pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+    .pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+    .pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+    .pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+    .pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+    .pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+    .pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+    .pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+    .pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+    .pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+    .pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+    .pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+    .pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+    .pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+    .pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+    .pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+    .highlight-default {
+        color: rgba(55, 53, 47, 1);
+    }
+    .highlight-gray {
+        color: rgba(120, 119, 116, 1);
+        fill: rgba(120, 119, 116, 1);
+    }
+    .highlight-brown {
+        color: rgba(159, 107, 83, 1);
+        fill: rgba(159, 107, 83, 1);
+    }
+    .highlight-orange {
+        color: rgba(217, 115, 13, 1);
+        fill: rgba(217, 115, 13, 1);
+    }
+    .highlight-yellow {
+        color: rgba(203, 145, 47, 1);
+        fill: rgba(203, 145, 47, 1);
+    }
+    .highlight-teal {
+        color: rgba(68, 131, 97, 1);
+        fill: rgba(68, 131, 97, 1);
+    }
+    .highlight-blue {
+        color: rgba(51, 126, 169, 1);
+        fill: rgba(51, 126, 169, 1);
+    }
+    .highlight-purple {
+        color: rgba(144, 101, 176, 1);
+        fill: rgba(144, 101, 176, 1);
+    }
+    .highlight-pink {
+        color: rgba(193, 76, 138, 1);
+        fill: rgba(193, 76, 138, 1);
+    }
+    .highlight-red {
+        color: rgba(212, 76, 71, 1);
+        fill: rgba(212, 76, 71, 1);
+    }
+    .highlight-gray_background {
+        background: rgba(241, 241, 239, 1);
+    }
+    .highlight-brown_background {
+        background: rgba(244, 238, 238, 1);
+    }
+    .highlight-orange_background {
+        background: rgba(251, 236, 221, 1);
+    }
+    .highlight-yellow_background {
+        background: rgba(251, 243, 219, 1);
+    }
+    .highlight-teal_background {
+        background: rgba(237, 243, 236, 1);
+    }
+    .highlight-blue_background {
+        background: rgba(231, 243, 248, 1);
+    }
+    .highlight-purple_background {
+        background: rgba(244, 240, 247, 0.8);
+    }
+    .highlight-pink_background {
+        background: rgba(249, 238, 243, 0.8);
+    }
+    .highlight-red_background {
+        background: rgba(253, 235, 236, 1);
+    }
+    .block-color-default {
+        color: inherit;
+        fill: inherit;
+    }
+    .block-color-gray {
+        color: rgba(120, 119, 116, 1);
+        fill: rgba(120, 119, 116, 1);
+    }
+    .block-color-brown {
+        color: rgba(159, 107, 83, 1);
+        fill: rgba(159, 107, 83, 1);
+    }
+    .block-color-orange {
+        color: rgba(217, 115, 13, 1);
+        fill: rgba(217, 115, 13, 1);
+    }
+    .block-color-yellow {
+        color: rgba(203, 145, 47, 1);
+        fill: rgba(203, 145, 47, 1);
+    }
+    .block-color-teal {
+        color: rgba(68, 131, 97, 1);
+        fill: rgba(68, 131, 97, 1);
+    }
+    .block-color-blue {
+        color: rgba(51, 126, 169, 1);
+        fill: rgba(51, 126, 169, 1);
+    }
+    .block-color-purple {
+        color: rgba(144, 101, 176, 1);
+        fill: rgba(144, 101, 176, 1);
+    }
+    .block-color-pink {
+        color: rgba(193, 76, 138, 1);
+        fill: rgba(193, 76, 138, 1);
+    }
+    .block-color-red {
+        color: rgba(212, 76, 71, 1);
+        fill: rgba(212, 76, 71, 1);
+    }
+    .block-color-gray_background {
+        background: rgba(241, 241, 239, 1);
+    }
+    .block-color-brown_background {
+        background: rgba(244, 238, 238, 1);
+    }
+    .block-color-orange_background {
+        background: rgba(251, 236, 221, 1);
+    }
+    .block-color-yellow_background {
+        background: rgba(251, 243, 219, 1);
+    }
+    .block-color-teal_background {
+        background: rgba(237, 243, 236, 1);
+    }
+    .block-color-blue_background {
+        background: rgba(231, 243, 248, 1);
+    }
+    .block-color-purple_background {
+        background: rgba(244, 240, 247, 0.8);
+    }
+    .block-color-pink_background {
+        background: rgba(249, 238, 243, 0.8);
+    }
+    .block-color-red_background {
+        background: rgba(253, 235, 236, 1);
+    }
+    .select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+    .select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+    .select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+    .select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+    .select-value-color-opaquegray { background-color: rgba(255, 255, 255, 0.0375); }
+    .select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+    .select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+    .select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+    .select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+    .select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+    
+    .checkbox {
+        display: inline-flex;
+        vertical-align: text-bottom;
+        width: 16;
+        height: 16;
+        background-size: 16px;
+        margin-left: 2px;
+        margin-right: 5px;
+    }
+    
+    .checkbox-on {
+        background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+    }
+    
+    .checkbox-off {
+        background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+    }
+        
+    </style></head><body>
+        <nav style="font-family:'Open Sans', sans-serif; display:flex; justify-content: flex-end; margin:0; padding: 2em 0; ">
+            <a href="index.html" style="text-decoration: none; padding:0 20px;">HOME</a>
+            <a href="page-about-me-2.html" style="text-decoration: none;padding:0 20px;">ABOUT</a>
+            <a href="blog.html" style="text-decoration: none;padding:0 20px;">PUBLICATIONS</a>
+        </nav>
+    <article id="5fd0e9c0-ec3f-43cf-8710-563fed9a7a01" class="page sans"><header><img class="page-cover-image" src="Engineering%20Proposal%20System%203b31cb3f92824c7593d5282a16d3c02e/code-proposal.png" style="object-position:center 35.519999999999996%"/><div class="page-header-icon page-header-icon-with-cover"><span class="icon">🔌</span></div><h1 class="page-title">Engineering Proposal System</h1></header><div class="page-body"><h2 id="701680a9-26d8-40e4-94f9-53f95ea6f4bf" class=""><mark class="highlight-blue">Hello there,</mark></h2><p id="5e5c2648-d5ae-468a-a376-a6e940083016" class="">Due to NDA Non-disclosure agreement, this case study can only present general information. Detailed presentation available upon requested. </p><h2 id="5ba56a9c-53d7-4141-963b-9573e4fb71ac" class=""><mark class="highlight-blue">Overview</mark></h2><p id="77cac3a5-6f71-40a8-92ae-8b77351b9720" class="">This system consists of 2 parts:</p><p id="31dfceeb-16b8-422e-8485-af3a61b2dc30" class="">Proposal system:
+    A tool for electrical engineers (Submitters) to submit and manage their proposals. Submitters will have ability to search for latest codes and standards, submit, track and receive notifications about the status of their proposal submitted records. </p><p id="c55308d5-0a35-44a3-802f-404075fc36a4" class=""><mark class="highlight-blue"><strong><a href="https://www.figma.com/proto/Eavwpc2d5fWQdgRLhU8Xib/Submitter-Flow?page-id=60%3A10858&amp;node-id=351%3A9245&amp;viewport=241%2C48%2C0.19&amp;scaling=scale-down-width&amp;starting-point-node-id=351%3A9245&amp;hide-ui=1">Explore Code Proposal - Submitter</a></strong></mark></p><p id="2c8b6cf9-527c-410a-80d7-cc3e82be09d6" class="">
+    </p><p id="ffc11e9e-c2fb-4c8a-8e2e-ace5e9652932" class="">Proposal Record:</p><p id="2de3754d-92e9-4700-8698-3adb3a16423f" class=""> Project managers (PMs) have the convenience of tracking, updating, processing the proposal requests requested by submitters. PM&#x27;s can also add notes from other existing systems in the organization. Admins can also log into to the system and download the report for Editing.</p><p id="decb75dc-0d94-4941-8215-c6d96f9e9bb9" class=""><strong><mark class="highlight-blue"><a href="https://www.figma.com/proto/FviU89dH8mYV6wYxpBvZIp/Admin-Panel-Proposal-System?page-id=0%3A1&amp;node-id=60%3A2887&amp;viewport=241%2C48%2C0.09&amp;scaling=scale-down-width&amp;starting-point-node-id=60%3A2887&amp;hide-ui=1">Explore Code Proposal - Reviewer</a></mark></strong></p><h2 id="ca5e21cd-b09d-407d-ba4d-f82624a1bd3c" class=""><mark class="highlight-blue"><strong>My Role</strong></mark></h2><p id="4eade23c-f725-499b-831d-89eb47357719" class="">Our direct team has 1 UX designer (me), 1 Product Owner, 1 Business Analysis, 3-5 developers.</p><h2 id="9bf5636d-f4f7-46bf-b4b4-aa5af4ec1d69" class=""><mark class="highlight-blue">Challenges</mark></h2><ul id="03724d19-2c75-4dc9-bf5f-bfd7b08e6db5" class="bulleted-list"><li style="list-style-type:disc">Understand the Exact Users Needs due to the complexity of Electrical industry and engineering code/standard proposing. </li></ul><ul id="9bc4a1ad-b7c8-4875-ace4-d2985deebab9" class="bulleted-list"><li style="list-style-type:disc">Ability to integrate and automate with other existing systems in the organization (e.g. PR and Ballot review sites).</li></ul><ul id="26e6e505-6d2a-4b47-8cf3-60fab4be7a66" class="bulleted-list"><li style="list-style-type:disc">Ability to get actual content (which can be up to 1,000+ pages per code) into the system. Depending on the timeline of this project and timeline of that conversion, There might be a dependency.</li></ul><h2 id="e5d4163a-83cc-44a4-bc0c-ce5ec312668d" class=""><mark class="highlight-blue">Problem Statement</mark></h2><p id="6b142de3-38ed-495f-8411-8342dd7bf12a" class="">In the <mark class="highlight-blue"><a href="https://www.csagroup.org/standards/areas-of-focus/electrical/cecode-proposals/">current system</a></mark>, anyone can submit a proposal through a form and after submission, Project Managers will receive the list of proposals and manually work on them through excel, outlook.</p><figure id="3b31cb3f-9282-4c75-93d5-282a16d3c02e" class="image"><a href="Engineering%20Proposal%20System%203b31cb3f92824c7593d5282a16d3c02e/Screen_Shot_2022-06-16_at_4.14.47_PM.png"><img style="width:2728px" src="Engineering%20Proposal%20System%203b31cb3f92824c7593d5282a16d3c02e/Screen_Shot_2022-06-16_at_4.14.47_PM.png"/></a><figcaption>The current system is a form built on FormStack</figcaption></figure><p id="bd1c0133-8898-4c72-8cc3-d54a1c663912" class="">Submitter are unable to track the submitted proposal. Project Managers are unable to communicate with the submitter regarding issues in the proposal. There is no transparency between the submitter and PM regarding the stage and status of the proposal. There is a high level of administration burden on the PM.</p><figure id="b130f97b-60fb-44dd-8bb4-c201c4f0ce0c" class="image"><a href="Engineering%20Proposal%20System%203b31cb3f92824c7593d5282a16d3c02e/Problem.png"><img style="width:4849px" src="Engineering%20Proposal%20System%203b31cb3f92824c7593d5282a16d3c02e/Problem.png"/></a></figure><h2 id="98489706-c558-4314-82eb-d5aa5055bb05" class=""><mark class="highlight-blue">The Discovery</mark></h2><p id="cbad5b79-edec-4702-a4cd-f86895e61df7" class="">Those methodologies were used:</p><h3 id="ec282d5d-ffda-4ca1-9d4b-f9c09dc3804c" class=""><strong>Stakeholders interviews</strong></h3><p id="56b63f86-742d-44a9-ba42-a9475868b491" class=""><strong>Involve:</strong> Executive Board, Developers, Committee Members, PMs, other working groups. </p><p id="0a6dd13f-2148-43a4-abff-8b08db5f8fa4" class=""><strong>Why I choose it: </strong></p><p id="5fbd6a73-c018-4d84-87fc-1b0a82c3fae6" class="">Our users are electrical engineers who have very unique insights about technical requirements. There are some federal restrictions that can I have to strictly follow.  </p><p id="12f29dbe-bc9c-4f95-b308-e95903625594" class="">Outcome: Thanks to the output from stakeholder interviews, I decided to take the approach of <mark class="highlight-blue"><strong>object-oriented design</strong></mark>.</p><figure id="77a02023-d2d4-4615-b971-e220b8252594"><a href="https://uxdesign.cc/stop-thinking-about-flows-start-thinking-about-objects-16143c1b8b1f" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Stop thinking about flows, start thinking about objects</div><div class="bookmark-description">Task-based user flows are the golden standard of UX design. First, you examine the user&#x27;s goal. Next, you identify the tasks required to achieve them. Finally, you put those tasks into a logical sequence, et voila, a user-based flow. This approach is one of the main staples of UX design.</div></div><div class="bookmark-href"><img src="https://miro.medium.com/fit/c/256/256/1*dn6MbbIIlwobt0jnUcrt_Q.png" class="icon bookmark-icon"/>https://uxdesign.cc/stop-thinking-about-flows-start-thinking-about-objects-16143c1b8b1f</div></div><img src="https://miro.medium.com/max/1200/1*35PFHTbMtJvFl6u25h1AHQ.png" class="bookmark-image"/></a></figure><h3 id="7fc66970-739e-4989-8c2f-706d6bd6afd5" class="">Ecosystem Map</h3><p id="760c2354-cd66-4276-8d0f-ecbd87ce434d" class=""><strong>Why I choose it:</strong></p><p id="e21a5eb4-3496-438a-a888-b4884d537ace" class="">A visualization of the company’s digital properties, the connections between them, and their purpose in shaping the new system. This gives me insights around how to leverage new and existing assets to achieve the design goals.</p><figure id="0b955e0f-81eb-4e7f-8723-a86075381a00" class="image"><a href="Engineering%20Proposal%20System%203b31cb3f92824c7593d5282a16d3c02e/Screen_Shot_2022-06-16_at_4.33.02_PM.png"><img style="width:1458px" src="Engineering%20Proposal%20System%203b31cb3f92824c7593d5282a16d3c02e/Screen_Shot_2022-06-16_at_4.33.02_PM.png"/></a><figcaption>Ecosystem Map</figcaption></figure><h3 id="7f9429b2-7658-4112-b5c0-8479d97db648" class=""><strong><strong>Task Analysis</strong></strong></h3><p id="082b9717-a17b-423b-957a-15f2333bc97c" class=""><strong>Why we choose it:</strong> </p><p id="ead8797a-bf8f-4253-bfb0-7863d9cd19cf" class="">A breakdown of the required information and actions is needed help designers and developers understand the current system and its information flows. This methodology makes it possible to allocate tasks appropriately within the new system.</p><p id="3862fee3-c34a-4f13-9cf5-6fff0e00e6af" class="">
+    </p><p id="0069e465-8ac6-4309-9a8c-b8c8d19ef762" class="">Task Analysis for Submitters</p><p id="e71949a6-ceb1-4462-8500-cbb1b0a0b5c8" class=""> </p><figure id="1936062c-c854-4c52-9344-4f2e651e78c7" class="image"><a href="Engineering%20Proposal%20System%203b31cb3f92824c7593d5282a16d3c02e/Screen_Shot_2022-06-16_at_4.39.02_PM.png"><img style="width:1568px" src="Engineering%20Proposal%20System%203b31cb3f92824c7593d5282a16d3c02e/Screen_Shot_2022-06-16_at_4.39.02_PM.png"/></a></figure><p id="db5ce0f1-3093-4f27-a5f5-9601e47a1db9" class="">
+    </p><p id="52fbec77-a861-4e69-aaaf-5b5349f0de2f" class="">Task Analysis for PMs:</p><figure id="ff109def-86d0-4a88-b5d2-4d3f7d2c3355" class="image"><a href="Engineering%20Proposal%20System%203b31cb3f92824c7593d5282a16d3c02e/Screen_Shot_2022-06-16_at_4.41.17_PM.png"><img style="width:1899px" src="Engineering%20Proposal%20System%203b31cb3f92824c7593d5282a16d3c02e/Screen_Shot_2022-06-16_at_4.41.17_PM.png"/></a></figure><h3 id="071abc09-a66a-45a5-a050-a422c5ba03c3" class="">Reversed Workflow</h3><p id="b0b0f9cf-9a62-4785-b9c6-26819dd146db" class=""><strong>Why we choose it: </strong></p><p id="6c3f7806-d273-4fce-97b5-d54530697bc1" class="">I need to merge the submitters’ tasks with PMs’ tasks. Now a complete workflow is needed. Because of the complexity of the system, I decided to map the workflow the reversed way.</p><figure id="aa2183a9-e4ad-42f8-a9c9-3255ecddecbf" class="image"><a href="Engineering%20Proposal%20System%203b31cb3f92824c7593d5282a16d3c02e/Screen_Shot_2022-06-16_at_4.42.13_PM.png"><img style="width:894px" src="Engineering%20Proposal%20System%203b31cb3f92824c7593d5282a16d3c02e/Screen_Shot_2022-06-16_at_4.42.13_PM.png"/></a></figure><h2 id="3f86e756-8bce-4970-97cd-446e3a78deca" class=""><mark class="highlight-blue">Detailed Design and Incremental Validation</mark></h2><h3 id="f84177b1-c6dc-44ec-ad25-1eb1a70930bb" class="">Round 1: Low fidelity Wireframes + incremental validation</h3><p id="d97711b8-9858-48c9-9f8f-e0ff3f472a9f" class="">I validated with 3 engineering-background users</p><figure id="72464284-9db9-4c1f-81df-2b81d5c3127b" class="image"><a href="Engineering%20Proposal%20System%203b31cb3f92824c7593d5282a16d3c02e/Screen_Shot_2022-06-16_at_4.58.49_PM.png"><img style="width:2172px" src="Engineering%20Proposal%20System%203b31cb3f92824c7593d5282a16d3c02e/Screen_Shot_2022-06-16_at_4.58.49_PM.png"/></a><figcaption>Low fi wireframes on Figma</figcaption></figure><h3 id="e4575577-20a1-490a-87c2-841c98367851" class="">Round 2: Low fidelity Wireframes + incremental validation</h3><p id="d78e5b53-4f42-4141-90e7-85b16676064f" class="">I validated with another 4 users</p><figure id="1bf82f82-805d-4855-8e2c-2dbd0e1b277d" class="image"><a href="Engineering%20Proposal%20System%203b31cb3f92824c7593d5282a16d3c02e/Screen_Shot_2022-06-16_at_5.02.00_PM.png"><img style="width:1370px" src="Engineering%20Proposal%20System%203b31cb3f92824c7593d5282a16d3c02e/Screen_Shot_2022-06-16_at_5.02.00_PM.png"/></a></figure><p id="1a2372c5-dd95-4ad7-93b5-fba9e2657d2d" class="">
+    </p><h3 id="15a0ddf7-c65d-4261-b4e3-5c5012488789" class="">Round 3: High fidelity Wireframes + validation/feedback with Project Managers from other sectors</h3><div id="03c2036f-ff15-40c4-ae2e-47739e7d4c74" class="column-list"><div id="2c891139-6a64-4b26-96be-daeecfcaee1c" style="width:50%" class="column"><p id="458823ad-2563-4eb0-b42c-ec0924950715" class=""><mark class="highlight-blue"><strong><a href="https://www.figma.com/proto/Eavwpc2d5fWQdgRLhU8Xib/Submitter-Flow?page-id=60%3A10858&amp;node-id=351%3A9245&amp;viewport=241%2C48%2C0.19&amp;scaling=scale-down-width&amp;starting-point-node-id=351%3A9245&amp;hide-ui=1">Explore Code Proposal - Submitter</a></strong></mark></p></div><div id="7262bf3c-982c-491c-b2e4-3e8aba5537b3" style="width:50%" class="column"><p id="d0b0af97-5a3e-4816-b6fa-4b893d8d0c61" class=""><strong><mark class="highlight-blue"><a href="https://www.figma.com/proto/FviU89dH8mYV6wYxpBvZIp/Admin-Panel-Proposal-System?page-id=0%3A1&amp;node-id=60%3A2887&amp;viewport=241%2C48%2C0.09&amp;scaling=scale-down-width&amp;starting-point-node-id=60%3A2887&amp;hide-ui=1">Explore Code Proposal - Reviewer</a></mark></strong></p></div></div><p id="2a7051b4-cc5b-4da4-8188-0507648c44fe" class="">
+    </p><figure id="0247a3f2-d9ec-4b49-b2c6-b743a302f2f3" class="image"><a href="Engineering%20Proposal%20System%203b31cb3f92824c7593d5282a16d3c02e/Screen_Shot_2022-06-16_at_5.05.51_PM.png"><img style="width:2866px" src="Engineering%20Proposal%20System%203b31cb3f92824c7593d5282a16d3c02e/Screen_Shot_2022-06-16_at_5.05.51_PM.png"/></a></figure><div id="f6adfd54-1a28-4dbc-91f3-bb3b69d5bb30" class="column-list"><div id="2f2e3bf0-dad2-4ca8-9eaa-cd53085ed784" style="width:100%" class="column"></div></div><div id="34a42cd3-d161-4066-8af2-13109f703f38" class="column-list"><div id="a56e362a-8f82-4451-a2be-a2dfef0e6ca9" style="width:100%" class="column"></div></div><div id="5da6277a-ec97-48e9-9b72-d65036684844" class="column-list"><div id="f9beb37b-3d85-4d85-a28f-45b2a4d1c95f" style="width:100%" class="column"></div></div><div id="5e687cd7-2326-46b5-bb9c-7f8e623c6ff1" class="column-list"><div id="ede62ca6-52c7-45c9-b017-0679b7af46d1" style="width:100%" class="column"></div></div><div id="bfc33b9f-d307-48b6-98f7-bfc39e1a0c93" class="column-list"><div id="ca5ec64d-f2fe-4933-a5a0-fc87da79850c" style="width:100%" class="column"></div></div><div id="bfdfb077-bd7d-4a0d-9035-2a66bb52ffb0" class="column-list"><div id="f6b5aed5-8f01-4dbc-9d5d-a126138c236e" style="width:100%" class="column"></div></div></div></article></body></html>
