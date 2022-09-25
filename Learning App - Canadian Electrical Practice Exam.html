@@ -1,0 +1,690 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Learning App - Canadian Electrical Practice Exam from CSA Group</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-opaquegray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="f02620a7-98bb-4450-b574-9568cef62cd7" class="page sans"><header><img class="page-cover-image" src="Learning%20App%20-%20Canadian%20Electrical%20Practice%20Exam%20f%20f02620a798bb4450b5749568cef62cd7/young-multiracial-students-taking-an-exam-in-high-2022-01-04-23-47-25-utc.jpg" style="object-position:center 40.6%"/><div class="page-header-icon page-header-icon-with-cover"><span class="icon">🏆</span></div><h1 class="page-title">Learning App - Canadian Electrical Practice Exam from CSA Group</h1></header><div class="page-body"><h1 id="8a8480d6-968b-428a-a6de-3614cb63f183" class="">About <mark class="highlight-blue">CSA Group</mark></h1><p id="767a89fa-e295-420a-8264-f926a3a961e8" class="">The CSA Group (formerly the <strong>Canadian Standards Association</strong>) is a global organization dedicated to safety, social good and sustainability. CSA Group is a leader in Standards Development and in Testing, Inspection and Certification around the world including Canada, the U.S., Europe and Asia.</p><h1 id="d901dc6b-cbd2-4eec-a759-ed4a2b3b5ebf" class="">My<mark class="highlight-blue"> Role and software</mark></h1><p id="2f5cd01e-abaa-4a5a-9943-5036dd05c8a8" class="">UX Design</p><p id="ffe6f793-9d50-44d5-97a9-551f060822b1" class="">Responsive Website Design</p><p id="f3b3d330-66e8-4cd0-8a91-b539896184da" class="">Mobile App Design</p><p id="582ef965-a0e6-4369-8db1-3bc69728f2d3" class="">Wire framing &amp; Usability Testing</p><p id="2b191d9e-ce65-4519-ba19-cc52c53b51ca" class="">
+</p><p id="a5389e53-a7fb-4fec-9f31-14e206c62820" class="">Software involved: Figma, Moodle Jira, Asana, Moodle</p><h1 id="e8c11b7e-a956-4c87-9d73-7de32a4fbccb" class=""><mark class="highlight-blue">What </mark>is the project?</h1><p id="c4cd4ea2-2e51-489f-baa3-7ad17d9c9a04" class="">The CSA Group is <strong>redesigning</strong> the current <strong>Canadian Electrician Practice Exam application</strong>. The redesigned learning platform has updated content from the Canadian Electric Code for Construction Electrician and Industrial Electrician with significant enhancements to the features. 
+Our new platform is based on a web browser that is compatible to use on a <strong>laptop, tablet and, phone in English and French.</strong>
+Our product is curated with different study modes which supports the students to practice a full exam simulation similar to a 4 hour Red seal Exam and it also provides specialized study modes that help the students to concentrate on their weaknesses</p><h1 id="89eb13d3-52f3-4a77-9872-ac0a8ae6bf9a" class=""><mark class="highlight-blue">Who </mark>are the targeted users?</h1><p id="80b67017-d20e-4fd2-8c87-1219cb089d1f" class="">Students and Junior Electrical Engineers who are preparing to write the Red Seal exams based on the Red Seal Occupational Standard for the trade to attain professional certifications. These students will be utilizing the product, 2021 Canadian Electrical Practice Exam to practice the complex and difficult technical examinations.</p><h1 id="e1e875ee-572a-43d8-8f1a-a7fceb520e47" class="">How the <mark class="highlight-blue">old design</mark> looks</h1><p id="6acf666c-bf22-49b1-95f2-aa89ece3d1ee" class="">The platform we are using is legacy and requires a rebuild. The content is lacking in rationale, explanation and motivational tools to help support learning. The design is out of date. View the old design:</p><figure id="9ab04412-bcbd-49a7-9764-db5a11f10fad"><a href="https://na01.safelinks.protection.outlook.com/?url=https%3A%2F%2Fitunes.apple.com%2Fca%2Fapp%2Felectrical-practice-exam-2018%2Fid1451101286%3Fls%3D1%26mt%3D8&amp;data=02%7C01%7Csuzanne.gobeil%40csagroup.org%7C370bf3d7994541ec2f3008d691f1e9d8%7Ce600ad84320a43efbfa48f5d25019bde%7C0%7C0%7C636856865522446031&amp;sdata=SxdlU1dpUT74uj%2Bf%2F1HEp%2BLCPwrNwkytjfyzLQVBl%2B4%3D&amp;reserved=0" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">‎Electrical Practice Exam 2018</div><div class="bookmark-description">‎Canadian Electrical Practice Exam (CEPE) - 2018 If you are serious about becoming a Construction or Industrial Electrician and want to improve your chances of Red Seal exam success, this interactive tool is for you. Based on the 2018 Canadian Electrical Code Part I, the CEPE features nearly 2,100 sa...</div></div><div class="bookmark-href"><img src="https://apps.apple.com/favicon.ico" class="icon bookmark-icon"/>https://na01.safelinks.protection.outlook.com/?url=https%3A%2F%2Fitunes.apple.com%2Fca%2Fapp%2Felectrical-practice-exam-2018%2Fid1451101286%3Fls%3D1%26mt%3D8&amp;data=02%7C01%7Csuzanne.gobeil%40csagroup.org%7C370bf3d7994541ec2f3008d691f1e9d8%7Ce600ad84320a43efbfa48f5d25019bde%7C0%7C0%7C636856865522446031&amp;sdata=SxdlU1dpUT74uj%2Bf%2F1HEp%2BLCPwrNwkytjfyzLQVBl%2B4%3D&amp;reserved=0</div></div><img src="https://is4-ssl.mzstatic.com/image/thumb/Purple114/v4/ae/0f/55/ae0f5599-4c4b-3a09-f777-2d2c4cca8fea/AppIcons-1x_U007emarketing-0-7-85-220.png/1200x630wa.png" class="bookmark-image"/></a></figure><div id="fa38922c-d29f-47a4-b71d-b0806d230644" class="column-list"><div id="d16610a7-9cac-478f-aaa8-047debafb247" style="width:50%" class="column"><figure id="255baf80-8f05-4f69-8ac4-1ded049e8034" class="image"><a href="Learning%20App%20-%20Canadian%20Electrical%20Practice%20Exam%20f%20f02620a798bb4450b5749568cef62cd7/CEPE_Old_1.png"><img style="width:1560px" src="Learning%20App%20-%20Canadian%20Electrical%20Practice%20Exam%20f%20f02620a798bb4450b5749568cef62cd7/CEPE_Old_1.png"/></a></figure></div><div id="827f27ad-2d48-4421-8f25-75190cb60b89" style="width:50%" class="column"><figure id="c883c589-fa21-483e-94e2-6937e87bbfcd" class="image"><a href="Learning%20App%20-%20Canadian%20Electrical%20Practice%20Exam%20f%20f02620a798bb4450b5749568cef62cd7/CEPE_Old_2.png"><img style="width:1560px" src="Learning%20App%20-%20Canadian%20Electrical%20Practice%20Exam%20f%20f02620a798bb4450b5749568cef62cd7/CEPE_Old_2.png"/></a></figure></div></div><figure class="callout" style="white-space:pre-wrap;display:flex" id="e5d9183b-266b-4083-9829-0912effb5085"><div style="font-size:1.5em"><img class="icon" src="Learning%20App%20-%20Canadian%20Electrical%20Practice%20Exam%20f%20f02620a798bb4450b5749568cef62cd7/Rectangle_2.png"/></div><div style="width:100%">Poor student feedback<div id="a99129bc-b08f-44b2-909b-734375cfb141" class="column-list"><div id="de03c742-5f44-4210-a418-864140fbfe14" style="width:18.75%" class="column"><figure id="7d36da26-d657-43c5-89b6-65a6cac49c5d" class="image"><a href="Learning%20App%20-%20Canadian%20Electrical%20Practice%20Exam%20f%20f02620a798bb4450b5749568cef62cd7/Ellipse_1.png"><img style="width:1875px" src="Learning%20App%20-%20Canadian%20Electrical%20Practice%20Exam%20f%20f02620a798bb4450b5749568cef62cd7/Ellipse_1.png"/></a></figure></div><div id="4ed57ed4-7470-49a5-9d0f-730365a87931" style="width:81.25%" class="column"><p id="6178708a-df9c-45a1-a597-0361c980637c" class="block-color-blue"><strong><mark class="highlight-blue">★</mark></strong><mark class="highlight-gray"><strong>★★★★</strong></mark></p><p id="ef74048b-364c-4884-918d-1889760b9d9a" class="">Please fix this! People want to learn, and they want to learn without multiple mistakes, especially if they need or want help with the certificate of qualification. Regardless,  it should be very refined!</p><p id="43c701ac-dba5-477d-9aca-60ec23de83a7" class="">
+</p><hr id="872a22e1-cf3f-4b31-bf8a-a9bab25396a2"/><p id="f2b035c1-6720-4ff4-a2b4-cbb83252a201" class=""><strong>Cashew20**</strong></p><p id="f2954143-e441-4959-b6b6-94520d7e810b" class="">10-20-2020</p></div></div></div></figure><h1 id="9f92513c-3cb5-4dcd-bce2-5a6158eb1a0b" class="">My job comes in,<mark class="highlight-blue"> this is how the new design looks like</mark></h1><p id="fee70e55-35a3-42f4-aed6-83f41d0f01ad" class="">
+</p><div id="18d780bb-ed15-44e1-9591-33752ad2fec9" class="column-list"><div id="f19d71b9-d074-4e5e-b5be-c131c4cc6a82" style="width:25%" class="column"><p id="fd4a145d-0973-4237-898b-49f2516aae78" class="block-color-blue_background"><div class="indented"><figure id="df7e5b32-9892-45fc-a5fe-5be9c3eb7bf1" class="image"><a href="Learning%20App%20-%20Canadian%20Electrical%20Practice%20Exam%20f%20f02620a798bb4450b5749568cef62cd7/customer.png"><img style="width:48px" src="Learning%20App%20-%20Canadian%20Electrical%20Practice%20Exam%20f%20f02620a798bb4450b5749568cef62cd7/customer.png"/></a></figure><p id="8b09295e-50d3-4078-bef6-72f08561e215" class=""><strong>Agile sprints and scrum</strong></p></div></p></div><div id="63ab529d-95b5-4eee-bc1c-61a7df1f794a" style="width:25%" class="column"><p id="b0f04d87-8cfb-4e07-90dc-5534b9eac5f5" class="block-color-blue_background"><div class="indented"><figure id="8bd5ee6a-4a51-4e7c-9b98-c9427df85d17" class="image"><a href="Learning%20App%20-%20Canadian%20Electrical%20Practice%20Exam%20f%20f02620a798bb4450b5749568cef62cd7/market-analysis.png"><img style="width:36px" src="Learning%20App%20-%20Canadian%20Electrical%20Practice%20Exam%20f%20f02620a798bb4450b5749568cef62cd7/market-analysis.png"/></a></figure><p id="d6235cdc-331c-4aeb-a4f8-9bcfba46333f" class=""><strong> Bootstrap Responsive</strong></p></div></p><p id="2686e841-e8bb-465d-bdf5-113bebd629c0" class="">
+</p><p id="4a782fe0-2857-4161-9367-e4e6439e1ccc" class="block-color-gray">
+</p><p id="abfe8904-6d5c-468a-b971-30fcacce158f" class="">
+</p></div><div id="794d1080-cf77-441f-aff3-8ac80050733a" style="width:25%" class="column"><p id="76dbfd7f-abd4-4d5e-aa29-f73bd30d058c" class="block-color-blue_background"><div class="indented"><figure id="c68bb817-6c06-45ec-82f7-b3877e30b78f" class="image"><a href="Learning%20App%20-%20Canadian%20Electrical%20Practice%20Exam%20f%20f02620a798bb4450b5749568cef62cd7/businessman-with-tie.png"><img style="width:48px" src="Learning%20App%20-%20Canadian%20Electrical%20Practice%20Exam%20f%20f02620a798bb4450b5749568cef62cd7/businessman-with-tie.png"/></a></figure><p id="6bbc2e7a-8f51-4ce4-82b5-104c820d19be" class=""><strong>Accessibility checks </strong></p></div></p><p id="e943b863-3e52-45bf-8c4d-67bc94ffa41c" class="block-color-gray">
+</p><p id="8e1a5f33-8294-475e-9830-c032c6f4fc54" class="">
+</p></div><div id="5bfd6487-fbfa-4d7d-b961-6621f8b562b7" style="width:24.999999999999993%" class="column"><p id="fca76945-82ae-4669-acc4-9e23401e61a9" class="block-color-blue_background"><div class="indented"><figure id="fbcf88c6-6cfa-465a-92f6-2b461576817e" class="image"><a href="Learning%20App%20-%20Canadian%20Electrical%20Practice%20Exam%20f%20f02620a798bb4450b5749568cef62cd7/consulting.png"><img style="width:48px" src="Learning%20App%20-%20Canadian%20Electrical%20Practice%20Exam%20f%20f02620a798bb4450b5749568cef62cd7/consulting.png"/></a></figure><p id="3bd91403-3abe-4bfe-a6a1-b56b6b12b1b2" class=""><strong>User journey + User Flow</strong></p></div></p><p id="6eb4aedf-e754-471c-ae2b-3086f00c04c4" class="block-color-gray">
+</p><p id="8153d23e-c90f-40de-88b7-ddf96ce0d5ee" class="">
+</p></div></div><p id="1a1eb89d-3cd2-45ee-b9bb-b521d1cbf399" class=""><div class="indented"><h2 id="e3084ba9-6339-49b3-8c2d-2c20860a48a0" class=""><mark class="highlight-blue"><strong>Web Design</strong></mark></h2><h3 id="739a9c01-c25d-401e-83b5-c845edf43b13" class="">Landing page for guests in English and French</h3><div id="06ab48e3-5f72-4d2b-a165-64129518a48a" class="column-list"><div id="12e66446-7ba1-4901-ad2e-b0f52bc11ed3" style="width:50%" class="column"><figure id="e2b0bd84-ad32-4a28-9ad1-c1a9ab4aa30b" class="image"><a href="Learning%20App%20-%20Canadian%20Electrical%20Practice%20Exam%20f%20f02620a798bb4450b5749568cef62cd7/Deliverable_3_-_CSA_Learning_Guest_EN.png"><img style="width:1440px" src="Learning%20App%20-%20Canadian%20Electrical%20Practice%20Exam%20f%20f02620a798bb4450b5749568cef62cd7/Deliverable_3_-_CSA_Learning_Guest_EN.png"/></a><figcaption>English Version</figcaption></figure></div><div id="cb16bdc0-fb26-46c0-922c-068d228e51f0" style="width:50%" class="column"><figure id="8254fdc8-4204-491e-8a7c-2ff249fa89c8" class="image"><a href="Learning%20App%20-%20Canadian%20Electrical%20Practice%20Exam%20f%20f02620a798bb4450b5749568cef62cd7/Deliverable_3_-_CSA_Learning_Guest_FR.png"><img style="width:1440px" src="Learning%20App%20-%20Canadian%20Electrical%20Practice%20Exam%20f%20f02620a798bb4450b5749568cef62cd7/Deliverable_3_-_CSA_Learning_Guest_FR.png"/></a><figcaption>French Version</figcaption></figure><p id="959bfc33-0b25-4e0f-8cca-97f1456568f0" class="">
+</p><p id="5ef0850d-6f1c-4b0e-909c-8a2f090a8f65" class="">
+</p><p id="2cb2d7aa-0c1f-49e7-86a2-61c05f953b05" class="">
+</p></div></div><div id="76717396-14e1-49e4-9438-d2f3de4585ad" class="column-list"><div id="bcaf7d96-a358-4e8d-855c-7a303e410b01" style="width:31.25%" class="column"><h2 id="9f99f727-3ee0-46b2-a750-41e24e11b90d" class="">Student Dashboard and different exam modes</h2><p id="ed95f2fc-880f-44a2-bffe-d48427c33a6d" class="">
+</p><p id="97747939-3798-4784-bb86-77d28f0c8c6d" class="">Students will see 2 modules to start with: Industrial Electrician and Construction Electrician. Each module has 3 different modes: Self Study, Exam Practice, Exam Simulation.</p><p id="37569b35-6415-4314-a2f2-5d65e0e15939" class="">
+</p></div><div id="0bc914f9-e76f-47b5-b4f3-9fee6a3411e1" style="width:68.75%" class="column"><figure id="bb8cda76-4dd9-46bc-844a-55aa6544151b" class="image"><a href="Learning%20App%20-%20Canadian%20Electrical%20Practice%20Exam%20f%20f02620a798bb4450b5749568cef62cd7/Deliverable_9_-_CEPE_Dashboard.png"><img style="width:1440px" src="Learning%20App%20-%20Canadian%20Electrical%20Practice%20Exam%20f%20f02620a798bb4450b5749568cef62cd7/Deliverable_9_-_CEPE_Dashboard.png"/></a></figure><figure id="c7c4483f-94ab-4af0-bc1c-b2fe4732c229" class="image"><a href="Learning%20App%20-%20Canadian%20Electrical%20Practice%20Exam%20f%20f02620a798bb4450b5749568cef62cd7/Deliverable_6_-_Self_Study_Setup_Form.png"><img style="width:1440px" src="Learning%20App%20-%20Canadian%20Electrical%20Practice%20Exam%20f%20f02620a798bb4450b5749568cef62cd7/Deliverable_6_-_Self_Study_Setup_Form.png"/></a></figure><figure id="82940b48-30f0-4fea-93e3-765331ae31df" class="image"><a href="Learning%20App%20-%20Canadian%20Electrical%20Practice%20Exam%20f%20f02620a798bb4450b5749568cef62cd7/Deliverable_6_-_Exam_Simulation_Setup_Form.png"><img style="width:1440px" src="Learning%20App%20-%20Canadian%20Electrical%20Practice%20Exam%20f%20f02620a798bb4450b5749568cef62cd7/Deliverable_6_-_Exam_Simulation_Setup_Form.png"/></a></figure></div></div></div></p><p id="78985934-0e2b-41d8-a206-379399175d64" class="">
+</p><h2 id="d98153b1-cc05-4cdc-a45b-2c18d32ba1ab" class=""><mark class="highlight-blue"><strong>Mobile App Design</strong></mark></h2><div id="5247df5a-a119-4c2a-a3d5-72c31862ce7c" class="column-list"><div id="48f61501-9bb9-4980-940b-76501d6ef2d8" style="width:50%" class="column"><p id="0f89c231-7cae-4dbb-ab76-a4f64f418476" class="">
+</p><p id="20eb3287-a128-4073-8eb3-efc59b3e5bf4" class="">
+</p></div><div id="cd8ffe80-3b95-450f-9d16-2a750af3612d" style="width:50%" class="column"><figure id="70066ef5-f926-4e65-843b-dae25fd9797f" class="image"><a href="Learning%20App%20-%20Canadian%20Electrical%20Practice%20Exam%20f%20f02620a798bb4450b5749568cef62cd7/Log_in.png"><img style="width:375px" src="Learning%20App%20-%20Canadian%20Electrical%20Practice%20Exam%20f%20f02620a798bb4450b5749568cef62cd7/Log_in.png"/></a></figure><figure id="f3d18a72-abe0-4acf-845f-c3d511a706ce" class="image"><a href="Learning%20App%20-%20Canadian%20Electrical%20Practice%20Exam%20f%20f02620a798bb4450b5749568cef62cd7/Home.png"><img style="width:375px" src="Learning%20App%20-%20Canadian%20Electrical%20Practice%20Exam%20f%20f02620a798bb4450b5749568cef62cd7/Home.png"/></a></figure></div></div><figure id="6e05cc85-d552-483b-bbe8-7845f0dbe627" class="image"><a href="Learning%20App%20-%20Canadian%20Electrical%20Practice%20Exam%20f%20f02620a798bb4450b5749568cef62cd7/iPhone_13_Pro.png"><img style="width:793px" src="Learning%20App%20-%20Canadian%20Electrical%20Practice%20Exam%20f%20f02620a798bb4450b5749568cef62cd7/iPhone_13_Pro.png"/></a></figure><p id="9b0d05b2-e122-427f-b4a6-3060e1087c5e" class="">
+</p><hr id="4d23472a-d889-41eb-8470-f56fc96ce9f3"/><h3 id="c074ef4b-53cb-4f02-90ed-561b6c176e2d" class="">WHAT&#x27;S LEFT?</h3><figure class="block-color-blue_background callout" style="white-space:pre-wrap;display:flex" id="99a8312f-1bfb-438e-a81c-f27de7d17f73"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%">The app design in scheduled for next phase. After launching CEPE, we’ll apply the same approach for exams from three other sectors: Gas, Plumbing, Medical</div></figure></div></article></body></html>
