@@ -1,0 +1,686 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Responsive web design for biotechnology company </title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-opaquegray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body> <nav style="font-family:'Open Sans', sans-serif; display:flex; justify-content: flex-end; margin:0; padding: 2em 0; ">
+        
+	<a href="index.html" style="text-decoration: none; padding:0 20px;">HOME</a>
+
+	<a href="page-about-me-2.html" style="text-decoration: none;padding:0 20px;">ABOUT</a>
+
+	<a href="blog.html" style="text-decoration: none;padding:0 20px;">PUBLICATIONS</a>
+
+</nav><article id="2fdccb1c-2229-40bf-bc32-3642b9e18f32" class="page sans"><header><img class="page-cover-image" src="https://images.unsplash.com/photo-1583912268183-a34d41fe464a?ixlib=rb-1.2.1&amp;q=80&amp;cs=tinysrgb&amp;fm=jpg&amp;crop=entropy" style="object-position:center 31.05%"/><div class="page-header-icon page-header-icon-with-cover"><span class="icon">🌐</span></div><h1 class="page-title">Responsive web design for biotechnology company </h1></header><div class="page-body"><h1 id="0e63b3a5-4522-480d-be65-52aa932033d6" class="">About <mark class="highlight-blue">Galapagos</mark></h1><p id="cc696742-accd-4520-80d5-e16d6e65d707" class="">Galapagos is a fully integrated biotechnology company focused on discovering, developing and commercializing innovative medicines. Galapagos has sites in Belgium (international headquarters), the Netherlands, France, Germany, Austria, Italy, Spain, the Nordics, Switzerland, the UK and the US.</p><h1 id="30ba5b4b-c6ba-4f2d-88e2-64206b3d7ed7" class="">My<mark class="highlight-blue"> Role and software</mark></h1><p id="546d3221-27ac-4cb4-b508-d01c084415c5" class="">UX Design</p><p id="7aa2eef2-abd1-4360-8c26-a83191d90dfc" class="">Responsive Website Design in Desktop, Tablet, Mobile </p><p id="33a18e92-fe19-4dd1-a65a-c002289a8d31" class="">Wire framing and prototyping</p><p id="0b3f3961-4de6-4992-bad0-9fadf317c72d" class="">
+</p><p id="3493f7d2-0a42-4ada-a4ab-a4210ad3f487" class="">Software involved: </p><ul id="407567eb-c460-400a-abf6-ea14fd4cfa65" class="bulleted-list"><li style="list-style-type:disc">Sketch</li></ul><ul id="9030dbd1-4233-45f1-b041-636ba43638dd" class="bulleted-list"><li style="list-style-type:disc">Invision</li></ul><ul id="3cf3d70d-1d55-4fac-bf88-abc627f80c46" class="bulleted-list"><li style="list-style-type:disc">iMeet</li></ul><h1 id="d5b97862-48c7-4ee3-8580-a24ef68d29fc" class=""><mark class="highlight-blue">What </mark>is the project?</h1><p id="4e1f2e0f-a40a-4c1e-9558-bdc4ac2c290f" class="">Galapagos needs to build two <strong>responsive</strong> <strong>online portals</strong> for doctors, health care professionals, and patients:</p><div id="27fbd09c-0d31-42fa-b4c8-3c90d6e5ee8d" class="column-list"><div id="2626a820-7929-4d34-afeb-d6c3270f3638" style="width:50%" class="column"><p id="26941916-19c0-4ab5-8dfc-6ea9ebde81d9" class="">
+</p><figure class="block-color-blue_background callout" style="white-space:pre-wrap;display:flex" id="1def62f6-ede8-4561-b3af-727300e4bd5b"><div style="font-size:1.5em"><img class="icon" src="Responsive%20web%20design%20for%20biotechnology%20company%202fdccb1c222940bfbc323642b9e18f32/right-quote-sign.png"/></div><div style="width:100%"><strong>Online portal for RA (rheumatoid arthritis)</strong><hr id="f832d250-485d-492a-bdd7-a4c98f007200"/><p id="ab9a9e40-4de2-4642-9f02-40027848e686" class="">Healthcare providers + patients</p><figure id="364af166-9716-4ac7-80d1-655bbb7df2d6" class="image"><a href="Responsive%20web%20design%20for%20biotechnology%20company%202fdccb1c222940bfbc323642b9e18f32/Ellipse_3.png"><img style="width:72px" src="Responsive%20web%20design%20for%20biotechnology%20company%202fdccb1c222940bfbc323642b9e18f32/Ellipse_3.png"/></a></figure><figure id="1218c88f-8a4e-461a-90da-b68b616a0acd" class="image"><a href="Responsive%20web%20design%20for%20biotechnology%20company%202fdccb1c222940bfbc323642b9e18f32/Ellipse_2.png"><img style="width:72px" src="Responsive%20web%20design%20for%20biotechnology%20company%202fdccb1c222940bfbc323642b9e18f32/Ellipse_2.png"/></a></figure></div></figure></div><div id="1a3ac1a5-57dd-44cc-a0df-b4ca864396a9" style="width:50%" class="column"><p id="a8d248e4-fdbc-45ea-be16-ed1f971132a7" class=""><div class="indented"><figure class="block-color-blue_background callout" style="white-space:pre-wrap;display:flex" id="35af9ec2-1661-44ba-92ed-c2d565e49c40"><div style="font-size:1.5em"><img class="icon" src="Responsive%20web%20design%20for%20biotechnology%20company%202fdccb1c222940bfbc323642b9e18f32/right-quote-sign.png"/></div><div style="width:100%"><strong>Online portal for UC (ulcerative colitis)</strong><hr id="9e9839b9-f09e-4532-82a2-d707bb92df2d"/><p id="3d41d55f-051c-43dc-be89-57b34c27c9f5" class="">Healthcare providers </p><figure id="dddb3e1f-6b5b-4e4c-ad15-f155308caad6" class="image"><a href="Responsive%20web%20design%20for%20biotechnology%20company%202fdccb1c222940bfbc323642b9e18f32/Ellipse_3%201.png"><img style="width:72px" src="Responsive%20web%20design%20for%20biotechnology%20company%202fdccb1c222940bfbc323642b9e18f32/Ellipse_3%201.png"/></a></figure><p id="1882f5e3-eef0-4a7f-84d5-59d019cd7e05" class="">
+</p><p id="f71eb982-f9f9-46b1-9253-f43d064bca76" class="">
+</p></div></figure><p id="1dcf3f1a-67a0-41f9-ba09-df7c931ea202" class="">
+</p></div></p></div></div><h1 id="093b9e7d-f6c4-4fce-ba87-e7cb8ec13b57" class="">This is how the <mark class="highlight-blue">design</mark> looks </h1><h2 id="4fa1247d-23db-4b51-8e7b-623d7060950d" class=""><mark class="highlight-blue">Responsive</mark> <mark class="highlight-blue"><strong>Web Design </strong></mark><strong>for RA HCP Portal</strong></h2><div id="d5a80466-1206-47ab-9cfe-fbeae95fee22" class="column-list"><div id="90218bb7-8eb7-4afd-984b-1de185ab9613" style="width:31.25%" class="column"><h3 id="d7586735-5e3e-455b-aa23-245696d38324" class="">RA <strong>(rheumatoid arthritis) </strong>HCP Portal for <mark class="highlight-blue">health providers</mark></h3><p id="a080d501-fed5-4afc-b8f8-455959a05aa0" class="">
+</p><p id="bca44209-d5ae-4adf-8b95-42f4b7958c7b" class="">Each screen is hand crafted with 3 responsive designs for desktop, tablet, mobile.</p><p id="dcc886ec-4494-4552-99d8-62e1cb5267f2" class="">
+</p></div><div id="678881f9-fdb4-4bce-82ac-38d798a524db" style="width:68.75%" class="column"><figure id="c42cf115-ad78-4a45-84aa-df166a97d00d" class="image"><a href="Responsive%20web%20design%20for%20biotechnology%20company%202fdccb1c222940bfbc323642b9e18f32/3.0.0_JYSELECA_Destkop_1400_UI.png"><img style="width:1400px" src="Responsive%20web%20design%20for%20biotechnology%20company%202fdccb1c222940bfbc323642b9e18f32/3.0.0_JYSELECA_Destkop_1400_UI.png"/></a></figure></div></div><figure id="6df234a3-40b0-456d-81d0-33451fe832d2" class="image"><a href="Responsive%20web%20design%20for%20biotechnology%20company%202fdccb1c222940bfbc323642b9e18f32/HCP_Design.png"><img style="width:5500px" src="Responsive%20web%20design%20for%20biotechnology%20company%202fdccb1c222940bfbc323642b9e18f32/HCP_Design.png"/></a></figure><p id="aa48615b-a380-4673-b723-984edada56e7" class="">
+</p><h3 id="68eaa736-6fea-4461-89d2-080e223a0454" class="">RA <strong>(rheumatoid arthritis) </strong>HCP Portal for <mark class="highlight-blue">patients</mark></h3><div id="46ebd7ea-2caa-4eb8-bcdd-9706410277e6" class="column-list"><div id="8829f6c7-bc84-4ee7-a82e-33032e009131" style="width:50%" class="column"><p id="7d73c963-ae0a-48ae-9f6e-8fafe6b5eb36" class="">Each screen is hand crafted with 3 responsive designs for desktop, tablet, mobile</p></div><div id="e0b90829-de7e-4f2a-bb4b-04108ffa121f" style="width:50%" class="column"><figure id="c988348d-b9e4-4388-bf78-a0b326f624b1" class="image"><a href="Responsive%20web%20design%20for%20biotechnology%20company%202fdccb1c222940bfbc323642b9e18f32/UC_HCP_Patient.png"><img style="width:1920px" src="Responsive%20web%20design%20for%20biotechnology%20company%202fdccb1c222940bfbc323642b9e18f32/UC_HCP_Patient.png"/></a></figure></div></div><p id="1a2ee7ae-8ce2-41fe-93d1-b6e6a222ecbd" class="">
+</p><div id="a891061b-7587-40b6-bbdd-b6e96097fc96" class="column-list"><div id="c5b5a2aa-3965-4ed1-80fd-d4e96643aef1" style="width:50%" class="column"><h2 id="47d94b89-0ae7-4ef3-9467-5381c6a296f4" class=""><mark class="highlight-blue">Responsive</mark> <mark class="highlight-blue"><strong>Web Design </strong></mark><strong>for UC (ulcerative colitis) HCP Portal</strong></h2><p id="7b94aff1-e4a2-4320-850f-4712aef111df" class="">Each screen is hand crafted with 3 responsive designs for desktop, tablet, mobile</p></div><div id="edf5cce5-9a6e-402e-9d66-65b61cdb0812" style="width:50%" class="column"><figure id="ba8a10d6-5617-4f1f-93dd-c4579a74910c" class="image"><a href="Responsive%20web%20design%20for%20biotechnology%20company%202fdccb1c222940bfbc323642b9e18f32/UC_3.0.0_JYSELECA_Desktop_UI.png"><img style="width:1920px" src="Responsive%20web%20design%20for%20biotechnology%20company%202fdccb1c222940bfbc323642b9e18f32/UC_3.0.0_JYSELECA_Desktop_UI.png"/></a></figure></div></div><figure id="cb115d93-dc8c-4e40-96b2-69d5f639c875" class="image"><a href="Responsive%20web%20design%20for%20biotechnology%20company%202fdccb1c222940bfbc323642b9e18f32/UC_Mobile.png"><img style="width:5500px" src="Responsive%20web%20design%20for%20biotechnology%20company%202fdccb1c222940bfbc323642b9e18f32/UC_Mobile.png"/></a></figure></div></article></body></html>
